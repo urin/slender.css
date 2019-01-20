@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="solarized.css">
+    <link rel="stylesheet" href="slender.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+    <script src="main.js"></script>
+    <script src="highlight.js"></script>
+  </head>
+  <body>
+    <header class="pallet">
+      <div class="bg-primary" title="primary"></div>
+      <div class="bg-secondary" title="secondary"></div>
+      <div class="bg-success" title="success"></div>
+      <div class="bg-info" title="info"></div>
+      <div class="bg-warning" title="warning"></div>
+      <div class="bg-danger" title="danger"></div>
+      <div class="bg-white" title="white"></div>
+      <div class="bg-light" title="light"></div>
+      <div class="bg-gray-light" title="gray-light"></div>
+      <div class="bg-gray" title="gray"></div>
+      <div class="bg-gray-dark" title="gray-dark"></div>
+      <div class="bg-dark" title="dark"></div>
+      <div class="bg-black" title="black"></div>
+      <div class="bg-blue" title="blue"></div>
+      <div class="bg-indigo" title="indigo"></div>
+      <div class="bg-purple" title="purple"></div>
+      <div class="bg-pink" title="pink"></div>
+      <div class="bg-red" title="red"></div>
+      <div class="bg-orange" title="orange"></div>
+      <div class="bg-yellow" title="yellow"></div>
+      <div class="bg-green" title="green"></div>
+      <div class="bg-teal" title="teal"></div>
+      <div class="bg-cyan" title="cyan"></div>
+    </header>
+
+    <main>
+      <nav>
+        <div class="toc">
+          <a href="#overview"     :class="hash === '#overview'     ? 'bg-info fg-light' : ''">Overview</a>
+          <a href="#button"       :class="hash === '#button'       ? 'bg-info fg-light' : ''">Button</a>
+          <a href="#box"          :class="hash === '#box'          ? 'bg-info fg-light' : ''">Box</a>
+          <a href="#tag"          :class="hash === '#tag'          ? 'bg-info fg-light' : ''">Tag</a>
+          <a href="#table"        :class="hash === '#table'        ? 'bg-info fg-light' : ''">Table</a>
+          <a href="#input"        :class="hash === '#input'        ? 'bg-info fg-light' : ''">Input</a>
+          <a href="#modal"        :class="hash === '#modal'        ? 'bg-info fg-light' : ''">Modal</a>
+          <a href="#delete"       :class="hash === '#delete'       ? 'bg-info fg-light' : ''">Delete</a>
+          <a href="#icon"         :class="hash === '#icon'         ? 'bg-info fg-light' : ''">Icon</a>
+          <a href="#image"        :class="hash === '#image'        ? 'bg-info fg-light' : ''">Image</a>
+          <a href="#notification" :class="hash === '#notification' ? 'bg-info fg-light' : ''">Notification</a>
+          <a href="#progress"     :class="hash === '#progress'     ? 'bg-info fg-light' : ''">Progress</a>
+          <a href="#document"     :class="hash === '#document'     ? 'bg-info fg-light' : ''">Document</a>
+          <a href="#modifier"     :class="hash === '#modifier'     ? 'bg-info fg-light' : ''">Modifier</a>
+        </div>
+        <div class="box is-size-s controls">
+          <div class="group">
+            <div class="group-title">Main</div>
+            <label>
+              <span class="control-title">H</span>
+              <input type="range" max="360" v-model.number="color.h">
+              <small class="value">{{ color.h }}</small>
+            </label>
+            <label>
+              <span class="control-title">S</span>
+              <input type="range" max="1" step="0.01" v-model.number="color.s">
+              <small class="value">{{ color.s }}</small>
+            </label>
+            <label>
+              <span class="control-title">L</span>
+              <input type="range" max="1" step="0.01" v-model.number="color.l">
+              <small class="value">{{ color.l }}</small>
+            </label>
+          </div>
+          <div class="group">
+            <div class="group-title">Background</div>
+            <label>
+              <span class="control-title">H</span>
+              <input type="range" max="360" v-model.number="bg.h">
+              <small class="value">{{ bg.h }}</small>
+            </label>
+            <label>
+              <span class="control-title">S</span>
+              <input type="range" max="1" step="0.01" v-model.number="bg.s">
+              <small class="value">{{ bg.s }}</small>
+            </label>
+            <label>
+              <span class="control-title">L</span>
+              <input type="range" max="1" step="0.01" v-model.number="bg.l">
+              <small class="value">{{ bg.l }}</small>
+            </label>
+          </div>
+        </div>
+      </nav>
+
+      <article class="document">
+
+        <section id="overview">
+          <h1>Overview</h1>
+        </section>
+
+        <section id="button">
+          <h1>Button</h1>
+
+          <div class="snippet">
+            <div>
+              <button type="button" class="button">Button</button>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;button type="button" class="button"&gt;Button&lt;/button&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p>
+                <a href="#button" class="button">Anchor</a>
+                <span class="button">Span</span>
+              </p>
+              <p>
+                <input type="submit" class="button" value="Submit">
+                <input type="button" class="button" value="Button">
+                <input type="reset" class="button" value="Reset">
+              </p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;a href="#button" class="button"&gt;Anchor&lt;/a&gt;<br>
+                &lt;span class="button"&gt;Span&lt;/span&gt;<br>
+                &lt;input type="submit" class="button" value="submit"&gt;<br>
+                &lt;input type="button" class="button" value="button"&gt;<br>
+                &lt;input type="reset" class="button" value="reset"&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button is-size-xs">.is-size-xs</button></p>
+              <p><button type="button" class="button is-size-s">.is-size-s</button></p>
+              <p><button type="button" class="button is-size-m">.is-size-m</button></p>
+              <p><button type="button" class="button is-size-l">.is-size-l</button></p>
+              <p><button type="button" class="button is-size-xl">.is-size-xl</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button is-size-xs"&gt;.is-size-xs&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-size-s"&gt;.is-size-s&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-size-m"&gt;.is-size-m&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-size-l"&gt;.is-size-l&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-size-xl"&gt;.is-size-xl&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <label class="button is-togglable"><input type="radio" name="radio"><span>Radio</span></label>
+              <label class="button is-togglable"><input type="radio" name="radio"><span>Radio</span></label>
+              <label class="button is-togglable"><input type="radio" name="radio"><span>Radio</span></label>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;label class="button is-togglable"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="radio" name="radio"&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Radio&lt;/span&gt;<br>
+                &lt;/label&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <label class="button is-togglable"><input type="checkbox"><span>Checkbox</span></label>
+              <label class="button is-togglable"><input type="checkbox"><span>Checkbox</span></label>
+              <label class="button is-togglable"><input type="checkbox"><span>Checkbox</span></label>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;label class="button is-togglable"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="checkbox"&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Checkbox&lt;/span&gt;<br>
+                &lt;/label&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button is-primary">.is-primary</button></p>
+              <p><button type="button" class="button is-secondary">.is-secondary</button></p>
+              <p><button type="button" class="button is-success">.is-success</button></p>
+              <p><button type="button" class="button is-info">.is-info</button></p>
+              <p><button type="button" class="button is-warning">.is-warning</button></p>
+              <p><button type="button" class="button is-danger">.is-danger</button></p>
+              <p><button type="button" class="button is-white">.is-white</button></p>
+              <p><button type="button" class="button is-light">.is-light</button></p>
+              <p><button type="button" class="button is-gray-light">.is-gray-light</button></p>
+              <p><button type="button" class="button is-gray">.is-gray</button></p>
+              <p><button type="button" class="button is-gray-dark">.is-gray-dark</button></p>
+              <p><button type="button" class="button is-dark">.is-dark</button></p>
+              <p><button type="button" class="button is-black">.is-black</button></p>
+              <p><button type="button" class="button is-blue">.is-blue</button></p>
+              <p><button type="button" class="button is-indigo">.is-indigo</button></p>
+              <p><button type="button" class="button is-purple">.is-purple</button></p>
+              <p><button type="button" class="button is-pink">.is-pink</button></p>
+              <p><button type="button" class="button is-red">.is-red</button></p>
+              <p><button type="button" class="button is-orange">.is-orange</button></p>
+              <p><button type="button" class="button is-yellow">.is-yellow</button></p>
+              <p><button type="button" class="button is-green">.is-green</button></p>
+              <p><button type="button" class="button is-teal">.is-teal</button></p>
+              <p><button type="button" class="button is-cyan">.is-cyan</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button is-primary"&gt;.is-primary&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-secondary"&gt;.is-secondary&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-success"&gt;.is-success&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-info"&gt;.is-info&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-warning"&gt;.is-warning&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-danger"&gt;.is-danger&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-white"&gt;.is-white&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-light"&gt;.is-light&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-gray-light"&gt;.is-gray-light&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-gray"&gt;.is-gray&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-gray-dark"&gt;.is-gray-dark&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-dark"&gt;.is-dark&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-black"&gt;.is-black&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-blue"&gt;.is-blue&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-indigo"&gt;.is-indigo&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-purple"&gt;.is-purple&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-pink"&gt;.is-pink&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-red"&gt;.is-red&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-orange"&gt;.is-orange&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-yellow"&gt;.is-yellow&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-green"&gt;.is-green&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-teal"&gt;.is-teal&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-cyan"&gt;.is-cyan&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</button></p>
+              <p><button type="button" class="button is-fullwidth is-size-s">.is-fullwidth.is-size-s</button></p>
+              <p><button type="button" class="button is-fullwidth is-size-m">.is-fullwidth.is-size-m</button></p>
+              <p><button type="button" class="button is-fullwidth is-size-l">.is-fullwidth.is-size-l</button></p>
+              <p><button type="button" class="button is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button is-fullwidth is-size-xs"&gt;.is-fullwidth.is-size-xs&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-fullwidth is-size-s"&gt;.is-fullwidth.is-size-s&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-fullwidth is-size-m"&gt;.is-fullwidth.is-size-m&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-fullwidth is-size-l"&gt;.is-fullwidth.is-size-l&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-fullwidth is-size-xl"&gt;.is-fullwidth.is-size-xl&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button" disabled>Button</button></p>
+              <p><button type="button" class="button is-primary" disabled>.is-primary</button></p>
+              <p><button type="button" class="button is-secondary" disabled>.is-secondary</button></p>
+              <p><button type="button" class="button is-success" disabled>.is-success</button></p>
+              <p><button type="button" class="button is-info" disabled>.is-info</button></p>
+              <p><button type="button" class="button is-warning" disabled>.is-warning</button></p>
+              <p><button type="button" class="button is-danger" disabled>.is-danger</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button" disabled&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-primary" disabled&gt;.is-primary&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-secondary" disabled&gt;.is-secondary&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-success" disabled&gt;.is-success&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-info" disabled&gt;.is-info&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-warning" disabled&gt;.is-warning&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-danger" disabled&gt;.is-danger&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p>To disable anchor element, remove attribute <code>href</code>.</p>
+              <p><a class="button">Button</a></p>
+              <p><a class="button is-primary">.is-primary</a></p>
+              <p><a class="button is-secondary">.is-secondary</a></p>
+              <p><a class="button is-success">.is-success</a></p>
+              <p><a class="button is-info">.is-info</a></p>
+              <p><a class="button is-warning">.is-warning</a></p>
+              <p><a class="button is-danger">.is-danger</a></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p></p>
+                <p>&lt;a class="button"&gt;Button&lt;/a&gt;</p>
+                <p>&lt;a class="button is-primary"&gt;.is-primary&lt;/a&gt;</p>
+                <p>&lt;a class="button is-secondary"&gt;.is-secondary&lt;/a&gt;</p>
+                <p>&lt;a class="button is-success"&gt;.is-success&lt;/a&gt;</p>
+                <p>&lt;a class="button is-info"&gt;.is-info&lt;/a&gt;</p>
+                <p>&lt;a class="button is-warning"&gt;.is-warning&lt;/a&gt;</p>
+                <p>&lt;a class="button is-danger"&gt;.is-danger&lt;/a&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button is-rounded">Button</button></p>
+              <p><button type="button" class="button is-rounded is-primary">Button</button></p>
+              <p><button type="button" class="button is-rounded is-secondary">Button</button></p>
+              <p><button type="button" class="button is-rounded is-success">Button</button></p>
+              <p><button type="button" class="button is-rounded is-info">Button</button></p>
+              <p><button type="button" class="button is-rounded is-warning">Button</button></p>
+              <p><button type="button" class="button is-rounded is-danger">Button</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button is-rounded"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-primary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-secondary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-success"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-info"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-warning"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-rounded is-danger"&gt;Button&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><button type="button" class="button is-outlined">Button</button></p>
+              <p><button type="button" class="button is-outlined is-primary">Button</button></p>
+              <p><button type="button" class="button is-outlined is-secondary">Button</button></p>
+              <p><button type="button" class="button is-outlined is-success">Button</button></p>
+              <p><button type="button" class="button is-outlined is-info">Button</button></p>
+              <p><button type="button" class="button is-outlined is-warning">Button</button></p>
+              <p><button type="button" class="button is-outlined is-danger">Button</button></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;button type="button" class="button is-outlined"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-primary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-secondary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-success"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-info"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-warning"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button type="button" class="button is-outlined is-danger"&gt;Button&lt;/button&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p class="is-grouped">
+                <button type="button" class="button is-primary">Button</button>
+                <button type="button" class="button is-secondary">Button</button>
+              </p>
+              <p class="is-grouped">
+                <button type="button" class="button is-size-xs is-primary">Button</button>
+                <button type="button" class="button is-size-xs is-secondary">Button</button>
+              </p>
+              <p class="is-grouped">
+                <button type="button" class="button is-rounded">Rounded</button>
+                <button type="button" class="button is-rounded">Rounded</button>
+                <button type="button" class="button is-rounded">Rounded</button>
+              </p>
+              <p class="is-grouped">
+                <label class="button is-togglable is-purple">
+                  <input type="radio" name="grouped-buttons"><span>Radio</span>
+                </label>
+                <label class="button is-togglable is-purple">
+                  <input type="radio" name="grouped-buttons"><span>Radio</span>
+                </label>
+                <label class="button is-togglable is-purple">
+                  <input type="radio" name="grouped-buttons"><span>Radio</span>
+                </label>
+              </p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>
+                  &lt;p class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-secondary"&gt;Button&lt;/button&gt;<br>
+                  &lt;/p&gt;<br>
+                </p>
+                <p>
+                  &lt;p class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-size-xs is-primary"&gt;Button&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-size-xs is-secondary"&gt;Button&lt;/button&gt;<br>
+                  &lt;/p&gt;<br>
+                </p>
+                <p>
+                  &lt;p class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button type="button" class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &lt;/p&gt;<br>
+                </p>
+                <p>
+                  &lt;p class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;label class="button is-togglable is-purple"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="grouped-buttons"&gt;&lt;span&gt;Radio&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/label&gt;<br>
+                  &nbsp;&nbsp;&lt;label class="button is-togglable is-purple"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="grouped-buttons"&gt;&lt;span&gt;Radio&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/label&gt;<br>
+                  &nbsp;&nbsp;&lt;label class="button is-togglable is-purple"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="grouped-buttons"&gt;&lt;span&gt;Radio&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/label&gt;<br>
+                  &lt;/p&gt;
+                </p>
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <section id="box">
+          <h1>Box</h1>
+
+          <div class="snippet">
+            <div>
+              <div class="box">This is a box.</div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;div class="box"&gt;This is a box.&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p class="box is-size-xs">.is-size-xs</p>
+              <p class="box is-size-s">.is-size-s</p>
+              <p class="box is-size-m">.is-size-m</p>
+              <p class="box is-size-l">.is-size-l</p>
+              <p class="box is-size-xl">.is-size-xl</p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;p class="box is-size-xs"&gt;.is-size-xs&lt;/p&gt;</p>
+                <p>&lt;p class="box is-size-s"&gt;.is-size-s&lt;/p&gt;</p>
+                <p>&lt;p class="box is-size-m"&gt;.is-size-m&lt;/p&gt;</p>
+                <p>&lt;p class="box is-size-l"&gt;.is-size-l&lt;/p&gt;</p>
+                <p>&lt;p class="box is-size-xl"&gt;.is-size-xl&lt;/p&gt;</p>
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <!-- Tag -->
+        <!-- Table -->
+        <!-- Modal -->
+        <!-- Delete -->
+        <!-- Icon -->
+        <!-- Image -->
+        <!-- Notification -->
+        <!-- Progress bar -->
+        <!-- Document -->
+        <!-- Modifier -->
+      </article>
+    </main>
+  </body>
+</html>
+

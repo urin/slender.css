@@ -1,0 +1,762 @@
+:root {
+  --h: 211;
+  --s: 1;
+  --l: 1;
+  --bg-h: 211;
+  --bg-s: .30;
+  --bg-l: .14;
+  --radius: calc(1rem / 4);
+
+  --bg-l-invert: calc(1 - var(--bg-l));
+  --bg: hsl(var(--bg-h), calc(var(--bg-s) * 100%), calc(var(--bg-l) * 100%));
+  --fg: hsl(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%));
+  --fg-invert: hsl(var(--h), 10%, calc(var(--bg-l) * var(--bg-l) * 80%));
+
+  --white:      #fff;
+  --light:      hsl(var(--h), calc(var(--s) *  20%), 97%);
+  --gray-light: hsl(var(--h), calc(var(--s) *  20%), 65%);
+  --gray:       hsl(var(--h), calc(var(--s) *  20%), 45%);
+  --gray-dark:  hsl(var(--h), calc(var(--s) *  20%), 23%);
+  --dark:       hsl(var(--h), calc(var(--s) *  20%), 13%);
+  --black:      hsl(var(--h), calc(var(--s) *  20%),  7%);
+
+  --primary:    hsl(var(--h), calc(var(--s) * 100%), calc(var(--l) * 50%));
+  --secondary:  hsl(var(--h), calc(var(--s) *  10%), calc(var(--l) * 46%));
+  --success:    hsl(134, calc(var(--s) *  61%), calc(var(--l) * 41%));
+  --info:       hsl(188, calc(var(--s) *  78%), calc(var(--l) * 41%));
+  --warning:    hsl( 45, calc(var(--s) * 100%), calc(var(--l) * 41%));
+  --danger:     hsl(354, calc(var(--s) *  70%), calc(var(--l) * 54%));
+
+  --blue:       hsl(211, calc(var(--s) * 100%), calc(var(--l) * 50%));
+  --indigo:     hsl(263, calc(var(--s) *  90%), calc(var(--l) * 50%));
+  --purple:     hsl(261, calc(var(--s) *  50%), calc(var(--l) * 50%));
+  --pink:       hsl(332, calc(var(--s) *  80%), calc(var(--l) * 60%));
+  --red:        hsl(354, calc(var(--s) *  70%), calc(var(--l) * 55%));
+  --orange:     hsl( 27, calc(var(--s) * 100%), calc(var(--l) * 55%));
+  --yellow:     hsl( 45, calc(var(--s) * 100%), calc(var(--l) * 50%));
+  --green:      hsl(134, calc(var(--s) *  60%), calc(var(--l) * 40%));
+  --teal:       hsl(162, calc(var(--s) *  70%), calc(var(--l) * 45%));
+  --cyan:       hsl(188, calc(var(--s) *  80%), calc(var(--l) * 40%));
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+pre {
+  white-space: pre-line;
+}
+
+code, kbd, pre, samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+
+.bg-blue       { background-color: var(--blue) !important; }
+.bg-indigo     { background-color: var(--indigo) !important; }
+.bg-purple     { background-color: var(--purple) !important; }
+.bg-pink       { background-color: var(--pink) !important; }
+.bg-red        { background-color: var(--red) !important; }
+.bg-orange     { background-color: var(--orange) !important; }
+.bg-yellow     { background-color: var(--yellow) !important; }
+.bg-green      { background-color: var(--green) !important; }
+.bg-teal       { background-color: var(--teal) !important; }
+.bg-cyan       { background-color: var(--cyan) !important; }
+.bg-white      { background-color: var(--white) !important; }
+.bg-light      { background-color: var(--light) !important; }
+.bg-gray-light { background-color: var(--gray-light) !important; }
+.bg-gray       { background-color: var(--gray) !important; }
+.bg-gray-dark  { background-color: var(--gray-dark) !important; }
+.bg-dark       { background-color: var(--dark) !important; }
+.bg-black      { background-color: var(--black) !important; }
+.bg-primary    { background-color: var(--primary) !important; }
+.bg-secondary  { background-color: var(--secondary) !important; }
+.bg-success    { background-color: var(--success) !important; }
+.bg-info       { background-color: var(--info) !important; }
+.bg-warning    { background-color: var(--warning) !important; }
+.bg-danger     { background-color: var(--danger) !important; }
+
+.fg-blue       { color: var(--blue) !important; }
+.fg-indigo     { color: var(--indigo) !important; }
+.fg-purple     { color: var(--purple) !important; }
+.fg-pink       { color: var(--pink) !important; }
+.fg-red        { color: var(--red) !important; }
+.fg-orange     { color: var(--orange) !important; }
+.fg-yellow     { color: var(--yellow) !important; }
+.fg-green      { color: var(--green) !important; }
+.fg-teal       { color: var(--teal) !important; }
+.fg-cyan       { color: var(--cyan) !important; }
+.fg-white      { color: var(--white) !important; }
+.fg-light      { color: var(--light) !important; }
+.fg-gray-light { color: var(--gray-light) !important; }
+.fg-gray       { color: var(--gray) !important; }
+.fg-gray-dark  { color: var(--gray-dark) !important; }
+.fg-dark       { color: var(--dark) !important; }
+.fg-black      { color: var(--black) !important; }
+.fg-primary    { color: var(--primary) !important; }
+.fg-secondary  { color: var(--secondary) !important; }
+.fg-success    { color: var(--success) !important; }
+.fg-info       { color: var(--info) !important; }
+.fg-warning    { color: var(--warning) !important; }
+.fg-danger     { color: var(--danger) !important; }
+
+.button:not(.is-togglable),
+.button.is-togglable > input + * {
+  display: inline-flex;
+  padding: .5em .8em;
+  line-height: 1;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 40%));
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    box-shadow .15s linear,
+    background-color .1s linear;
+  color: inherit;
+  background-color: var(--bg);
+}
+
+.button.is-togglable {
+  position: relative;
+}
+
+.button.is-togglable {
+  display: inline-flex;
+}
+
+.button.is-togglable > input {
+  position: absolute;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+}
+
+.button.is-togglable > input + * {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.button:not(.is-togglable):hover,
+.button:not(.is-togglable):focus,
+.button.is-togglable > input + *:hover,
+.button.is-togglable > input:focus + * {
+  box-shadow: inset 100vw 100vh hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
+}
+
+.button:not(.is-togglable):active,
+.button.is-togglable > input:active + * {
+  transition-duration: 0;
+  box-shadow: inset 100vw 100vh hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .6);
+}
+
+.button.is-togglable > :checked + * {
+  background-color: var(--primary) !important;
+  color: var(--light);
+}
+
+a.button:not([href]),
+.button:not(.is-togglable)[disabled],
+.button:not(.is-togglable).is-disabled,
+.button.is-togglable > input[disabled] + *,
+fieldset[disabled] .button:not(.is-togglable),
+fieldset[disabled] .button.is-togglable > input + * {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+a.button:not([href]):hover,
+.button:not(.is-togglable)[disabled]:hover,
+.button:not(.is-togglable).is-disabled:hover,
+.button:not(.is-togglable).is-disabled:focus,
+.button:not(.is-togglable).is-disabled:active,
+.button.is-togglable > input[disabled] + *:hover,
+fieldset[disabled] .button:not(.is-togglable):hover,
+fieldset[disabled] .button.is-togglable > input + *:hover {
+  box-shadow: none;
+}
+
+.button:not(.is-togglable).is-fullwidth,
+.button.is-togglable.is-fullwidth > input + * {
+  display: flex;
+  width: 100%;
+}
+
+.button:not(.is-togglable).is-rounded,
+.button.is-togglable.is-rounded > input + * {
+  border-radius: 100vw;
+}
+
+.is-grouped {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.is-grouped > .button:not(.is-togglable):not(:first-child),
+.is-grouped > .button.is-togglable:not(:first-child) > input + * {
+  border-left-color: hsla(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%), .25);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.is-grouped > .button:not(.is-togglable):not(:last-child),
+.is-grouped > .button.is-togglable:not(:last-child) > input + * {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.button:not(.is-togglable).is-size-xs,
+.button.is-togglable.is-size-xs > input + * {
+  font-size: .7rem;
+  border-radius: calc(.5 * var(--radius));
+}
+.button:not(.is-togglable).is-size-s,
+.button.is-togglable.is-size-s > input + * {
+  font-size: .9rem;
+  border-radius: calc(.7 * var(--radius));
+}
+.button:not(.is-togglable).is-size-m,
+.button.is-togglable.is-size-m > input + * {
+  font-size: 1rem;
+}
+.button:not(.is-togglable).is-size-l,
+.button.is-togglable.is-size-l > input + * {
+  font-size: 1.25rem;
+}
+.button:not(.is-togglable).is-size-xl,
+.button.is-togglable.is-size-xl > input + * {
+  font-size: 1.5rem;
+}
+
+.button:not(.is-togglable).is-blue,
+.button.is-togglable.is-blue > input + * {
+  background-color: var(--blue);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-indigo,
+.button.is-togglable.is-indigo > input + * {
+  background-color: var(--indigo);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-purple,
+.button.is-togglable.is-purple > input + * {
+  background-color: var(--purple);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-pink,
+.button.is-togglable.is-pink > input + * {
+  background-color: var(--pink);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-red,
+.button.is-togglable.is-red > input + * {
+  background-color: var(--red);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-orange,
+.button.is-togglable.is-orange > input + * {
+  background-color: var(--orange);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-yellow,
+.button.is-togglable.is-yellow > input + * {
+  background-color: var(--yellow);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-green,
+.button.is-togglable.is-green > input + * {
+  background-color: var(--green);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-teal,
+.button.is-togglable.is-teal > input + * {
+  background-color: var(--teal);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-cyan,
+.button.is-togglable.is-cyan > input + * {
+  background-color: var(--cyan);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-white,
+.button.is-togglable.is-white > input + * {
+  background-color: var(--white);
+}
+.button:not(.is-togglable).is-light,
+.button.is-togglable.is-light > input + * {
+  background-color: var(--light);
+}
+.button:not(.is-togglable).is-gray-light,
+.button.is-togglable.is-gray-light > input + * {
+  background-color: var(--gray-light);
+  color: var(--light);
+}
+.button:not(.is-togglable).is-gray,
+.button.is-togglable.is-gray > input + * {
+  background-color: var(--gray);
+  color: var(--light);
+}
+.button:not(.is-togglable).is-gray-dark,
+.button.is-togglable.is-gray-dark > input + * {
+  background-color: var(--gray-dark);
+  color: var(--light);
+}
+.button:not(.is-togglable).is-dark,
+.button.is-togglable.is-dark > input + * {
+  background-color: var(--dark);
+  color: var(--light);
+}
+.button:not(.is-togglable).is-black,
+.button.is-togglable.is-black > input + * {
+  background-color: var(--black);
+  color: var(--light);
+}
+.button:not(.is-togglable).is-primary,
+.button.is-togglable.is-primary > input + * {
+  background-color: var(--primary);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-secondary,
+.button.is-togglable.is-secondary > input + * {
+  background-color: var(--secondary);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-success,
+.button.is-togglable.is-success > input + * {
+  background-color: var(--success);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-info,
+.button.is-togglable.is-info > input + * {
+  background-color: var(--info);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-warning,
+.button.is-togglable.is-warning > input + * {
+  background-color: var(--warning);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+.button:not(.is-togglable).is-danger,
+.button.is-togglable.is-danger > input + * {
+  background-color: var(--danger);
+  color: var(--light);
+  border: 1px solid transparent;
+}
+
+.button:not(.is-togglable).is-outlined.is-blue,
+.button.is-togglable.is-outlined.is-blue > input + * {
+  background-color: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+.button:not(.is-togglable).is-outlined.is-indigo,
+.button.is-togglable.is-outlined.is-indigo > input + * {
+  background-color: transparent;
+  color: var(--indigo);
+  border: 1px solid var(--indigo);
+}
+.button:not(.is-togglable).is-outlined.is-purple,
+.button.is-togglable.is-outlined.is-purple > input + * {
+  background-color: transparent;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+.button:not(.is-togglable).is-outlined.is-pink,
+.button.is-togglable.is-outlined.is-pink > input + * {
+  background-color: transparent;
+  color: var(--pink);
+  border: 1px solid var(--pink);
+}
+.button:not(.is-togglable).is-outlined.is-red,
+.button.is-togglable.is-outlined.is-red > input + * {
+  background-color: transparent;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+.button:not(.is-togglable).is-outlined.is-orange,
+.button.is-togglable.is-outlined.is-orange > input + * {
+  background-color: transparent;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+.button:not(.is-togglable).is-outlined.is-yellow,
+.button.is-togglable.is-outlined.is-yellow > input + * {
+  background-color: transparent;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+}
+.button:not(.is-togglable).is-outlined.is-green,
+.button.is-togglable.is-outlined.is-green > input + * {
+  background-color: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+.button:not(.is-togglable).is-outlined.is-teal,
+.button.is-togglable.is-outlined.is-teal > input + * {
+  background-color: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+.button:not(.is-togglable).is-outlined.is-cyan,
+.button.is-togglable.is-outlined.is-cyan > input + * {
+  background-color: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+}
+.button:not(.is-togglable).is-outlined.is-white,
+.button.is-togglable.is-outlined.is-white > input + * {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+.button:not(.is-togglable).is-outlined.is-light,
+.button.is-togglable.is-outlined.is-light > input + * {
+  background-color: transparent;
+  color: var(--light);
+  border: 1px solid var(--light);
+}
+.button:not(.is-togglable).is-outlined.is-gray-light,
+.button.is-togglable.is-outlined.is-gray-light > input + * {
+  background-color: transparent;
+  color: var(--gray-light);
+  border: 1px solid var(--gray-light);
+}
+.button:not(.is-togglable).is-outlined.is-gray,
+.button.is-togglable.is-outlined.is-gray > input + * {
+  background-color: transparent;
+  color: var(--gray);
+  border: 1px solid var(--gray);
+}
+.button:not(.is-togglable).is-outlined.is-gray-dark,
+.button.is-togglable.is-outlined.is-gray-dark > input + * {
+  background-color: transparent;
+  color: var(--gray-dark);
+  border: 1px solid var(--gray-dark);
+}
+.button:not(.is-togglable).is-outlined.is-dark,
+.button.is-togglable.is-outlined.is-dark > input + * {
+  background-color: transparent;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+.button:not(.is-togglable).is-outlined.is-black,
+.button.is-togglable.is-outlined.is-black > input + * {
+  background-color: transparent;
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+.button:not(.is-togglable).is-outlined.is-primary,
+.button.is-togglable.is-outlined.is-primary > input + * {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.button:not(.is-togglable).is-outlined.is-secondary,
+.button.is-togglable.is-outlined.is-secondary > input + * {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+.button:not(.is-togglable).is-outlined.is-success,
+.button.is-togglable.is-outlined.is-success > input + * {
+  background-color: transparent;
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+.button:not(.is-togglable).is-outlined.is-info,
+.button.is-togglable.is-outlined.is-info > input + * {
+  background-color: transparent;
+  color: var(--info);
+  border: 1px solid var(--info);
+}
+.button:not(.is-togglable).is-outlined.is-warning,
+.button.is-togglable.is-outlined.is-warning > input + * {
+  background-color: transparent;
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+.button:not(.is-togglable).is-outlined.is-danger,
+.button.is-togglable.is-outlined.is-danger > input + * {
+  background-color: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.box {
+  padding: 1rem;
+  border-radius: calc(1.5 * var(--radius));
+  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
+}
+
+.box.is-size-xs {
+  padding: .5rem;
+  font-size: .7rem;
+  border-radius: calc(.8 * var(--radius));
+}
+.box.is-size-s  {
+  padding: .75rem;
+  font-size: .85rem;
+}
+.box.is-size-m  {
+  font-size: 1rem;
+}
+.box.is-size-l  {
+  font-size: 1.25rem;
+}
+.box.is-size-xl {
+  font-size: 1.5rem;
+}
+
+
+.document {
+  padding: 2em;
+}
+
+.document li + li {
+  margin-top: .25em;
+}
+
+.document p:not(:last-child),
+.document dl:not(:last-child),
+.document ol:not(:last-child),
+.document ul:not(:last-child),
+.document blockquote:not(:last-child),
+.document pre:not(:last-child),
+.document table:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.document h1,
+.document h2,
+.document h3,
+.document h4,
+.document h5,
+.document h6 {
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+.document h1 { font-size: 2em; }
+.document h2 { font-size: 1.75em; }
+.document h3 { font-size: 1.5em; }
+.document h4 { font-size: 1.25em; }
+.document h5 { font-size: 1.125em; }
+.document h6 { font-size: 1em; }
+
+.document h1:not(:last-child),
+.document h2:not(:last-child),
+.document h3:not(:last-child),
+.document h4:not(:last-child),
+.document h5:not(:last-child),
+.document h6:not(:last-child) {
+  margin-bottom: .75em;
+}
+
+.document blockquote {
+  padding: 1.25em 1.5em;
+}
+
+.document ol {
+  list-style-position: outside;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.document ol:not([type]) {
+  list-style-type: decimal;
+}
+
+.document ul {
+  list-style: disc outside;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.document ul ul {
+  list-style-type: circle;
+  margin-top: .5em;
+}
+
+.document ul ul ul {
+  list-style-type: square;
+}
+
+.document dd {
+  margin-left: 2em;
+}
+
+.document figure {
+  margin-left: 2em;
+  margin-right: 2em;
+  text-align: center;
+}
+
+.document figure:not(:first-child) {
+  margin-top: 2em;
+}
+
+.document figure:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+.document figure img {
+  display: inline-block;
+}
+
+.document figure figcaption {
+  font-style: italic;
+}
+
+.document pre {
+  -webkit-overflow-scrolling: touch;
+  padding: 1.25em 1.5em;
+  word-wrap: normal;
+}
+
+.document sup,
+.document sub {
+  font-size: 75%;
+}
+
+.document table {
+  width: 100%;
+}
+
+.document table td,
+.document table th {
+  border: 1px solid hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
+  border-width: 0 0 1px;
+  padding: .5em .75em;
+  vertical-align: top;
+}
+
+.document table thead td,
+.document table thead th {
+  border-width: 0 0 2px;
+}
+
+.document table tfoot td,
+.document table tfoot th {
+  border-width: 2px 0 0;
+}
+
+.document table tbody tr:last-child td,
+.document table tbody tr:last-child th {
+  border-bottom-width: 0;
+}
+

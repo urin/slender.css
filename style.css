@@ -1,0 +1,161 @@
+.pallet {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.pallet > * {
+  width: calc(100vw / 23);
+  font-size: .6rem;
+  padding: .2rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+main {
+  display: flex;
+}
+
+main > * {
+  flex-shrink: 0;
+}
+
+main > nav {
+  position: sticky;
+  align-self: flex-start;
+  top: .4rem;
+  left: 0;
+  z-index: 1;
+  flex-grow: 0;
+  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .1);
+}
+
+main > .document {
+  flex-grow: 1;
+  padding-top: 0;
+}
+
+main > .document > section {
+  padding-top: 2rem;
+  transition: opacity .15s linear;
+}
+
+main > .document > section:not(:target) {
+  padding-top: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.toc {
+  margin-top: 1rem;
+}
+
+.toc a {
+  display: block;
+  padding: .25rem .5rem;
+  color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .5);
+}
+
+.toc a:hover {
+  color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .8);
+}
+
+.toc .active {
+  color: var(--light);
+  background-color: var(--info);
+}
+
+.controls {
+  margin: 1.5em .5rem;
+}
+
+.group {
+  color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .5);
+}
+
+.group:not(:first-child) {
+  margin-top: 1.5em;
+}
+
+.group > * {
+  display: block;
+}
+
+.group label > * {
+  vertical-align: middle;
+}
+
+.group-title {
+  padding: .2em 0;
+}
+
+.control-title {
+  display: inline-block;
+  min-width: 1rem;
+  text-align: center;
+}
+
+.value {
+  display: inline-block;
+  min-width: 2rem;
+}
+
+.snippet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
+}
+
+.snippet::before {
+  position: absolute;
+  display: inline-flex;
+  text-align: center;
+  content: "SNIPPET";
+  padding: .2rem .5rem;
+  font-size: .6rem;
+  top: calc(-1rem - 1px);
+  left: -1px;
+  color: var(--light);
+  background-color: var(--info);
+}
+
+.snippet > * {
+  flex-shrink: 0;
+}
+
+.snippet > :first-child {
+  flex-grow: 1;
+}
+
+.snippet > pre {
+  flex-grow: 0;
+  white-space: normal;
+  margin-left: 1rem;
+}
+
+.snippet pre p:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+.snippet :not(pre) code {
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius);
+  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
+  color: var(--warning);
+}
+
+.snippet p.is-grouped:first-child {
+  margin-top: 2rem;
+}
+.snippet p.is-grouped:not(:last-child) {
+  margin-bottom: 4.5rem;
+}
+
