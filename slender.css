@@ -66,6 +66,22 @@ h6 {
   padding: 0;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -88,22 +104,6 @@ textarea {
   font: inherit;
 }
 
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  font-size: 16px;
-  line-height: 1;
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
-}
-
 a {
   color: var(--fg);
   text-decoration: none;
@@ -115,6 +115,13 @@ pre {
 
 code, kbd, pre, samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  border: none;
+  border-top: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 40%));
 }
 
 img,
@@ -142,6 +149,12 @@ th {
   text-align: left;
 }
 
+fieldset {
+  min-width: 0;
+  border: none;
+}
+
+/******************************************************************************/
 .bg-blue       { background-color: var(--blue) !important; }
 .bg-indigo     { background-color: var(--indigo) !important; }
 .bg-purple     { background-color: var(--purple) !important; }
@@ -190,6 +203,17 @@ th {
 .fg-warning    { color: var(--warning) !important; }
 .fg-danger     { color: var(--danger) !important; }
 
+/******************************************************************************/
+.is-grouped {
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.is-grouped.is-vertical {
+  flex-direction: column;
+}
+
+/******************************************************************************/
 .button:not(.is-togglable),
 .button.is-togglable > input + * {
   display: inline-flex;
@@ -240,13 +264,12 @@ th {
 .button:not(.is-togglable):focus,
 .button.is-togglable > input + *:hover,
 .button.is-togglable > input:focus + * {
-  box-shadow: inset 100vw 100vh hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
+  box-shadow: inset 100vw 100vh hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
 }
 
-.button:not(.is-togglable):active,
-.button.is-togglable > input:active + * {
+.button:not(.is-togglable):active {
   transition-duration: 0;
-  box-shadow: inset 100vw 100vh hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .6);
+  box-shadow: inset 100vw 100vh hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .6);
 }
 
 .button.is-togglable > :checked + * {
@@ -275,6 +298,7 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   box-shadow: none;
 }
 
+.is-grouped.is-fullwidth,
 .button:not(.is-togglable).is-fullwidth,
 .button.is-togglable.is-fullwidth > input + * {
   display: flex;
@@ -286,46 +310,65 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   border-radius: 100vw;
 }
 
-.is-grouped {
-  display: flex;
-  justify-content: flex-start;
+.button:not(.is-togglable).is-size-xs,
+.button.is-togglable.is-size-xs > input + *,
+.is-grouped.is-size-xs > .button:not(.is-togglable),
+.is-grouped.is-size-xs > .button.is-togglable > input + * {
+  font-size: .7rem;
+  border-radius: calc(.5 * var(--radius));
+}
+.button:not(.is-togglable).is-size-s,
+.button.is-togglable.is-size-s > input + *,
+.is-grouped.is-size-s > .button:not(.is-togglable),
+.is-grouped.is-size-s > .button.is-togglable > input + * {
+  font-size: .9rem;
+  border-radius: calc(.7 * var(--radius));
+}
+.button:not(.is-togglable).is-size-m,
+.button.is-togglable.is-size-m > input + *,
+.is-grouped.is-size-m > .button:not(.is-togglable),
+.is-grouped.is-size-m > .button.is-togglable > input + * {
+  font-size: 1rem;
+}
+.button:not(.is-togglable).is-size-l,
+.button.is-togglable.is-size-l > input + *,
+.is-grouped.is-size-l > .button:not(.is-togglable),
+.is-grouped.is-size-l > .button.is-togglable > input + * {
+  font-size: 1.25rem;
+}
+.button:not(.is-togglable).is-size-xl,
+.button.is-togglable.is-size-xl > input + *,
+.is-grouped.is-size-xl > .button:not(.is-togglable),
+.is-grouped.is-size-xl > .button.is-togglable > input + * {
+  font-size: 1.5rem;
 }
 
-.is-grouped > .button:not(.is-togglable):not(:first-child),
-.is-grouped > .button.is-togglable:not(:first-child) > input + * {
-  border-left-color: hsla(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%), .25);
+.is-grouped:not(.is-vertical) > .button:not(.is-togglable):not(:first-child),
+.is-grouped:not(.is-vertical) > .button.is-togglable:not(:first-child) > input + * {
+  border-left-color: hsl(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%), .25);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.is-grouped > .button:not(.is-togglable):not(:last-child),
-.is-grouped > .button.is-togglable:not(:last-child) > input + * {
+.is-grouped:not(.is-vertical) > .button:not(.is-togglable):not(:last-child),
+.is-grouped:not(.is-vertical) > .button.is-togglable:not(:last-child) > input + * {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.button:not(.is-togglable).is-size-xs,
-.button.is-togglable.is-size-xs > input + * {
-  font-size: .7rem;
-  border-radius: calc(.5 * var(--radius));
+.is-grouped.is-vertical > .button:not(.is-togglable):not(:first-child),
+.is-grouped.is-vertical > .button.is-togglable:not(:first-child) > input + * {
+  border-top-color: hsl(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%), .25);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
-.button:not(.is-togglable).is-size-s,
-.button.is-togglable.is-size-s > input + * {
-  font-size: .9rem;
-  border-radius: calc(.7 * var(--radius));
-}
-.button:not(.is-togglable).is-size-m,
-.button.is-togglable.is-size-m > input + * {
-  font-size: 1rem;
-}
-.button:not(.is-togglable).is-size-l,
-.button.is-togglable.is-size-l > input + * {
-  font-size: 1.25rem;
-}
-.button:not(.is-togglable).is-size-xl,
-.button.is-togglable.is-size-xl > input + * {
-  font-size: 1.5rem;
+
+.is-grouped.is-vertical > .button:not(.is-togglable):not(:last-child),
+.is-grouped.is-vertical > .button.is-togglable:not(:last-child) > input + * {
+  border-bottom-width: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .button:not(.is-togglable).is-blue,
@@ -597,10 +640,11 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   border: 1px solid var(--danger);
 }
 
+/******************************************************************************/
 .box {
   padding: 1rem;
   border-radius: calc(1.5 * var(--radius));
-  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
+  background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
 }
 
 .box.is-size-xs {
@@ -622,7 +666,7 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   font-size: 1.5rem;
 }
 
-
+/******************************************************************************/
 .document {
   padding: 2em;
 }
@@ -733,13 +777,17 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   font-size: 75%;
 }
 
+.document hr {
+  margin-bottom: 1rem;
+}
+
 .document table {
   width: 100%;
 }
 
 .document table td,
 .document table th {
-  border: 1px solid hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
+  border: 1px solid hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
   border-width: 0 0 1px;
   padding: .5em .75em;
   vertical-align: top;

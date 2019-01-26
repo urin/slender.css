@@ -68,6 +68,13 @@ main > .document > section:not(:target) {
   background-color: var(--info);
 }
 
+.toc li {
+  font-size: .8rem;
+  margin-left: 1rem;
+  line-height: 1.5;
+  color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .5);
+}
+
 .controls {
   margin: 1.5em .5rem;
 }
@@ -115,10 +122,10 @@ main > .document > section:not(:target) {
 }
 
 .snippet::before {
+  content: "SNIPPET";
   position: absolute;
   display: inline-flex;
   text-align: center;
-  content: "SNIPPET";
   padding: .2rem .5rem;
   font-size: .6rem;
   top: calc(-1rem - 1px);
@@ -152,10 +159,7 @@ main > .document > section:not(:target) {
   color: var(--warning);
 }
 
-.snippet p.is-grouped:first-child {
-  margin-top: 2rem;
-}
-.snippet p.is-grouped:not(:last-child) {
-  margin-bottom: 4.5rem;
+#button-grouped + .snippet > :first-child > .is-grouped {
+  margin-bottom: 7rem;
 }
 

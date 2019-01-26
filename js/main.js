@@ -1,12 +1,7 @@
 location.hash = location.hash || '#overview'
 
-window.addEventListener('hashchange', function() {
-  vm.hashchange()
-})
-
-var vm
 document.addEventListener('DOMContentLoaded', function() {
-  vm = new Vue({
+  const vm = new Vue({
     el: 'main',
     data: {
       hash: null,
@@ -35,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
       },
     },
   })
+  window.addEventListener('hashchange', function() { vm.hashchange() })
+  hljs.initHighlighting()
+  vm.hashchange()
+
   function cssvar(name, value) {
     if (value == null) {
       return getComputedStyle(document.documentElement).getPropertyValue(name)
@@ -42,7 +41,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.style.setProperty(name, value)
     return document.documentElement.style
   }
-  hljs.initHighlighting()
-  vm.hashchange()
 })
 
