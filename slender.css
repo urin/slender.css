@@ -1,3 +1,8 @@
+/**
+ * slender.css
+ * MIT License
+ * Copyright 2019 urin
+ */
 :root {
   --h: 211;
   --s: 1;
@@ -258,6 +263,11 @@ fieldset {
   z-index: 1;
   width: 100%;
   height: 100%;
+}
+
+.button:not(.is-togglable):focus,
+.button.is-togglable > input:focus {
+  outline: none;
 }
 
 .button:not(.is-togglable):hover,
@@ -672,7 +682,11 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
 }
 
 .document li + li {
-  margin-top: .25em;
+  margin-top: .5em;
+}
+
+.document a {
+  color: var(--info);
 }
 
 .document p:not(:last-child),
@@ -806,5 +820,12 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
 .document table tbody tr:last-child td,
 .document table tbody tr:last-child th {
   border-bottom-width: 0;
+}
+
+.document :not(pre) > code {
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius);
+  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
+  color: var(--warning);
 }
 

@@ -43,7 +43,8 @@ main > .document > section {
 }
 
 main > .document > section:not(:target) {
-  padding-top: 0;
+  padding: 0;
+  margin: 0;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -150,13 +151,6 @@ main > .document > section:not(:target) {
 
 .snippet pre p:not(:last-child) {
   margin-bottom: 2em;
-}
-
-.snippet :not(pre) code {
-  padding: 0.2em 0.4em;
-  border-radius: var(--radius);
-  background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
-  color: var(--warning);
 }
 
 #button-grouped + .snippet > :first-child > .is-grouped {
