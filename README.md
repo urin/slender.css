@@ -1,9 +1,6 @@
 # [slender.css](//urin.github.io/slender.css) - Progressive CSS framework
 
 ## Overview
-- Only 1 CSS file
-- Without preprocessors
-- Using progressive CSS3 features
 - Only 1 CSS file without JavaScript
 - Without preprocessors
 - Using progressive CSS3 features 
