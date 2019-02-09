@@ -51,8 +51,14 @@
             <li>Styles</li>
             <li>Grouped buttons</li>
           </ul>
-          <a href="#box"          :class="hash === '#box'          ? 'bg-info fg-light' : ''">Box</a>
-          <a href="#tag"          :class="hash === '#tag'          ? 'bg-info fg-light' : ''">Tag</a>
+          <a href="#box" :class="hash === '#box' ? 'bg-info fg-light' : ''">Box</a>
+          <a href="#tag" :class="hash === '#tag' ? 'bg-info fg-light' : ''">Tag</a>
+          <ul>
+            <li>Sizes</li>
+            <li>Colors</li>
+            <li>Styles</li>
+            <li>Grouped tags</li>
+          </ul>
           <a href="#table"        :class="hash === '#table'        ? 'bg-info fg-light' : ''">Table</a>
           <a href="#input"        :class="hash === '#input'        ? 'bg-info fg-light' : ''">Input</a>
           <a href="#modal"        :class="hash === '#modal'        ? 'bg-info fg-light' : ''">Modal</a>
@@ -574,7 +580,287 @@
           </div>
         </section>
 
-        <!-- Tag -->
+        <section id="tag">
+          <h1>Tag</h1>
+
+          <div class="snippet">
+            <div>
+              <span class="tag">Tag</span>
+              <a href="#tag" class="tag">Anchor</a>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;span class="tag"&gt;Tag&lt;/span&gt;<br>
+                &lt;a href="#tag" class="tag"&gt;Anchor&lt;/a&gt;
+              </code>
+            </pre>
+          </div>
+
+          <h2 id="tag-sizes">Sizes</h2>
+
+          <div class="snippet">
+            <div>
+              <p><span class="tag is-size-xs">.is-size-xs</span></p>
+              <p><span class="tag is-size-s">.is-size-s</span></p>
+              <p><span class="tag is-size-m">.is-size-m</span></p>
+              <p><span class="tag is-size-l">.is-size-l</span></p>
+              <p><span class="tag is-size-xl">.is-size-xl</span></p>
+              <p><span class="tag is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</span></p>
+              <p><span class="tag is-fullwidth is-size-s">.is-fullwidth.is-size-s</span></p>
+              <p><span class="tag is-fullwidth is-size-m">.is-fullwidth.is-size-m</span></p>
+              <p><span class="tag is-fullwidth is-size-l">.is-fullwidth.is-size-l</span></p>
+              <p><span class="tag is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</span></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;span class="tag is-size-xs"&gt;.is-size-xs&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-size-s"&gt;.is-size-s&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-size-m"&gt;.is-size-m&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-size-l"&gt;.is-size-l&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-size-xl"&gt;.is-size-xl&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-fullwidth is-size-xs"&gt;.is-fullwidth.is-size-xs&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-fullwidth is-size-s"&gt;.is-fullwidth.is-size-s&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-fullwidth is-size-m"&gt;.is-fullwidth.is-size-m&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-fullwidth is-size-l"&gt;.is-fullwidth.is-size-l&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-fullwidth is-size-xl"&gt;.is-fullwidth.is-size-xl&lt;/span&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <h2 id="tag-colors">Colors</h2>
+
+          <div class="snippet">
+            <div>
+              <p><span class="tag is-primary">.is-primary</span></p>
+              <p><span class="tag is-secondary">.is-secondary</span></p>
+              <p><span class="tag is-success">.is-success</span></p>
+              <p><span class="tag is-info">.is-info</span></p>
+              <p><span class="tag is-warning">.is-warning</span></p>
+              <p><span class="tag is-danger">.is-danger</span></p>
+              <p><span class="tag is-white">.is-white</span></p>
+              <p><span class="tag is-light">.is-light</span></p>
+              <p><span class="tag is-gray-light">.is-gray-light</span></p>
+              <p><span class="tag is-gray">.is-gray</span></p>
+              <p><span class="tag is-gray-dark">.is-gray-dark</span></p>
+              <p><span class="tag is-dark">.is-dark</span></p>
+              <p><span class="tag is-black">.is-black</span></p>
+              <p><span class="tag is-blue">.is-blue</span></p>
+              <p><span class="tag is-indigo">.is-indigo</span></p>
+              <p><span class="tag is-purple">.is-purple</span></p>
+              <p><span class="tag is-pink">.is-pink</span></p>
+              <p><span class="tag is-red">.is-red</span></p>
+              <p><span class="tag is-orange">.is-orange</span></p>
+              <p><span class="tag is-yellow">.is-yellow</span></p>
+              <p><span class="tag is-green">.is-green</span></p>
+              <p><span class="tag is-teal">.is-teal</span></p>
+              <p><span class="tag is-cyan">.is-cyan</span></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;span class="tag is-primary"&gt;.is-primary&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-secondary"&gt;.is-secondary&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-success"&gt;.is-success&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-info"&gt;.is-info&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-warning"&gt;.is-warning&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-danger"&gt;.is-danger&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-white"&gt;.is-white&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-light"&gt;.is-light&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-gray-light"&gt;.is-gray-light&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-gray"&gt;.is-gray&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-gray-dark"&gt;.is-gray-dark&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-dark"&gt;.is-dark&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-black"&gt;.is-black&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-blue"&gt;.is-blue&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-indigo"&gt;.is-indigo&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-purple"&gt;.is-purple&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-pink"&gt;.is-pink&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-red"&gt;.is-red&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-orange"&gt;.is-orange&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-yellow"&gt;.is-yellow&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-green"&gt;.is-green&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-teal"&gt;.is-teal&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-cyan"&gt;.is-cyan&lt;/span&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <h2 id="tag-styles">Styles</h2>
+
+          <div class="snippet">
+            <div>
+              <p><span class="tag is-rounded">Tag</span></p>
+              <p><span class="tag is-rounded is-primary">Tag</span></p>
+              <p><span class="tag is-rounded is-secondary">Tag</span></p>
+              <p><span class="tag is-rounded is-success">Tag</span></p>
+              <p><span class="tag is-rounded is-info">Tag</span></p>
+              <p><span class="tag is-rounded is-warning">Tag</span></p>
+              <p><span class="tag is-rounded is-danger">Tag</span></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;span class="tag is-rounded"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-primary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-secondary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-success"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-info"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-warning"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-danger"&gt;Tag&lt;/span&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><span class="tag is-outlined">Tag</span></p>
+              <p><span class="tag is-outlined is-primary">Tag</span></p>
+              <p><span class="tag is-outlined is-secondary">Tag</span></p>
+              <p><span class="tag is-outlined is-success">Tag</span></p>
+              <p><span class="tag is-outlined is-info">Tag</span></p>
+              <p><span class="tag is-outlined is-warning">Tag</span></p>
+              <p><span class="tag is-outlined is-danger">Tag</span></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;span class="tag is-outlined"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-primary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-secondary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-success"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-info"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-warning"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-outlined is-danger"&gt;Tag&lt;/span&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p><span class="tag is-rounded is-outlined">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-primary">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-secondary">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-success">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-info">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-warning">Tag</span></p>
+              <p><span class="tag is-rounded is-outlined is-danger">Tag</span></p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>&lt;span class="tag is-rounded is-outlined"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-primary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-secondary"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-success"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-info"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-warning"&gt;Tag&lt;/span&gt;</p>
+                <p>&lt;span class="tag is-rounded is-outlined is-danger"&gt;Tag&lt;/span&gt;</p>
+              </code>
+            </pre>
+          </div>
+
+          <h2 id="tag-grouped">Grouped tags</h2>
+
+          <div class="snippet">
+            <div>
+              <p>
+                <div class="is-grouped">
+                  <span class="tag is-primary">Tag</span>
+                  <span class="tag is-secondary">Tag</span>
+                </div>
+              </p>
+              <p>
+                <div class="is-grouped is-size-xs">
+                  <span class="tag is-danger">Tag</span>
+                  <span class="tag is-warning">Tag</span>
+                  <span class="tag is-secondary">Tag</span>
+                  <span class="tag is-success">Tag</span>
+                </div>
+              </p>
+              <p>
+                <div class="is-grouped">
+                  <span class="tag is-rounded">Rounded</span>
+                  <span class="tag is-rounded">Rounded</span>
+                  <span class="tag is-rounded">Rounded</span>
+                </div>
+              </p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>
+                  &lt;p&gt;<br>
+                  &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-primary"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;/p&gt;
+                </p>
+                <p>
+                  &lt;p&gt;<br>
+                  &nbsp;&nbsp;&lt;div class="is-grouped is-size-xs"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-danger"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-warning"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-success"&gt;Tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;/p&gt;
+                </p>
+                <p>
+                  &lt;p&gt;<br>
+                  &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;/p&gt;
+                </p>
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <p>
+                <div class="is-grouped is-vertical">
+                  <span class="tag is-purple">The first tag</span>
+                  <span class="tag is-purple">Tag between tags</span>
+                  <span class="tag is-purple">Tag between tags</span>
+                  <span class="tag is-purple">The last tag</span>
+                </div>
+              </p>
+              <p>
+                <div class="is-grouped is-vertical is-fullwidth">
+                  <span class="tag">Full width tag</span>
+                  <span class="tag">Full width tag</span>
+                  <span class="tag">Full width tag</span>
+                  <span class="tag">Full width tag</span>
+                </div>
+              </p>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>
+                  &lt;p&gt;<br>
+                  &nbsp;&nbsp;&lt;div class="is-grouped is-vertical"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The first tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The last tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;/p&gt;
+                </p>
+                <p>
+                  &lt;p&gt;<br>
+                  &nbsp;&nbsp;&lt;div class="is-grouped is-vertical is-fullwidth"&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;/p&gt;
+                </p>
+              </code>
+            </pre>
+          </div>
+
+        </section>
+
         <!-- Table -->
         <!-- Modal -->
         <!-- Delete -->
