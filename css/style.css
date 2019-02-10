@@ -1,3 +1,9 @@
+@media screen and (max-width: 1087px) {
+  .hide-if-narrow {
+    display: none;
+  }
+}
+
 .pallet {
   display: flex;
   position: sticky;
@@ -48,6 +54,22 @@ main > .document > section:not(:target) {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1087px), print {
+  main {
+    flex-direction: column;
+  }
+
+  main > nav {
+    position: auto;
+    align-self: flex-start;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    flex-grow: auto;
+    width: 100%;
+  }
 }
 
 .toc {
@@ -145,12 +167,34 @@ main > .document > section:not(:target) {
 
 .snippet > pre {
   flex-grow: 0;
-  white-space: normal;
+  white-space: nowrap;
+  overflow: auto;
   margin-left: 1rem;
 }
 
 .snippet pre p:not(:last-child) {
   margin-bottom: 2em;
+}
+
+@media screen and (max-width: 1087px), print {
+  .snippet > * {
+    width: 100%;
+    flex-grow: auto;
+    flex-shrink: auto;
+  }
+
+  .snippet > :not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  .snippet > pre {
+    margin-left: 0;
+    font-size: .8rem;
+  }
+
+  .snippet pre p:not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 
 #button-grouped + .snippet > :first-child > .is-grouped {
