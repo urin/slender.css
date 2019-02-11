@@ -98,6 +98,16 @@ main > .document > section:not(:target) {
   color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .5);
 }
 
+.toc li {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .25s ease;
+}
+
+.toc .shown li {
+  max-height: 1.5em;
+}
+
 .controls {
   margin: 1.5em .5rem;
 }
@@ -199,5 +209,19 @@ main > .document > section:not(:target) {
 
 #button-grouped + .snippet > :first-child > .is-grouped {
   margin-bottom: 7rem;
+}
+
+@media screen and (max-width: 1087px), print {
+  #button-grouped + .snippet > :first-child > .is-grouped {
+    margin-bottom: 0;
+  }
+}
+
+#table .table {
+  width: auto;
+}
+
+#table .table.is-fullwidth {
+  width: 100%;
 }
 

@@ -229,6 +229,7 @@ fieldset {
 .document dl:not(:last-child),
 .document ol:not(:last-child),
 .document ul:not(:last-child),
+.document li:not(:last-child),
 .document blockquote:not(:last-child),
 .document pre:not(:last-child),
 .document table:not(:last-child) {
@@ -359,7 +360,7 @@ fieldset {
 }
 
 .document :not(pre) > code {
-  padding: 0.2em 0.4em;
+  padding: .2em .4em;
   border-radius: var(--radius);
   background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
   color: var(--warning);
@@ -417,7 +418,6 @@ fieldset {
 .button.is-togglable > input + * {
   display: inline-flex;
   padding: .5em .8em;
-  line-height: 1;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -850,7 +850,6 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   display: inline-flex;
   font-size: .6em;
   padding: .4em .7em;
-  line-height: 1;
   vertical-align: middle;
   text-align: center;
   align-items: center;
@@ -1142,5 +1141,53 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   background-color: transparent;
   color: var(--danger);
   border: 1px solid var(--danger);
+}
+
+/**
+ * table
+ */
+.table thead,
+.table tfoot {
+  background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
+}
+
+.table td,
+.table th {
+  border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
+  border-width: 0 0 1px;
+  padding: .5em .75em;
+}
+
+.table thead td,
+.table thead th {
+  border-width: 0 0 2px;
+}
+
+.table tfoot td,
+.table tfoot th {
+  border-width: 2px 0 0;
+}
+
+.table tbody tr:last-child td,
+.table tbody tr:last-child th {
+  border-bottom-width: 0;
+}
+
+.table.is-bordered td,
+.table.is-bordered th {
+  border-width: 1px;
+}
+
+.table.is-bordered tr:last-child td,
+.table.is-bordered tr:last-child th {
+  border-bottom-width: 1px;
+}
+
+.table.is-fullwidth {
+  width: 100%;
+}
+
+.table.is-hoverable tbody tr:hover {
+  background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
 }
 

@@ -43,7 +43,7 @@
         <div class="toc">
           <a href="#overview" :class="hash === '#overview' ? 'bg-info fg-light' : ''">Overview</a>
           <a href="#button"   :class="hash === '#button'   ? 'bg-info fg-light' : ''">Button</a>
-          <ul class="hide-if-narrow">
+          <ul class="hide-if-narrow" :class="hash === '#button' ? 'shown' : ''">
             <li>Togglable</li>
             <li>Sizes</li>
             <li>Colors</li>
@@ -53,7 +53,7 @@
           </ul>
           <a href="#box" :class="hash === '#box' ? 'bg-info fg-light' : ''">Box</a>
           <a href="#tag" :class="hash === '#tag' ? 'bg-info fg-light' : ''">Tag</a>
-          <ul class="hide-if-narrow">
+          <ul class="hide-if-narrow" :class="hash === '#tag' ? 'shown' : ''">
             <li>Sizes</li>
             <li>Colors</li>
             <li>Styles</li>
@@ -116,20 +116,21 @@
         <section id="overview">
           <h1>Overview</h1>
           <p>
-            slender.css is a progressive CSS framework with following features.
+            slender.css is a progressive CSS framework with following features. Download the latest version from <a href="./slender.css" download="slender.css">here</a>.
           </p>
           <ul>
-            <li>Only 1 CSS file without JavaScript (download the latest version from <a href="./slender.css" download="slender.css">here</a>)</li>
-            <li>Without preprocessors</li>
+            <li><p>Only 1 CSS file. No JavaScript and preprocessors required.</p></li>
             <li>
-              Using progressive CSS3 features
-              <a href="//www.w3.org/TR/css-variables-1"><code>var()</code></a>,
-              <a href="//www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a>,
-              <a href="//www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a>
+              <p>Using progressive CSS3 features
+                <a href="//www.w3.org/TR/css-variables-1/"><code>var()</code></a>,
+                <a href="//www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a>,
+                <a href="//www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a>
+                and so on.</p>
+              <p>You can customize colors, sizes and some properties overwriting CSS variables.</p>
             </li>
-            <li>No responsive layout supports</li>
-            <li>Customizable colors, sizes and any properties if you overwrite CSS variables</li>
+            <li><p>No responsive layout supports.</p></li>
           </ul>
+          <p>See activity on <a href="//github.com/urin/slender.css">GitHub</a>.</p>
         </section>
 
         <section id="button">
@@ -881,7 +882,175 @@
 
         </section>
 
-        <!-- Table -->
+        <section id="table">
+          <h1>Table</h1>
+
+          <div class="snippet">
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <th>Head</th>
+                    <th>Head</th>
+                    <th>Head</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;table class="table"&gt;<br>
+                &nbsp;&nbsp;&lt;thead&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Head&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Head&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Head&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&lt;/thead&gt;<br>
+                &nbsp;&nbsp;&lt;tbody&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Row&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Column&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Column&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Column&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br>
+                &nbsp;&nbsp;&lt;/tbody&gt;<br>
+                &nbsp;&nbsp;&lt;tfoot&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Foot&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Foot&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Foot&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&lt;/tfoot&gt;<br>
+                &lt;/table&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <th>Head</th>
+                    <th>Head</th>
+                    <th>Head</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;table class="table is-fullwidth"&gt;<br>
+                &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
+                &lt;/table&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <table class="table is-fullwidth is-hoverable">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <th>Head</th>
+                    <th>Head</th>
+                    <th>Head</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;table class="table is-fullwidth is-hoverable"&gt;<br>
+                &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
+                &lt;/table&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <table class="table is-fullwidth is-bordered">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <th>Head</th>
+                    <th>Head</th>
+                    <th>Head</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                  <tr><th>Row</th><td>Column</td><td>Column</td><td>Column</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;table class="table is-fullwidth is-bordered"&gt;<br>
+                &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
+                &lt;/table&gt;
+              </code>
+            </pre>
+          </div>
+
+        </section>
         <!-- Modal -->
         <!-- Delete -->
         <!-- Icon -->
