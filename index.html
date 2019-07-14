@@ -41,9 +41,9 @@
     <main>
       <nav>
         <div class="toc">
-          <a href="#overview" :class="hash === '#overview' ? 'bg-info fg-light' : ''">Overview</a>
-          <a href="#button"   :class="hash === '#button'   ? 'bg-info fg-light' : ''">Button</a>
-          <ul class="hide-if-narrow" :class="hash === '#button' ? 'shown' : ''">
+          <a href="#overview" :class="hash === '#overview' ? 'active' : ''">Overview</a>
+          <a href="#button"   :class="hash === '#button'   ? 'active' : ''">Button</a>
+          <ul class="hide-if-narrow">
             <li>Togglable</li>
             <li>Sizes</li>
             <li>Colors</li>
@@ -51,24 +51,24 @@
             <li>Styles</li>
             <li>Grouped buttons</li>
           </ul>
-          <a href="#box" :class="hash === '#box' ? 'bg-info fg-light' : ''">Box</a>
-          <a href="#tag" :class="hash === '#tag' ? 'bg-info fg-light' : ''">Tag</a>
-          <ul class="hide-if-narrow" :class="hash === '#tag' ? 'shown' : ''">
+          <a href="#box" :class="hash === '#box' ? 'active' : ''">Box</a>
+          <a href="#tag" :class="hash === '#tag' ? 'active' : ''">Tag</a>
+          <ul class="hide-if-narrow">
             <li>Sizes</li>
             <li>Colors</li>
             <li>Styles</li>
             <li>Grouped tags</li>
           </ul>
-          <a href="#table"        :class="hash === '#table'        ? 'bg-info fg-light' : ''">Table</a>
-          <a href="#input"        :class="hash === '#input'        ? 'bg-info fg-light' : ''">Input</a>
-          <a href="#modal"        :class="hash === '#modal'        ? 'bg-info fg-light' : ''">Modal</a>
-          <a href="#delete"       :class="hash === '#delete'       ? 'bg-info fg-light' : ''">Delete</a>
-          <a href="#icon"         :class="hash === '#icon'         ? 'bg-info fg-light' : ''">Icon</a>
-          <a href="#image"        :class="hash === '#image'        ? 'bg-info fg-light' : ''">Image</a>
-          <a href="#notification" :class="hash === '#notification' ? 'bg-info fg-light' : ''">Notification</a>
-          <a href="#progress"     :class="hash === '#progress'     ? 'bg-info fg-light' : ''">Progress</a>
-          <a href="#document"     :class="hash === '#document'     ? 'bg-info fg-light' : ''">Document</a>
-          <a href="#modifier"     :class="hash === '#modifier'     ? 'bg-info fg-light' : ''">Modifier</a>
+          <a href="#table"        :class="hash === '#table'        ? 'active' : ''">Table</a>
+          <a href="#input"        :class="hash === '#input'        ? 'active' : ''">Input</a>
+          <a href="#modal"        :class="hash === '#modal'        ? 'active' : ''">Modal</a>
+          <a href="#delete"       :class="hash === '#delete'       ? 'active' : ''">Delete</a>
+          <a href="#icon"         :class="hash === '#icon'         ? 'active' : ''">Icon</a>
+          <a href="#image"        :class="hash === '#image'        ? 'active' : ''">Image</a>
+          <a href="#notification" :class="hash === '#notification' ? 'active' : ''">Notification</a>
+          <a href="#progress"     :class="hash === '#progress'     ? 'active' : ''">Progress</a>
+          <a href="#document"     :class="hash === '#document'     ? 'active' : ''">Document</a>
+          <a href="#modifier"     :class="hash === '#modifier'     ? 'active' : ''">Modifier</a>
         </div>
 
         <div class="box is-size-s controls">
@@ -116,21 +116,25 @@
         <section id="overview">
           <h1>Overview</h1>
           <p>
-            slender.css is a progressive CSS framework with following features. Download the latest version from <a href="./slender.css" download="slender.css">here</a>.
+            slender.css is a progressive CSS framework with following features.
           </p>
           <ul>
             <li><p>Only 1 CSS file. No JavaScript and preprocessors required.</p></li>
             <li>
-              <p>Using progressive CSS3 features
-                <a href="//www.w3.org/TR/css-variables-1/"><code>var()</code></a>,
-                <a href="//www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a>,
-                <a href="//www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a>
-                and so on.</p>
-              <p>You can customize colors, sizes and some properties overwriting CSS variables.</p>
+              <p>Using progressive HTML5 and CSS3 features:</p>
+                <ul>
+                  <li><a href="//www.w3.org/TR/css-variables-1/">CSS variables</a></li>
+                  <li><a href="//www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a></li>
+                  <li><a href="//www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a></li>
+                  <li><a href="//www.w3.org/TR/html52/interactive-elements.html#the-dialog-element"><code>&lt;dialog&gt;</code> element</a></li>
+                  <li><a href="//www.w3.org/TR/html50/disabled-elements.html#selector-invalid">selector <code>:invalid</code></a></li>
+                </ul>
+              <p>and so on...</p>
+              <p>You can customize colors, sizes and some properties overwriting pre-defined CSS variables.</p>
             </li>
             <li><p>No responsive layout supports.</p></li>
           </ul>
-          <p>See activity on <a href="//github.com/urin/slender.css">GitHub</a>.</p>
+          <p>Download the latest version from <a href="./slender.css" download="slender.css">here</a>. See activity on <a href="//github.com/urin/slender.css">GitHub</a>.</p>
         </section>
 
         <section id="button">
@@ -1061,6 +1065,17 @@
         <!-- Modifier -->
       </article>
     </main>
+
+<!-- Google Universal Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-37966978-1', 'urin.github.io');
+ga('send', 'pageview');
+</script>
+
   </body>
 </html>
 

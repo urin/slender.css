@@ -848,7 +848,7 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
  */
 .tag {
   display: inline-flex;
-  font-size: .6em;
+  font-size: .6rem;
   padding: .4em .7em;
   vertical-align: middle;
   text-align: center;
@@ -883,7 +883,7 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
 }
 .tag.is-size-l,
 .is-grouped.is-size-l > .tag {
-  font-size: .7rem;
+  font-size: .8rem;
   border-radius: calc(.7 * var(--radius));
 }
 .tag.is-size-xl,

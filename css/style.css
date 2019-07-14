@@ -101,10 +101,10 @@ main > .document > section:not(:target) {
 .toc li {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .25s ease;
+  transition: max-height .25s ease-in-out;
 }
 
-.toc .shown li {
+.toc .active + ul > li {
   max-height: 1.5em;
 }
 
