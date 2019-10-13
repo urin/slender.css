@@ -109,6 +109,8 @@ main > .document > section:not(:target) {
 }
 
 .controls {
+  display: flex;
+  flex-direction: column;
   margin: 1.5em .5rem;
 }
 
@@ -217,11 +219,19 @@ main > .document > section:not(:target) {
   }
 }
 
+#box .snippet > div > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 #table .table {
   width: auto;
 }
 
 #table .table.is-fullwidth {
   width: 100%;
+}
+
+#input .snippet > div > :not(:last-child) {
+  margin-bottom: 1rem;
 }
 

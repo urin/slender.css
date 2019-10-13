@@ -62,9 +62,6 @@
           <a href="#table"        :class="hash === '#table'        ? 'active' : ''">Table</a>
           <a href="#input"        :class="hash === '#input'        ? 'active' : ''">Input</a>
           <a href="#modal"        :class="hash === '#modal'        ? 'active' : ''">Modal</a>
-          <a href="#delete"       :class="hash === '#delete'       ? 'active' : ''">Delete</a>
-          <a href="#icon"         :class="hash === '#icon'         ? 'active' : ''">Icon</a>
-          <a href="#image"        :class="hash === '#image'        ? 'active' : ''">Image</a>
           <a href="#notification" :class="hash === '#notification' ? 'active' : ''">Notification</a>
           <a href="#progress"     :class="hash === '#progress'     ? 'active' : ''">Progress</a>
           <a href="#document"     :class="hash === '#document'     ? 'active' : ''">Document</a>
@@ -567,19 +564,48 @@
 
           <div class="snippet">
             <div>
-              <p class="box is-size-xs">.is-size-xs</p>
-              <p class="box is-size-s">.is-size-s</p>
-              <p class="box is-size-m">.is-size-m</p>
-              <p class="box is-size-l">.is-size-l</p>
-              <p class="box is-size-xl">.is-size-xl</p>
+              <div>
+                <div class="box is-size-xs">.is-size-xs</div>
+              </div>
+              <div>
+                <div class="box is-size-s">.is-size-s</div>
+              </div>
+              <div>
+                <div class="box is-size-m">.is-size-m</div>
+              </div>
+              <div>
+                <div class="box is-size-l">.is-size-l</div>
+              </div>
+              <div>
+                <div class="box is-size-xl">.is-size-xl</div>
+              </div>
             </div>
             <pre class="box">
               <code class="html">
-                <p>&lt;p class="box is-size-xs"&gt;.is-size-xs&lt;/p&gt;</p>
-                <p>&lt;p class="box is-size-s"&gt;.is-size-s&lt;/p&gt;</p>
-                <p>&lt;p class="box is-size-m"&gt;.is-size-m&lt;/p&gt;</p>
-                <p>&lt;p class="box is-size-l"&gt;.is-size-l&lt;/p&gt;</p>
-                <p>&lt;p class="box is-size-xl"&gt;.is-size-xl&lt;/p&gt;</p>
+                &lt;div&gt;&lt;div class="box is-size-xs"&gt;.is-size-xs&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-size-s"&gt;.is-size-s&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-size-m"&gt;.is-size-m&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-size-l"&gt;.is-size-l&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-size-xl"&gt;.is-size-xl&lt;/div&gt;&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+
+          <div class="snippet">
+            <div>
+              <div><div class="box is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</div></div>
+              <div><div class="box is-fullwidth is-size-s"> .is-fullwidth.is-size-s</div></div>
+              <div><div class="box is-fullwidth is-size-m"> .is-fullwidth.is-size-m</div></div>
+              <div><div class="box is-fullwidth is-size-l"> .is-fullwidth.is-size-l</div></div>
+              <div><div class="box is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</div></div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;div&gt;&lt;div class="box is-fullwidth is-size-xs"&gt;.is-fullwidth.is-size-xs&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-fullwidth is-size-s"&gt; .is-fullwidth.is-size-s&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-fullwidth is-size-m"&gt; .is-fullwidth.is-size-m&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-fullwidth is-size-l"&gt; .is-fullwidth.is-size-l&lt;/div&gt;&lt;/div&gt;<br>
+                &lt;div&gt;&lt;div class="box is-fullwidth is-size-xl"&gt;.is-fullwidth.is-size-xl&lt;/div&gt;&lt;/div&gt;
               </code>
             </pre>
           </div>
@@ -1055,8 +1081,205 @@
           </div>
 
         </section>
+
+        <section id="input">
+          <h1>Input</h1>
+
+          <h2 id="input-text">Text input</h2>
+          <div class="snippet">
+            <div>
+              <div>
+                <input type="text" class="input" size="20" placeholder="Input text here...">
+              </div>
+              <div>
+                <label class="label">
+                  Label
+                  <input type="text" class="input" size="20" placeholder="Input text here...">
+                </label>
+              </div>
+              <div>
+                <label class="label" for="input-text-grouped">Label</label>
+                <div class="is-grouped">
+                  <input type="text" class="input" id="input-text-grouped" size="20" placeholder="Input text here...">
+                  <button type="button" class="button is-primary">Button</button>
+                </div>
+              </div>
+              <div>
+                <label class="label">
+                  __Baseline__
+                  <input type="text" class="input" size="1" placeholder="__is__">
+                </label>
+                <button type="button" class="button is-primary">__aligned__</button>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+
+          <h3 id="input-text-states">States</h2>
+          <div class="snippet">
+            <div>
+              <fieldset disabled>
+                <input type="text" class="input" value="disabled">
+              </fieldset>
+              <div>
+                <input type="text" class="input" value="readonly" readonly>
+              </div>
+              <div>
+                <input type="text" class="input" value="invalid" pattern="^$">
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+
+          <div id="input-text-sizes"> 
+            <h3>Sizes</h2>
+            <div class="snippet">
+              <div>
+                <div>
+                  <label class="label is-size-xs">Label <input type="text" class="input" placeholder=".is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-size-s">Label <input type="text" class="input" placeholder=".is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-size-m">Label <input type="text" class="input" placeholder=".is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-size-l">Label <input type="text" class="input" placeholder=".is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-size-xl">Label <input type="text" class="input" placeholder=".is-size-xl"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xs">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-s">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-m">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-l">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xl">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xl"></label>
+                </div>
+              </div>
+              <pre class="box">
+                <code class="html">
+                </code>
+              </pre>
+            </div>
+          </div>
+
+          <h2 id="input-select">Select</h2>
+          <div class="snippet">
+            <div>
+              <div>
+                <select class="select">
+                  <option>items</option>
+                  <option>items</option>
+                  <option>items</option>
+                  <option>items</option>
+                </select>
+              </div>
+              <div>
+                <label class="label">
+                  Label
+                  <input type="text" class="input" size="20" placeholder="Input text here...">
+                </label>
+              </div>
+              <div>
+                <label class="label" for="input-text-grouped">Label</label>
+                <div class="is-grouped">
+                  <input type="text" class="input" id="input-text-grouped" size="20" placeholder="Input text here...">
+                  <button type="button" class="button is-primary">Button</button>
+                </div>
+              </div>
+              <div>
+                <label class="label">
+                  __Baseline__
+                  <input type="text" class="input" size="1" placeholder="__is__">
+                </label>
+                <button type="button" class="button is-primary">__aligned__</button>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+
+          <h3 id="input-select-states">States</h2>
+          <div class="snippet">
+            <div>
+              <fieldset disabled>
+                <input type="text" class="input" value="disabled">
+              </fieldset>
+              <div>
+                <input type="text" class="input" value="readonly" readonly>
+              </div>
+              <div>
+                <input type="text" class="input" value="invalid" pattern="^$">
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+
+          <div id="input-select-sizes"> 
+            <h3>Sizes</h2>
+            <div class="snippet">
+              <div>
+                <div>
+                  <label class="label is-size-xs">Label <input type="text" class="input" placeholder=".is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-size-s">Label <input type="text" class="input" placeholder=".is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-size-m">Label <input type="text" class="input" placeholder=".is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-size-l">Label <input type="text" class="input" placeholder=".is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-size-xl">Label <input type="text" class="input" placeholder=".is-size-xl"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xs">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-s">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-m">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-l">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xl">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xl"></label>
+                </div>
+              </div>
+              <pre class="box">
+                <code class="html">
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
         <!-- Modal -->
-        <!-- Delete -->
         <!-- Icon -->
         <!-- Image -->
         <!-- Notification -->
@@ -1067,6 +1290,7 @@
     </main>
 
 <!-- Google Universal Analytics -->
+<!--
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -1075,6 +1299,7 @@
 ga('create', 'UA-37966978-1', 'urin.github.io');
 ga('send', 'pageview');
 </script>
+-->
 
   </body>
 </html>
