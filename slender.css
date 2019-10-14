@@ -1135,16 +1135,19 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
   transition-property: border-color, box-shadow;
 }
 
-.select,
-.is-grouped > .select {
-  padding-right: 2em;
-}
-
 .select {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
   outline: none;
+}
+
+.select:not([multiple]),
+.is-grouped > .select:not([multiple]) {
+  padding-right: 2em;
+}
+
+.select:not([multiple]) {
   background-repeat: no-repeat;
   background-size: 1em 1em;
   background-position: calc(100% - .5em) .5em;
@@ -1155,6 +1158,14 @@ fieldset[disabled] .button.is-togglable > input + *:hover {
 .select > option {
   line-height: 2;
   padding: 0 1em;
+}
+
+.select[multiple] {
+  padding: 0;
+}
+
+.select[multiple] > option {
+  padding: .5em .6em;
 }
 
 .input[disabled][type=text],
@@ -1251,7 +1262,7 @@ fieldset[disabled] .select {
   display: flex;
 }
 
-.is-fullwidth:not(.table) > * {
+.is-fullwidth:not(.table):not([multiple]) > * {
   width: 100%;
   margin-left: .5em;
 }
