@@ -1264,6 +1264,9 @@ fieldset[disabled] .select {
 
 .is-fullwidth:not(.table):not([multiple]) > * {
   width: 100%;
+}
+
+:not(.is-vertical) .is-fullwidth:not(.table):not([multiple]):not(.is-vertical) > :not(.is-vertical) {
   margin-left: .5em;
 }
 
