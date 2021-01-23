@@ -1,6 +1,7 @@
-location.hash = location.hash || '#overview'
+/* global Vue, hljs */
+document.location.hash = document.location.hash || '#overview'
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const vm = new Vue({
     el: 'main',
     data: {
@@ -8,38 +9,37 @@ document.addEventListener('DOMContentLoaded', function() {
       color: {
         h: +cssvar('--h'),
         s: +cssvar('--s'),
-        l: +cssvar('--l'),
+        l: +cssvar('--l')
       },
       bg: {
         h: +cssvar('--bg-h'),
         s: +cssvar('--bg-s'),
-        l: +cssvar('--bg-l'),
-      },
+        l: +cssvar('--bg-l')
+      }
     },
     watch: {
-      'color.h': function(val) { cssvar('--h', val) },
-      'color.s': function(val) { cssvar('--s', val) },
-      'color.l': function(val) { cssvar('--l', val) },
-      'bg.h': function(val) { cssvar('--bg-h', val) },
-      'bg.s': function(val) { cssvar('--bg-s', val) },
-      'bg.l': function(val) { cssvar('--bg-l', val) },
+      'color.h': val => cssvar('--h', val),
+      'color.s': val => cssvar('--s', val),
+      'color.l': val => cssvar('--l', val),
+      'bg.h': val => cssvar('--bg-h', val),
+      'bg.s': val => cssvar('--bg-s', val),
+      'bg.l': val => cssvar('--bg-l', val)
     },
     methods: {
-      hashchange: function() {
-        this.hash = location.hash
-      },
-    },
+      hashchange: function () {
+        this.hash = document.location.hash
+      }
+    }
   })
-  window.addEventListener('hashchange', function() { vm.hashchange() })
+  window.addEventListener('hashchange', function () { vm.hashchange() })
   hljs.initHighlighting()
   vm.hashchange()
 
-  function cssvar(name, value) {
+  function cssvar (name, value) {
     if (value == null) {
-      return getComputedStyle(document.documentElement).getPropertyValue(name)
+      return window.getComputedStyle(document.documentElement).getPropertyValue(name)
     }
     document.documentElement.style.setProperty(name, value)
     return document.documentElement.style
   }
 })
-

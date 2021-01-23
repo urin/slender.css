@@ -1,5 +1,5 @@
 @media screen and (max-width: 1087px) {
-  .hide-if-narrow {
+  .subsections {
     display: none;
   }
 }
@@ -232,7 +232,10 @@ main > .document > section:not(:target) {
   width: 100%;
 }
 
-#input .snippet > div > :not(:last-child) {
+#input-text .snippet > div > :not(:last-child),
+#input-select .snippet > div > :not(:last-child),
+#input-multiple .snippet > div > :not(:last-child),
+#file-select .snippet > div > :not(:last-child) {
   margin-bottom: 1rem;
 }
 
