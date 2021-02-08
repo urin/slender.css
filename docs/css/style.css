@@ -47,14 +47,8 @@ main > .document {
 main > .document > section {
   padding-top: 2rem;
   transition: opacity .15s linear;
-}
-
-main > .document > section:not(:target) {
-  padding: 0;
-  margin: 0;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 50rem;
 }
 
 @media screen and (max-width: 1087px), print {

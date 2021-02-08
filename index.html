@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./slender.css">
     <link rel="stylesheet" href="./docs/css/style.css">
     <link rel="stylesheet" href="./docs/css/solarized.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="./docs/js/vue.min.js"></script>
     <script defer src="./docs/js/main.js"></script>
     <script defer src="./docs/js/highlight.js"></script>
@@ -51,7 +52,7 @@
             <li>Styles</li>
             <li>Grouped</li>
           </ul>
-          <a href="#input-text"     :class="hash === '#input-text' ? 'active' : ''">Text</a>
+          <a href="#input-text"     :class="hash === '#input-text' ? 'active' : ''">Text input</a>
           <ul class="subsections">
             <li>States</li>
             <li>Sizes</li>
@@ -152,18 +153,19 @@
               </ul>
             </li>
             <li>
-              <p>Semantic HTML5 markup.</p>
+              <p>Semantic markup.</p>
             </li>
             <li>
               <p>Using progressive HTML5 and CSS3 features:</p>
-                <ul>
-                  <li><a href="//www.w3.org/TR/css-variables-1/">CSS variables</a></li>
-                  <li><a href="//www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a></li>
-                  <li><a href="//www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a></li>
-                  <li><a href="//www.w3.org/TR/html52/interactive-elements.html#the-dialog-element"><code>&lt;dialog&gt;</code> element</a></li>
-                  <li><a href="//www.w3.org/TR/html50/disabled-elements.html#selector-invalid">selector <code>:invalid</code></a></li>
-                </ul>
-              <p>and so on...</p>
+              <ul>
+                <li><a href="https://www.w3.org/TR/css-variables-1/">CSS variables</a></li>
+                <li><a href="https://www.w3.org/TR/css-color-3/#hsl-color"><code>hsl()</code></a></li>
+                <li><a href="https://www.w3.org/TR/css-values-3/#calc-notation"><code>calc()</code></a></li>
+                <li><a href="https://www.w3.org/TR/html52/interactive-elements.html#the-dialog-element"><code>&lt;dialog&gt;</code> element</a></li>
+                <li><a href="https://www.w3.org/TR/html50/disabled-elements.html#selector-invalid">selector <code>:invalid</code></a></li>
+                <li><a href="https://www.w3.org/TR/selectors-4/#matches">pseudo-class <code>:is()</code></a></li>
+
+              </ul>
               <p>You can customize colors, sizes and properties overwriting pre-defined CSS variables.</p>
             </li>
             <li>
@@ -190,11 +192,15 @@
 
           <div class="snippet">
             <div>
-              <button type="button" class="button">Button</button>
+              <button class="button">Button</button>
+              <button class="button">__<i class="icon material-icons">favorite</i>__</button>
+              <button class="button"><i class="icon material-icons">favorite</i></button>
+              <button class="button">Button</button>
+              <button class="button"><i class="icon material-icons">favorite</i></button>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;button type="button" class="button"&gt;Button&lt;/button&gt;
+                &lt;button class="button"&gt;Button&lt;/button&gt;
               </code>
             </pre>
           </div>
@@ -614,6 +620,499 @@
             </pre>
           </div>
 
+        </section>
+
+        <section id="input-text">
+          <h1>Text input</h1>
+
+          <div class="snippet">
+            <div>
+              <div>
+                <input type="text" class="input" size="20" placeholder="Input text here...">
+              </div>
+              <div>
+                <label class="label">
+                  Label
+                  <input type="text" class="input" size="20" placeholder="Input text here...">
+                </label>
+              </div>
+              <div>
+                <label class="label is-grouped">
+                  Label
+                  <input type="text" class="input" id="input-text-grouped" size="20" placeholder="Input text here...">
+                  <button type="button" class="button is-primary">Button</button>
+                </label>
+              </div>
+              <div>
+                <label class="label">
+                  __Baseline__
+                  <input type="text" class="input" size="1" value="__is__">
+                </label>
+                <button type="button" class="button is-primary">__aligned__</button>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;input type="text" class="input"&gt;<br>
+                <br>
+                &lt;label class="label"&gt;<br>
+                &nbsp;&nbsp;Label<br>
+                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
+                &lt;/label&gt;<br>
+                <br>
+                &lt;label class="label is-grouped"&gt;<br>
+                &nbsp;&nbsp;Label<br>
+                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
+                &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
+                &lt;/label&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <h2>States</h2>
+          <div class="snippet">
+            <div>
+              <fieldset disabled>
+                <input type="text" class="input" value="disabled">
+              </fieldset>
+              <div>
+                <input type="text" class="input" value="readonly" readonly tabindex="-1">
+              </div>
+              <div>
+                <input type="text" class="input" value="invalid" pattern="^$">
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;fieldset disabled&gt;<br>
+                &nbsp;&nbsp;&lt;input type="text" class="input" value="disabled"&gt;<br>
+                &lt;/fieldset&gt;<br>
+                <br>
+                &lt;input type="text" class="input" value="readonly" readonly tabindex="-1"&gt;<br>
+                <br>
+                &lt;input type="text" class="input" value="invalid" pattern="^$"&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <div>
+            <h2>Sizes</h2>
+            <div class="snippet">
+              <div>
+                <div>
+                  <label class="label is-size-xs">Label <input type="text" class="input" placeholder=".is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-size-s">Label <input type="text" class="input" placeholder=".is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-size-m">Label <input type="text" class="input" placeholder=".is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-size-l">Label <input type="text" class="input" placeholder=".is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-size-xl">Label <input type="text" class="input" placeholder=".is-size-xl"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xs">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xs"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-s">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-s"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-m">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-m"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-l">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-l"></label>
+                </div>
+                <div>
+                  <label class="label is-fullwidth is-size-xl">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xl"></label>
+                </div>
+              </div>
+              <pre class="box">
+                <code class="html">
+                  &lt;label class="label is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  <br>
+                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="input-select">
+          <h1>Select</h1>
+
+          <div class="snippet">
+            <div>
+              <div>
+                <select class="select">
+                  <option></option>
+                  <option>item</option>
+                  <option>item</option>
+                  <option>item</option>
+                  <option>item</option>
+                </select>
+              </div>
+              <div>
+                <label class="label">
+                  Label
+                  <select class="select">
+                    <option></option>
+                    <option>item</option>
+                    <option>item</option>
+                    <option>item</option>
+                    <option>item</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label class="label is-grouped">
+                  Label
+                  <select class="select" id="input-select-grouped">
+                    <option></option>
+                    <option>item</option>
+                    <option>item</option>
+                    <option>item</option>
+                    <option>item</option>
+                  </select>
+                  <button type="button" class="button is-primary">Button</button>
+                </label>
+              </div>
+              <div>
+                <label class="label">
+                  __Baseline__
+                  <select class="select">
+                    <option>__is__</option>
+                    <option>__is__</option>
+                    <option>__is__</option>
+                    <option>__is__</option>
+                  </select>
+                </label>
+                <button type="button" class="button is-primary">__aligned__</button>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;select class="select"&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+                <br>
+                &lt;label class="label"&gt;<br>
+                &nbsp;&nbsp;Label<br>
+                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;/select&gt;<br>
+                &lt;/label&gt;<br>
+                <br>
+                &lt;label class="label is-grouped""&gt;<br>
+                &nbsp;&nbsp;Label<br>
+                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;/select&gt;<br>
+                &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
+                &lt;/label&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <h2>States</h2>
+          <div class="snippet">
+            <div>
+              <fieldset disabled>
+                <select class="select">
+                  <option>disabled</option>
+                </select>
+              </fieldset>
+              <div>
+                <select class="select" disabled>
+                  <option>disabled</option>
+                </select>
+              </div>
+              <div>
+                <select class="select" required>
+                  <option></option>
+                  <option>required</option>
+                </select>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;fieldset disabled&gt;<br>
+                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;disabled&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;/select&gt;<br>
+                &lt;/fieldset&gt;<br>
+                <br>
+                &lt;select class="select" disabled&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;disabled&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+                <br>
+                &lt;select class="select" required&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;required&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <div>
+            <h2>Sizes</h2>
+            <div class="snippet">
+              <div>
+                <p><label class="label is-size-xs">Label <select class="select"><option>.is-size-xs</option></select></label></p>
+                <p><label class="label is-size-s">Label <select class="select"><option> .is-size-s</option></select></label></p>
+                <p><label class="label is-size-m">Label <select class="select"><option> .is-size-m</option></select></label></p>
+                <p><label class="label is-size-l">Label <select class="select"><option> .is-size-l</option></select></label></p>
+                <p><label class="label is-size-xl">Label <select class="select"><option>.is-size-xl</option></select></label></p>
+                <p><label class="label is-fullwidth is-size-xs">Label <select class="select"><option>.is-fullwidth.is-size-xs</option></select></label></p>
+                <p><label class="label is-fullwidth is-size-s">Label <select class="select"><option> .is-fullwidth.is-size-s</option></select></label></p>
+                <p><label class="label is-fullwidth is-size-m">Label <select class="select"><option> .is-fullwidth.is-size-m</option></select></label></p>
+                <p><label class="label is-fullwidth is-size-l">Label <select class="select"><option> .is-fullwidth.is-size-l</option></select></label></p>
+                <p><label class="label is-fullwidth is-size-xl">Label <select class="select"><option>.is-fullwidth.is-size-xl</option></select></label></p>
+              </div>
+              <pre class="box">
+                <code class="html">
+                  &lt;label class="label is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  <br>
+                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="input-multiple">
+          <h1>Multiple select</h1>
+
+          <div class="snippet">
+            <div>
+              <div>
+                <select class="select" multiple size="3">
+                  <option>item</option>
+                  <option>item</option>
+                  <option>item</option>
+                  <option>item</option>
+                </select>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;select class="select" multiple&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <h2>States</h2>
+          <div class="snippet">
+            <div>
+              <fieldset disabled>
+                <select class="select" multiple size="3">
+                  <option>disabled</option>
+                  <option>disabled</option>
+                  <option>disabled</option>
+                  <option>disabled</option>
+                </select>
+              </fieldset>
+              <div>
+                <select class="select" multiple disabled size="3">
+                  <option>disabled</option>
+                  <option>disabled</option>
+                  <option>disabled</option>
+                  <option>disabled</option>
+                </select>
+              </div>
+              <div>
+                <select class="select" multiple size="3" required>
+                  <option>required</option>
+                  <option>required</option>
+                  <option>required</option>
+                  <option>required</option>
+                </select>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;fieldset disabled&gt;<br>
+                &nbsp;&nbsp;&lt;select class="select" multiple size="3"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;/select&gt;<br>
+                &lt;/fieldset&gt;<br>
+                <br>
+                &lt;select class="select" multiple disabled size="3"&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+                <br>
+                &lt;select class="select" multiple required size="3"&gt;<br>
+                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
+                &lt;/select&gt;<br>
+              </code>
+            </pre>
+          </div>
+
+          <div>
+            <h2>Sizes</h2>
+            <div class="snippet">
+              <div>
+                <p>
+                  <select multiple size="2" class="select is-size-xs">
+                    <option>.is-size-xs
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-size-s">
+                    <option>.is-size-s
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-size-m">
+                    <option>.is-size-m
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-size-l">
+                    <option>.is-size-l
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-size-xl">
+                    <option>.is-size-xl
+                    </option>
+                  </select>
+                </p>
+
+                <p>
+                  <select multiple size="2" class="select is-fullwidth is-size-xs">
+                    <option>.is-fullwidth.is-size-xs
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-fullwidth is-size-s">
+                    <option>.is-fullwidth.is-size-s
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-fullwidth is-size-m">
+                    <option>.is-fullwidth.is-size-m
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-fullwidth is-size-l">
+                    <option>.is-fullwidth.is-size-l
+                    </option>
+                  </select>
+                </p>
+                <p>
+                  <select multiple size="2" class="select is-fullwidth is-size-xl">
+                    <option>.is-fullwidth.is-size-xl
+                    </option>
+                  </select>
+                </p>
+              </div>
+              <pre class="box">
+                <code class="html">
+                  <p>&lt;select class="select is-size-xs"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-size-s"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-size-m"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-size-l"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-size-xl"&gt;...&lt;/select&gt;<br></p>
+                  <p><br></p>
+                  <p>&lt;select class="select is-fullwidth is-size-xs"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-fullwidth is-size-s"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-fullwidth is-size-m"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-fullwidth is-size-l"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select is-fullwidth is-size-xl"&gt;...&lt;/select&gt;</p>
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="file-select">
+          <h1>File select</h1>
+
+          <div class="snippet">
+            <div>
+              <div>
+                <label class="file-select">
+                  <input type="file">
+                  <span>Choose file...</span>
+                </label>
+              </div>
+              <div>
+                <div class="is-grouped">
+                  <label class="file-select is-info">
+                    <input type="file">
+                    <span>Choose file...</span>
+                  </label>
+                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
+                </div>
+              </div>
+              <div>
+                <div class="is-grouped">
+                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
+                  <label class="file-select" tabindex="0">
+                    <input type="file">
+                    <span>Choose file...</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                <p>
+                &nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                </p>
+                <p>
+                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select is-info"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+                </p>
+                <p>
+                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+                </p>
+              </code>
+            </pre>
+          </div>
         </section>
 
         <section id="box">
@@ -1162,499 +1661,6 @@
             </pre>
           </div>
 
-        </section>
-
-        <section id="input-text">
-          <h1>Text input</h1>
-
-          <div class="snippet">
-            <div>
-              <div>
-                <input type="text" class="input" size="20" placeholder="Input text here...">
-              </div>
-              <div>
-                <label class="label">
-                  Label
-                  <input type="text" class="input" size="20" placeholder="Input text here...">
-                </label>
-              </div>
-              <div>
-                <label class="label" for="input-text-grouped">Label</label>
-                <div class="is-grouped">
-                  <input type="text" class="input" id="input-text-grouped" size="20" placeholder="Input text here...">
-                  <button type="button" class="button is-primary">Button</button>
-                </div>
-              </div>
-              <div>
-                <label class="label">
-                  __Baseline__
-                  <input type="text" class="input" size="1" value="__is__">
-                </label>
-                <button type="button" class="button is-primary">__aligned__</button>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;input type="text" class="input"&gt;<br>
-                <br>
-                &lt;label class="label"&gt;<br>
-                &nbsp;&nbsp;Label<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
-                &lt;/label&gt;<br>
-                <br>
-                &lt;label class="label" for="input-text-grouped"&gt;Label&lt;/label&gt;<br>
-                &lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
-                &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
-                &lt;/div&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <h2>States</h2>
-          <div class="snippet">
-            <div>
-              <fieldset disabled>
-                <input type="text" class="input" value="disabled">
-              </fieldset>
-              <div>
-                <input type="text" class="input" value="readonly" readonly tabindex="-1">
-              </div>
-              <div>
-                <input type="text" class="input" value="invalid" pattern="^$">
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;fieldset disabled&gt;<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input" value="disabled"&gt;<br>
-                &lt;/fieldset&gt;<br>
-                <br>
-                &lt;input type="text" class="input" value="readonly" readonly tabindex="-1"&gt;<br>
-                <br>
-                &lt;input type="text" class="input" value="invalid" pattern="^$"&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <div>
-            <h2>Sizes</h2>
-            <div class="snippet">
-              <div>
-                <div>
-                  <label class="label is-size-xs">Label <input type="text" class="input" placeholder=".is-size-xs"></label>
-                </div>
-                <div>
-                  <label class="label is-size-s">Label <input type="text" class="input" placeholder=".is-size-s"></label>
-                </div>
-                <div>
-                  <label class="label is-size-m">Label <input type="text" class="input" placeholder=".is-size-m"></label>
-                </div>
-                <div>
-                  <label class="label is-size-l">Label <input type="text" class="input" placeholder=".is-size-l"></label>
-                </div>
-                <div>
-                  <label class="label is-size-xl">Label <input type="text" class="input" placeholder=".is-size-xl"></label>
-                </div>
-                <div>
-                  <label class="label is-fullwidth is-size-xs">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xs"></label>
-                </div>
-                <div>
-                  <label class="label is-fullwidth is-size-s">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-s"></label>
-                </div>
-                <div>
-                  <label class="label is-fullwidth is-size-m">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-m"></label>
-                </div>
-                <div>
-                  <label class="label is-fullwidth is-size-l">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-l"></label>
-                </div>
-                <div>
-                  <label class="label is-fullwidth is-size-xl">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xl"></label>
-                </div>
-              </div>
-              <pre class="box">
-                <code class="html">
-                  &lt;label class="label is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  <br>
-                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;
-                </code>
-              </pre>
-            </div>
-          </div>
-        </section>
-
-        <section id="input-select">
-          <h1>Select</h1>
-
-          <div class="snippet">
-            <div>
-              <div>
-                <select class="select">
-                  <option></option>
-                  <option>item</option>
-                  <option>item</option>
-                  <option>item</option>
-                  <option>item</option>
-                </select>
-              </div>
-              <div>
-                <label class="label">
-                  Label
-                  <select class="select">
-                    <option></option>
-                    <option>item</option>
-                    <option>item</option>
-                    <option>item</option>
-                    <option>item</option>
-                  </select>
-                </label>
-              </div>
-              <div>
-                <label class="label" for="input-select-grouped">Label</label>
-                <div class="is-grouped">
-                  <select class="select" id="input-select-grouped">
-                    <option></option>
-                    <option>item</option>
-                    <option>item</option>
-                    <option>item</option>
-                    <option>item</option>
-                  </select>
-                  <button type="button" class="button is-primary">Button</button>
-                </div>
-              </div>
-              <div>
-                <label class="label">
-                  __Baseline__
-                  <select class="select">
-                    <option>__is__</option>
-                    <option>__is__</option>
-                    <option>__is__</option>
-                    <option>__is__</option>
-                  </select>
-                </label>
-                <button type="button" class="button is-primary">__aligned__</button>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;select class="select"&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-                <br>
-                &lt;label class="label"&gt;<br>
-                &nbsp;&nbsp;Label<br>
-                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &nbsp;&nbsp;&lt;/select&gt;<br>
-                &lt;/label&gt;<br>
-                <br>
-                &lt;label class="label" for="input-select-grouped"&gt;Label&lt;/label&gt;<br>
-                &lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &nbsp;&nbsp;&lt;/select&gt;<br>
-                &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
-                &lt;/div&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <h2>States</h2>
-          <div class="snippet">
-            <div>
-              <fieldset disabled>
-                <select class="select">
-                  <option>disabled</option>
-                </select>
-              </fieldset>
-              <div>
-                <select class="select" disabled>
-                  <option>disabled</option>
-                </select>
-              </div>
-              <div>
-                <select class="select" required>
-                  <option></option>
-                  <option>required</option>
-                </select>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;fieldset disabled&gt;<br>
-                &nbsp;&nbsp;&lt;select class="select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;disabled&lt;/option&gt;<br>
-                &nbsp;&nbsp;&lt;/select&gt;<br>
-                &lt;/fieldset&gt;<br>
-                <br>
-                &lt;select class="select" disabled&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;disabled&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-                <br>
-                &lt;select class="select" required&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;&lt;/option&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;required&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <div>
-            <h2>Sizes</h2>
-            <div class="snippet">
-              <div>
-                <p><label class="label is-size-xs">Label <select class="select"><option>.is-size-xs</option></select></label></p>
-                <p><label class="label is-size-s">Label <select class="select"><option> .is-size-s</option></select></label></p>
-                <p><label class="label is-size-m">Label <select class="select"><option> .is-size-m</option></select></label></p>
-                <p><label class="label is-size-l">Label <select class="select"><option> .is-size-l</option></select></label></p>
-                <p><label class="label is-size-xl">Label <select class="select"><option>.is-size-xl</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-xs">Label <select class="select"><option>.is-fullwidth.is-size-xs</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-s">Label <select class="select"><option> .is-fullwidth.is-size-s</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-m">Label <select class="select"><option> .is-fullwidth.is-size-m</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-l">Label <select class="select"><option> .is-fullwidth.is-size-l</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-xl">Label <select class="select"><option>.is-fullwidth.is-size-xl</option></select></label></p>
-              </div>
-              <pre class="box">
-                <code class="html">
-                  &lt;label class="label is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  <br>
-                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;
-                </code>
-              </pre>
-            </div>
-          </div>
-        </section>
-
-        <section id="input-multiple">
-          <h1>Multiple select</h1>
-
-          <div class="snippet">
-            <div>
-              <div>
-                <select class="select" multiple size="3">
-                  <option>item</option>
-                  <option>item</option>
-                  <option>item</option>
-                  <option>item</option>
-                </select>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;select class="select" multiple&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <h2>States</h2>
-          <div class="snippet">
-            <div>
-              <fieldset disabled>
-                <select class="select" multiple size="3">
-                  <option>disabled</option>
-                  <option>disabled</option>
-                  <option>disabled</option>
-                  <option>disabled</option>
-                </select>
-              </fieldset>
-              <div>
-                <select class="select" multiple disabled size="3">
-                  <option>disabled</option>
-                  <option>disabled</option>
-                  <option>disabled</option>
-                  <option>disabled</option>
-                </select>
-              </div>
-              <div>
-                <select class="select" multiple size="3" required>
-                  <option>required</option>
-                  <option>required</option>
-                  <option>required</option>
-                  <option>required</option>
-                </select>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                &lt;fieldset disabled&gt;<br>
-                &nbsp;&nbsp;&lt;select class="select" multiple size="3"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &nbsp;&nbsp;&lt;/select&gt;<br>
-                &lt;/fieldset&gt;<br>
-                <br>
-                &lt;select class="select" multiple disabled size="3"&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-                <br>
-                &lt;select class="select" multiple required size="3"&gt;<br>
-                &nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
-                &lt;/select&gt;<br>
-              </code>
-            </pre>
-          </div>
-
-          <div>
-            <h2>Sizes</h2>
-            <div class="snippet">
-              <div>
-                <p>
-                  <select multiple size="2" class="select is-size-xs">
-                    <option>.is-size-xs
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-size-s">
-                    <option>.is-size-s
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-size-m">
-                    <option>.is-size-m
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-size-l">
-                    <option>.is-size-l
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-size-xl">
-                    <option>.is-size-xl
-                    </option>
-                  </select>
-                </p>
-
-                <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-xs">
-                    <option>.is-fullwidth.is-size-xs
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-s">
-                    <option>.is-fullwidth.is-size-s
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-m">
-                    <option>.is-fullwidth.is-size-m
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-l">
-                    <option>.is-fullwidth.is-size-l
-                    </option>
-                  </select>
-                </p>
-                <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-xl">
-                    <option>.is-fullwidth.is-size-xl
-                    </option>
-                  </select>
-                </p>
-              </div>
-              <pre class="box">
-                <code class="html">
-                  <p>&lt;select class="select is-size-xs"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-s"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-m"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-l"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-xl"&gt;...&lt;/select&gt;<br></p>
-                  <p><br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-xs"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-s"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-m"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-l"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-xl"&gt;...&lt;/select&gt;</p>
-                </code>
-              </pre>
-            </div>
-          </div>
-        </section>
-
-        <section id="file-select">
-          <h1>File select</h1>
-
-          <div class="snippet">
-            <div>
-              <div>
-                <label class="file-select">
-                  <input type="file">
-                  <span>Choose file...</span>
-                </label>
-              </div>
-              <div>
-                <div class="is-grouped">
-                  <label class="file-select is-info">
-                    <input type="file">
-                    <span>Choose file...</span>
-                  </label>
-                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
-                </div>
-              </div>
-              <div>
-                <div class="is-grouped">
-                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
-                  <label class="file-select" tabindex="0">
-                    <input type="file">
-                    <span>Choose file...</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <pre class="box">
-              <code class="html">
-                <p>
-                &nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
-                &nbsp;&nbsp;&lt;/label&gt;<br>
-                </p>
-                <p>
-                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select is-info"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
-                &nbsp;&nbsp;&lt;/div&gt;<br>
-                </p>
-                <p>
-                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
-                &nbsp;&nbsp;&lt;/div&gt;<br>
-                </p>
-              </code>
-            </pre>
-          </div>
         </section>
 
         <!-- Modal -->
