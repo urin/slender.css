@@ -42,8 +42,8 @@
     <main>
       <nav>
         <div class="toc">
-          <a href="#overview" :class="hash === '#overview' ? 'active' : ''">Overview</a>
-          <a href="#button"   :class="hash === '#button'   ? 'active' : ''">Button</a>
+          <a href="#overview" :class="{ active: topic === 'overview' }">Overview</a>
+          <a href="#button"   :class="{ active: topic === 'button'   }">Button</a>
           <ul class="subsections">
             <li>Togglable</li>
             <li>Sizes</li>
@@ -52,48 +52,48 @@
             <li>Styles</li>
             <li>Grouped</li>
           </ul>
-          <a href="#input-text"     :class="hash === '#input-text' ? 'active' : ''">Text input</a>
+          <a href="#input-text"     :class="{ active: topic === 'input-text' }">Text input</a>
           <ul class="subsections">
             <li>States</li>
             <li>Sizes</li>
           </ul>
-          <a href="#input-select"   :class="hash === '#input-select' ? 'active' : ''">Select</a>
+          <a href="#input-select"   :class="{ active: topic === 'input-select' }">Select</a>
           <ul class="subsections">
             <li>States</li>
             <li>Sizes</li>
           </ul>
-          <a href="#input-multiple" :class="hash === '#input-multiple' ? 'active' : ''">Multiple select</a>
+          <a href="#input-multiple" :class="{ active: topic === 'input-multiple' }">Multiple select</a>
           <ul class="subsections">
             <li>States</li>
             <li>Sizes</li>
           </ul>
-          <a href="#file-select"    :class="hash === '#file-select' ? 'active' : ''">File select</a>
+          <a href="#file-select"    :class="{ active: topic === 'file-select' }">File select</a>
           <ul class="subsections">
             <li>States</li>
             <li>Sizes</li>
           </ul>
-          <a href="#box" :class="hash === '#box' ? 'active' : ''">Box</a>
+          <a href="#box" :class="{ active: topic === 'box' }">Box</a>
           <ul class="subsections">
             <li>Sizes</li>
           </ul>
-          <a href="#tag" :class="hash === '#tag' ? 'active' : ''">Tag</a>
+          <a href="#tag" :class="{ active: topic === 'tag' }">Tag</a>
           <ul class="subsections">
             <li>Sizes</li>
             <li>Colors</li>
             <li>Styles</li>
             <li>Grouped</li>
           </ul>
-          <a href="#table"        :class="hash === '#table'        ? 'active' : ''">Table</a>
+          <a href="#table"        :class="{ active: topic === 'table' }">Table</a>
           <ul class="subsections">
             <li>Full width</li>
             <li>Hoverable</li>
             <li>Bordered</li>
           </ul>
-          <a href="#modal"        :class="hash === '#modal'        ? 'active' : ''">Modal</a>
-          <a href="#notification" :class="hash === '#notification' ? 'active' : ''">Notification</a>
-          <a href="#progress"     :class="hash === '#progress'     ? 'active' : ''">Progress</a>
-          <a href="#document"     :class="hash === '#document'     ? 'active' : ''">Document</a>
-          <a href="#modifier"     :class="hash === '#modifier'     ? 'active' : ''">Modifier</a>
+          <a href="#modal"        :class="{ active: topic === 'modal'        }">Modal</a>
+          <a href="#notification" :class="{ active: topic === 'notification' }">Notification</a>
+          <a href="#progress"     :class="{ active: topic === 'progress'     }">Progress</a>
+          <a href="#document"     :class="{ active: topic === 'document'     }">Document</a>
+          <a href="#modifier"     :class="{ active: topic === 'modifier'     }">Modifier</a>
         </div>
 
         <div class="box is-size-s controls">
