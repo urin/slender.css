@@ -47,8 +47,6 @@ main > .document {
 main > .document > section {
   padding-top: 2rem;
   transition: opacity .15s linear;
-  content-visibility: auto;
-  contain-intrinsic-size: 50rem;
 }
 
 @media screen and (max-width: 1087px), print {
@@ -73,8 +71,11 @@ main > .document > section {
 
 .toc a {
   display: block;
-  padding: .25rem .5rem;
   color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .5);
+}
+
+.toc > a {
+  padding: .25em .5rem;
 }
 
 .toc a:hover {
@@ -100,7 +101,7 @@ main > .document > section {
 }
 
 .toc .active + ul > li {
-  max-height: 1.5em;
+  max-height: 2em;
 }
 
 .controls {
@@ -226,9 +227,9 @@ main > .document > section {
   width: 100%;
 }
 
-#input-text .snippet > div > :not(:last-child),
-#input-select .snippet > div > :not(:last-child),
-#input-multiple .snippet > div > :not(:last-child),
+#text-input .snippet > div > :not(:last-child),
+#select .snippet > div > :not(:last-child),
+#multiple-select .snippet > div > :not(:last-child),
 #file-select .snippet > div > :not(:last-child) {
   margin-bottom: 1rem;
 }

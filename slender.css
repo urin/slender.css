@@ -14,8 +14,7 @@
   --duration: .25s;
   --bg-l-invert: calc(1 - var(--bg-l));
   --bg: hsl(var(--bg-h), calc(var(--bg-s) * 100%), calc(var(--bg-l) * 100%));
-  --fg: hsl(var(--h), 10%, calc(var(--bg-l-invert) * var(--bg-l-invert) * 80% + 20%));
-  --fg-invert: hsl(var(--h), 10%, calc(var(--bg-l) * var(--bg-l) * 80%));
+  --fg: hsl(var(--h), 10%, calc(30% + 60% * (1 - max(var(--bg-l) - 0.8, 0) / (var(--bg-l) - 0.8))));
   --white: #fff;
   --light: hsl(var(--h), calc(var(--s) * 10%), 97%);
   --gray-lighter: hsl(var(--h), calc(var(--s) * 10%), 80%);
@@ -158,6 +157,19 @@ fieldset {
   border: none;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-lighter);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vmax;
+  background-color: var(--gray-light);
+}
+
 /**
  * common
  */
@@ -178,7 +190,6 @@ fieldset {
 .input,
 .modal,
 .icon,
-.image,
 .notification,
 .progress {
   transition-duration: var(--duration);
@@ -234,7 +245,7 @@ fieldset {
 }
 
 .document :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
-  margin-top: 0.75em;
+  padding-top: 0.75em;
 }
 
 .document blockquote {
@@ -352,45 +363,6 @@ fieldset {
 }
 
 /**
- * is-grouped
- */
-.is-grouped {
-  display: inline-flex;
-  align-items: baseline;
-}
-
-.is-grouped.is-vertical {
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.is-grouped > * {
-  border-radius: var(--radius);
-}
-
-.is-grouped:not(.is-vertical) > :not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.is-grouped:not(.is-vertical) > :not(:last-child) {
-  border-right-width: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.is-grouped.is-vertical > :not(:first-child) {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.is-grouped.is-vertical > :not(:last-child) {
-  border-bottom-width: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-/**
  * button
  */
 .button,
@@ -411,7 +383,7 @@ fieldset {
   border-radius: var(--radius);
   cursor: pointer;
   transition-property: box-shadow, background-color;
-  color: inherit;
+  color: var(--fg);
   background-color: var(--bg);
   background-image: radial-gradient(circle, hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.1) 50%, transparent 51%);
   background-position: center center;
@@ -504,347 +476,314 @@ fieldset[disabled] :is(.button,
   border-bottom-right-radius: 0;
 }
 
-.button.is-blue,
-.toggle-button.is-blue > input + *,
-.file-select.is-blue > input + * {
-  background-color: var(--blue);
-  color: var(--light);
-}
-
-.button.is-indigo,
-.toggle-button.is-indigo > input + *,
-.file-select.is-indigo > input + * {
-  background-color: var(--indigo);
-  color: var(--light);
-}
-
-.button.is-purple,
-.toggle-button.is-purple > input + *,
-.file-select.is-purple > input + * {
-  background-color: var(--purple);
-  color: var(--light);
-}
-
-.button.is-pink,
-.toggle-button.is-pink > input + *,
-.file-select.is-pink > input + * {
-  background-color: var(--pink);
-  color: var(--light);
-}
-
-.button.is-red,
-.toggle-button.is-red > input + *,
-.file-select.is-red > input + * {
-  background-color: var(--red);
-  color: var(--light);
-}
-
-.button.is-orange,
-.toggle-button.is-orange > input + *,
-.file-select.is-orange > input + * {
-  background-color: var(--orange);
-  color: var(--light);
-}
-
-.button.is-yellow,
-.toggle-button.is-yellow > input + *,
-.file-select.is-yellow > input + * {
-  background-color: var(--yellow);
-  color: var(--light);
-}
-
-.button.is-green,
-.toggle-button.is-green > input + *,
-.file-select.is-green > input + * {
-  background-color: var(--green);
-  color: var(--light);
-}
-
-.button.is-teal,
-.toggle-button.is-teal > input + *,
-.file-select.is-teal > input + * {
-  background-color: var(--teal);
-  color: var(--light);
-}
-
-.button.is-cyan,
-.toggle-button.is-cyan > input + *,
-.file-select.is-cyan > input + * {
-  background-color: var(--cyan);
-  color: var(--light);
-}
-
 .button.is-white,
-.toggle-button.is-white > input + *,
-.file-select.is-white > input + * {
+:is(.toggle-button, .file-select).is-white > input + * {
   background-color: var(--white);
 }
 
 .button.is-light,
-.toggle-button.is-light > input + *,
-.file-select.is-light > input + * {
+:is(.toggle-button, .file-select).is-light > input + * {
   background-color: var(--light);
 }
 
+.button.is-gray-lighter,
+:is(.toggle-button, .file-select).is-gray-lighter > input + * {
+  background-color: var(--gray-lighter);
+  color: var(--light);
+}
+
 .button.is-gray-light,
-.toggle-button.is-gray-light > input + *,
-.file-select.is-gray-light > input + * {
+:is(.toggle-button, .file-select).is-gray-light > input + * {
   background-color: var(--gray-light);
   color: var(--light);
 }
 
 .button.is-gray,
-.toggle-button.is-gray > input + *,
-.file-select.is-gray > input + * {
+:is(.toggle-button, .file-select).is-gray > input + * {
   background-color: var(--gray);
   color: var(--light);
 }
 
 .button.is-gray-dark,
-.toggle-button.is-gray-dark > input + *,
-.file-select.is-gray-dark > input + * {
+:is(.toggle-button, .file-select).is-gray-dark > input + * {
   background-color: var(--gray-dark);
   color: var(--light);
 }
 
 .button.is-dark,
-.toggle-button.is-dark > input + *,
-.file-select.is-dark > input + * {
+:is(.toggle-button, .file-select).is-dark > input + * {
   background-color: var(--dark);
   color: var(--light);
 }
 
 .button.is-black,
-.toggle-button.is-black > input + *,
-.file-select.is-black > input + * {
+:is(.toggle-button, .file-select).is-black > input + * {
   background-color: var(--black);
   color: var(--light);
 }
 
 .button.is-primary,
-.toggle-button.is-primary > input + *,
-.file-select.is-primary > input + * {
+:is(.toggle-button, .file-select).is-primary > input + * {
   background-color: var(--primary);
   color: var(--light);
 }
 
 .button.is-secondary,
-.toggle-button.is-secondary > input + *,
-.file-select.is-secondary > input + * {
+:is(.toggle-button, .file-select).is-secondary > input + * {
   background-color: var(--secondary);
   color: var(--light);
 }
 
 .button.is-success,
-.toggle-button.is-success > input + *,
-.file-select.is-success > input + * {
+:is(.toggle-button, .file-select).is-success > input + * {
   background-color: var(--success);
   color: var(--light);
 }
 
 .button.is-info,
-.toggle-button.is-info > input + *,
-.file-select.is-info > input + * {
+:is(.toggle-button, .file-select).is-info > input + * {
   background-color: var(--info);
   color: var(--light);
 }
 
 .button.is-warning,
-.toggle-button.is-warning > input + *,
-.file-select.is-warning > input + * {
+:is(.toggle-button, .file-select).is-warning > input + * {
   background-color: var(--warning);
   color: var(--light);
 }
 
 .button.is-danger,
-.toggle-button.is-danger > input + *,
-.file-select.is-danger > input + * {
+:is(.toggle-button, .file-select).is-danger > input + * {
   background-color: var(--danger);
   color: var(--light);
 }
 
-.button.is-outlined.is-blue,
-.toggle-button.is-outlined.is-blue > input + *,
-.file-select.is-outlined.is-blue > input + * {
-  background-color: transparent;
-  color: var(--blue);
-  border-color: var(--blue);
+.button.is-blue,
+:is(.toggle-button, .file-select).is-blue > input + * {
+  background-color: var(--blue);
+  color: var(--light);
 }
 
-.button.is-outlined.is-indigo,
-.toggle-button.is-outlined.is-indigo > input + *,
-.file-select.is-outlined.is-indigo > input + * {
-  background-color: transparent;
-  color: var(--indigo);
-  border-color: var(--indigo);
+.button.is-indigo,
+:is(.toggle-button, .file-select).is-indigo > input + * {
+  background-color: var(--indigo);
+  color: var(--light);
 }
 
-.button.is-outlined.is-purple,
-.toggle-button.is-outlined.is-purple > input + *,
-.file-select.is-outlined.is-purple > input + * {
-  background-color: transparent;
-  color: var(--purple);
-  border-color: var(--purple);
+.button.is-purple,
+:is(.toggle-button, .file-select).is-purple > input + * {
+  background-color: var(--purple);
+  color: var(--light);
 }
 
-.button.is-outlined.is-pink,
-.toggle-button.is-outlined.is-pink > input + *,
-.file-select.is-outlined.is-pink > input + * {
-  background-color: transparent;
-  color: var(--pink);
-  border-color: var(--pink);
+.button.is-pink,
+:is(.toggle-button, .file-select).is-pink > input + * {
+  background-color: var(--pink);
+  color: var(--light);
 }
 
-.button.is-outlined.is-red,
-.toggle-button.is-outlined.is-red > input + *,
-.file-select.is-outlined.is-red > input + * {
-  background-color: transparent;
-  color: var(--red);
-  border-color: var(--red);
+.button.is-red,
+:is(.toggle-button, .file-select).is-red > input + * {
+  background-color: var(--red);
+  color: var(--light);
 }
 
-.button.is-outlined.is-orange,
-.toggle-button.is-outlined.is-orange > input + *,
-.file-select.is-outlined.is-orange > input + * {
-  background-color: transparent;
-  color: var(--orange);
-  border-color: var(--orange);
+.button.is-orange,
+:is(.toggle-button, .file-select).is-orange > input + * {
+  background-color: var(--orange);
+  color: var(--light);
 }
 
-.button.is-outlined.is-yellow,
-.toggle-button.is-outlined.is-yellow > input + *,
-.file-select.is-outlined.is-yellow > input + * {
-  background-color: transparent;
-  color: var(--yellow);
-  border-color: var(--yellow);
+.button.is-yellow,
+:is(.toggle-button, .file-select).is-yellow > input + * {
+  background-color: var(--yellow);
+  color: var(--light);
 }
 
-.button.is-outlined.is-green,
-.toggle-button.is-outlined.is-green > input + *,
-.file-select.is-outlined.is-green > input + * {
-  background-color: transparent;
-  color: var(--green);
-  border-color: var(--green);
+.button.is-green,
+:is(.toggle-button, .file-select).is-green > input + * {
+  background-color: var(--green);
+  color: var(--light);
 }
 
-.button.is-outlined.is-teal,
-.toggle-button.is-outlined.is-teal > input + *,
-.file-select.is-outlined.is-teal > input + * {
-  background-color: transparent;
-  color: var(--teal);
-  border-color: var(--teal);
+.button.is-teal,
+:is(.toggle-button, .file-select).is-teal > input + * {
+  background-color: var(--teal);
+  color: var(--light);
 }
 
-.button.is-outlined.is-cyan,
-.toggle-button.is-outlined.is-cyan > input + *,
-.file-select.is-outlined.is-cyan > input + * {
-  background-color: transparent;
-  color: var(--cyan);
-  border-color: var(--cyan);
+.button.is-cyan,
+:is(.toggle-button, .file-select).is-cyan > input + * {
+  background-color: var(--cyan);
+  color: var(--light);
 }
 
 .button.is-outlined.is-white,
-.toggle-button.is-outlined.is-white > input + *,
-.file-select.is-outlined.is-white > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-white > input + * {
   background-color: transparent;
   color: var(--white);
   border-color: var(--white);
 }
 
 .button.is-outlined.is-light,
-.toggle-button.is-outlined.is-light > input + *,
-.file-select.is-outlined.is-light > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-light > input + * {
   background-color: transparent;
   color: var(--light);
   border-color: var(--light);
 }
 
+.button.is-outlined.is-gray-lighter,
+:is(.toggle-button, .file-select).is-outlined.is-gray-lighter > input + * {
+  background-color: transparent;
+  color: var(--gray-lighter);
+  border-color: var(--gray-lighter);
+}
+
 .button.is-outlined.is-gray-light,
-.toggle-button.is-outlined.is-gray-light > input + *,
-.file-select.is-outlined.is-gray-light > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-gray-light > input + * {
   background-color: transparent;
   color: var(--gray-light);
   border-color: var(--gray-light);
 }
 
 .button.is-outlined.is-gray,
-.toggle-button.is-outlined.is-gray > input + *,
-.file-select.is-outlined.is-gray > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-gray > input + * {
   background-color: transparent;
   color: var(--gray);
   border-color: var(--gray);
 }
 
 .button.is-outlined.is-gray-dark,
-.toggle-button.is-outlined.is-gray-dark > input + *,
-.file-select.is-outlined.is-gray-dark > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-gray-dark > input + * {
   background-color: transparent;
   color: var(--gray-dark);
   border-color: var(--gray-dark);
 }
 
 .button.is-outlined.is-dark,
-.toggle-button.is-outlined.is-dark > input + *,
-.file-select.is-outlined.is-dark > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-dark > input + * {
   background-color: transparent;
   color: var(--dark);
   border-color: var(--dark);
 }
 
 .button.is-outlined.is-black,
-.toggle-button.is-outlined.is-black > input + *,
-.file-select.is-outlined.is-black > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-black > input + * {
   background-color: transparent;
   color: var(--black);
   border-color: var(--black);
 }
 
 .button.is-outlined.is-primary,
-.toggle-button.is-outlined.is-primary > input + *,
-.file-select.is-outlined.is-primary > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-primary > input + * {
   background-color: transparent;
   color: var(--primary);
   border-color: var(--primary);
 }
 
 .button.is-outlined.is-secondary,
-.toggle-button.is-outlined.is-secondary > input + *,
-.file-select.is-outlined.is-secondary > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-secondary > input + * {
   background-color: transparent;
   color: var(--secondary);
   border-color: var(--secondary);
 }
 
 .button.is-outlined.is-success,
-.toggle-button.is-outlined.is-success > input + *,
-.file-select.is-outlined.is-success > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-success > input + * {
   background-color: transparent;
   color: var(--success);
   border-color: var(--success);
 }
 
 .button.is-outlined.is-info,
-.toggle-button.is-outlined.is-info > input + *,
-.file-select.is-outlined.is-info > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-info > input + * {
   background-color: transparent;
   color: var(--info);
   border-color: var(--info);
 }
 
 .button.is-outlined.is-warning,
-.toggle-button.is-outlined.is-warning > input + *,
-.file-select.is-outlined.is-warning > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-warning > input + * {
   background-color: transparent;
   color: var(--warning);
   border-color: var(--warning);
 }
 
 .button.is-outlined.is-danger,
-.toggle-button.is-outlined.is-danger > input + *,
-.file-select.is-outlined.is-danger > input + * {
+:is(.toggle-button, .file-select).is-outlined.is-danger > input + * {
   background-color: transparent;
   color: var(--danger);
   border-color: var(--danger);
+}
+
+.button.is-outlined.is-blue,
+:is(.toggle-button, .file-select).is-outlined.is-blue > input + * {
+  background-color: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.button.is-outlined.is-indigo,
+:is(.toggle-button, .file-select).is-outlined.is-indigo > input + * {
+  background-color: transparent;
+  color: var(--indigo);
+  border-color: var(--indigo);
+}
+
+.button.is-outlined.is-purple,
+:is(.toggle-button, .file-select).is-outlined.is-purple > input + * {
+  background-color: transparent;
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.button.is-outlined.is-pink,
+:is(.toggle-button, .file-select).is-outlined.is-pink > input + * {
+  background-color: transparent;
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+.button.is-outlined.is-red,
+:is(.toggle-button, .file-select).is-outlined.is-red > input + * {
+  background-color: transparent;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.button.is-outlined.is-orange,
+:is(.toggle-button, .file-select).is-outlined.is-orange > input + * {
+  background-color: transparent;
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.button.is-outlined.is-yellow,
+:is(.toggle-button, .file-select).is-outlined.is-yellow > input + * {
+  background-color: transparent;
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.button.is-outlined.is-green,
+:is(.toggle-button, .file-select).is-outlined.is-green > input + * {
+  background-color: transparent;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.button.is-outlined.is-teal,
+:is(.toggle-button, .file-select).is-outlined.is-teal > input + * {
+  background-color: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.button.is-outlined.is-cyan,
+:is(.toggle-button, .file-select).is-outlined.is-cyan > input + * {
+  background-color: transparent;
+  color: var(--cyan);
+  border-color: var(--cyan);
 }
 
 /**
@@ -860,7 +799,7 @@ fieldset[disabled] :is(.button,
   align-items: center;
   align-content: center;
   justify-content: center;
-  color: var(--light);
+  color: var(--fg);
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.08);
 }
 
@@ -919,62 +858,17 @@ fieldset[disabled] :is(.button,
   border-bottom-right-radius: 0;
 }
 
-.tag.is-blue {
-  background-color: var(--blue);
-  color: var(--light);
-}
-
-.tag.is-indigo {
-  background-color: var(--indigo);
-  color: var(--light);
-}
-
-.tag.is-purple {
-  background-color: var(--purple);
-  color: var(--light);
-}
-
-.tag.is-pink {
-  background-color: var(--pink);
-  color: var(--light);
-}
-
-.tag.is-red {
-  background-color: var(--red);
-  color: var(--light);
-}
-
-.tag.is-orange {
-  background-color: var(--orange);
-  color: var(--light);
-}
-
-.tag.is-yellow {
-  background-color: var(--yellow);
-  color: var(--light);
-}
-
-.tag.is-green {
-  background-color: var(--green);
-  color: var(--light);
-}
-
-.tag.is-teal {
-  background-color: var(--teal);
-  color: var(--light);
-}
-
-.tag.is-cyan {
-  background-color: var(--cyan);
-  color: var(--light);
-}
-
 .tag.is-white {
   background-color: var(--white);
 }
 
 .tag.is-light {
   background-color: var(--light);
+}
+
+.tag.is-gray-lighter {
+  background-color: var(--gray-lighter);
+  color: var(--light);
 }
 
 .tag.is-gray-light {
@@ -1032,64 +926,54 @@ fieldset[disabled] :is(.button,
   color: var(--light);
 }
 
-.tag.is-outlined.is-blue {
-  background-color: transparent;
-  color: var(--blue);
-  border: 1px solid var(--blue);
+.tag.is-blue {
+  background-color: var(--blue);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-indigo {
-  background-color: transparent;
-  color: var(--indigo);
-  border: 1px solid var(--indigo);
+.tag.is-indigo {
+  background-color: var(--indigo);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-purple {
-  background-color: transparent;
-  color: var(--purple);
-  border: 1px solid var(--purple);
+.tag.is-purple {
+  background-color: var(--purple);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-pink {
-  background-color: transparent;
-  color: var(--pink);
-  border: 1px solid var(--pink);
+.tag.is-pink {
+  background-color: var(--pink);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-red {
-  background-color: transparent;
-  color: var(--red);
-  border: 1px solid var(--red);
+.tag.is-red {
+  background-color: var(--red);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-orange {
-  background-color: transparent;
-  color: var(--orange);
-  border: 1px solid var(--orange);
+.tag.is-orange {
+  background-color: var(--orange);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-yellow {
-  background-color: transparent;
-  color: var(--yellow);
-  border: 1px solid var(--yellow);
+.tag.is-yellow {
+  background-color: var(--yellow);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-green {
-  background-color: transparent;
-  color: var(--green);
-  border: 1px solid var(--green);
+.tag.is-green {
+  background-color: var(--green);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-teal {
-  background-color: transparent;
-  color: var(--teal);
-  border: 1px solid var(--teal);
+.tag.is-teal {
+  background-color: var(--teal);
+  color: var(--light);
 }
 
-.tag.is-outlined.is-cyan {
-  background-color: transparent;
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
+.tag.is-cyan {
+  background-color: var(--cyan);
+  color: var(--light);
 }
 
 .tag.is-outlined.is-white {
@@ -1102,6 +986,12 @@ fieldset[disabled] :is(.button,
   background-color: transparent;
   color: var(--light);
   border: 1px solid var(--light);
+}
+
+.tag.is-outlined.is-gray-lighter {
+  background-color: transparent;
+  color: var(--gray-lighter);
+  border: 1px solid var(--gray-lighter);
 }
 
 .tag.is-outlined.is-gray-light {
@@ -1170,6 +1060,66 @@ fieldset[disabled] :is(.button,
   border: 1px solid var(--danger);
 }
 
+.tag.is-outlined.is-blue {
+  background-color: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.tag.is-outlined.is-indigo {
+  background-color: transparent;
+  color: var(--indigo);
+  border: 1px solid var(--indigo);
+}
+
+.tag.is-outlined.is-purple {
+  background-color: transparent;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.tag.is-outlined.is-pink {
+  background-color: transparent;
+  color: var(--pink);
+  border: 1px solid var(--pink);
+}
+
+.tag.is-outlined.is-red {
+  background-color: transparent;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.tag.is-outlined.is-orange {
+  background-color: transparent;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
+.tag.is-outlined.is-yellow {
+  background-color: transparent;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+}
+
+.tag.is-outlined.is-green {
+  background-color: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.tag.is-outlined.is-teal {
+  background-color: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.tag.is-outlined.is-cyan {
+  background-color: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+}
+
 /**
  * input
  */
@@ -1181,23 +1131,23 @@ fieldset[disabled] :is(.button,
   margin-left: 0.3em;
 }
 
-.input::placeholder {
+:is(.input, .textarea)::placeholder {
   color: var(--gray-lighter);
 }
 
-.input[type=text],
-.input[type=date],
-.input[type=datetime-local],
-.input[type=email],
-.input[type=file],
-.input[type=month],
-.input[type=number],
-.input[type=password],
-.input[type=search],
-.input[type=tel],
-.input[type=time],
-.input[type=url],
-.input[type=week],
+.input:is([type=text],
+  [type=date],
+  [type=datetime-local],
+  [type=email],
+  [type=file],
+  [type=month],
+  [type=number],
+  [type=password],
+  [type=search],
+  [type=tel],
+  [type=time],
+  [type=url],
+  [type=week]),
 .select,
 .textarea {
   display: inline-flex;
@@ -1211,6 +1161,12 @@ fieldset[disabled] :is(.button,
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
   border-radius: calc(var(--radius) / 1.5);
   transition-property: border-color, box-shadow;
+}
+
+.textarea {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  line-height: 1.5;
 }
 
 .select {
@@ -1278,8 +1234,8 @@ fieldset[disabled] :is([type=text],
   [type=time],
   [type=url],
   [type=week]),
-.select[disabled],
-fieldset[disabled] .select {
+[disabled]:is(.select, .textarea),
+fieldset[disabled] :is(.select, .textarea) {
   opacity: 1;
   background-color: var(--gray-lighter);
   color: var(--gray);
@@ -1299,11 +1255,11 @@ fieldset[disabled] .select {
   [type=time],
   [type=url],
   [type=week]),
-.select[readonly] {
+[readonly]:is(.select, .textarea) {
   color: var(--gray);
 }
 
-.input:is([type=text],
+.input:focus:is([type=text],
   [type=date],
   [type=datetime-local],
   [type=email],
@@ -1315,12 +1271,12 @@ fieldset[disabled] .select {
   [type=tel],
   [type=time],
   [type=url],
-  [type=week]):focus,
-.select:focus {
+  [type=week]),
+:focus:is(.select, .textarea) {
   box-shadow: 0 0 2px 1px var(--primary) inset;
 }
 
-.input:is([type=text],
+.input:invalid:is([type=text],
   [type=date],
   [type=datetime-local],
   [type=email],
@@ -1332,9 +1288,9 @@ fieldset[disabled] .select {
   [type=tel],
   [type=time],
   [type=url],
-  [type=week]):invalid,
-.select:invalid {
-  background-color: hsl(354, calc(var(--s) * 100%), calc(97%));
+  [type=week]),
+:invalid:is(.select, .textarea) {
+  background-color: hsl(354, calc(var(--s) * 100%), calc(90% + 7% * var(--bg-l)));
   border-color: var(--danger);
 }
 
@@ -1435,190 +1391,272 @@ fieldset[disabled] .select {
 }
 
 /**
+ * modal
+ */
+.modal {
+  color: var(--fg);
+  background-color: var(--bg);
+  border: none;
+  border-radius: calc(1rem / 5);
+  box-shadow: 0 0 2px var(--fg);
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.modal[open] {
+  opacity: 1;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1px);
+}
+
+/**
  * helpers
  */
-.bg-blue {
-  background-color: var(--blue) !important;
-}
-
-.bg-indigo {
-  background-color: var(--indigo) !important;
-}
-
-.bg-purple {
-  background-color: var(--purple) !important;
-}
-
-.bg-pink {
-  background-color: var(--pink) !important;
-}
-
-.bg-red {
-  background-color: var(--red) !important;
-}
-
-.bg-orange {
-  background-color: var(--orange) !important;
-}
-
-.bg-yellow {
-  background-color: var(--yellow) !important;
-}
-
-.bg-green {
-  background-color: var(--green) !important;
-}
-
-.bg-teal {
-  background-color: var(--teal) !important;
-}
-
-.bg-cyan {
-  background-color: var(--cyan) !important;
-}
-
 .bg-white {
   background-color: var(--white) !important;
-}
-
-.bg-light {
-  background-color: var(--light) !important;
-}
-
-.bg-gray-light {
-  background-color: var(--gray-light) !important;
-}
-
-.bg-gray {
-  background-color: var(--gray) !important;
-}
-
-.bg-gray-dark {
-  background-color: var(--gray-dark) !important;
-}
-
-.bg-dark {
-  background-color: var(--dark) !important;
-}
-
-.bg-black {
-  background-color: var(--black) !important;
-}
-
-.bg-primary {
-  background-color: var(--primary) !important;
-}
-
-.bg-secondary {
-  background-color: var(--secondary) !important;
-}
-
-.bg-success {
-  background-color: var(--success) !important;
-}
-
-.bg-info {
-  background-color: var(--info) !important;
-}
-
-.bg-warning {
-  background-color: var(--warning) !important;
-}
-
-.bg-danger {
-  background-color: var(--danger) !important;
-}
-
-.fg-blue {
-  color: var(--blue) !important;
-}
-
-.fg-indigo {
-  color: var(--indigo) !important;
-}
-
-.fg-purple {
-  color: var(--purple) !important;
-}
-
-.fg-pink {
-  color: var(--pink) !important;
-}
-
-.fg-red {
-  color: var(--red) !important;
-}
-
-.fg-orange {
-  color: var(--orange) !important;
-}
-
-.fg-yellow {
-  color: var(--yellow) !important;
-}
-
-.fg-green {
-  color: var(--green) !important;
-}
-
-.fg-teal {
-  color: var(--teal) !important;
-}
-
-.fg-cyan {
-  color: var(--cyan) !important;
 }
 
 .fg-white {
   color: var(--white) !important;
 }
 
+.bg-light {
+  background-color: var(--light) !important;
+}
+
 .fg-light {
   color: var(--light) !important;
+}
+
+.bg-gray-lighter {
+  background-color: var(--gray-lighter) !important;
+}
+
+.fg-gray-lighter {
+  color: var(--gray-lighter) !important;
+}
+
+.bg-gray-light {
+  background-color: var(--gray-light) !important;
 }
 
 .fg-gray-light {
   color: var(--gray-light) !important;
 }
 
+.bg-gray {
+  background-color: var(--gray) !important;
+}
+
 .fg-gray {
   color: var(--gray) !important;
+}
+
+.bg-gray-dark {
+  background-color: var(--gray-dark) !important;
 }
 
 .fg-gray-dark {
   color: var(--gray-dark) !important;
 }
 
+.bg-dark {
+  background-color: var(--dark) !important;
+}
+
 .fg-dark {
   color: var(--dark) !important;
+}
+
+.bg-black {
+  background-color: var(--black) !important;
 }
 
 .fg-black {
   color: var(--black) !important;
 }
 
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
 .fg-primary {
   color: var(--primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary) !important;
 }
 
 .fg-secondary {
   color: var(--secondary) !important;
 }
 
+.bg-success {
+  background-color: var(--success) !important;
+}
+
 .fg-success {
   color: var(--success) !important;
+}
+
+.bg-info {
+  background-color: var(--info) !important;
 }
 
 .fg-info {
   color: var(--info) !important;
 }
 
+.bg-warning {
+  background-color: var(--warning) !important;
+}
+
 .fg-warning {
   color: var(--warning) !important;
 }
 
+.bg-danger {
+  background-color: var(--danger) !important;
+}
+
 .fg-danger {
   color: var(--danger) !important;
+}
+
+.bg-blue {
+  background-color: var(--blue) !important;
+}
+
+.fg-blue {
+  color: var(--blue) !important;
+}
+
+.bg-indigo {
+  background-color: var(--indigo) !important;
+}
+
+.fg-indigo {
+  color: var(--indigo) !important;
+}
+
+.bg-purple {
+  background-color: var(--purple) !important;
+}
+
+.fg-purple {
+  color: var(--purple) !important;
+}
+
+.bg-pink {
+  background-color: var(--pink) !important;
+}
+
+.fg-pink {
+  color: var(--pink) !important;
+}
+
+.bg-red {
+  background-color: var(--red) !important;
+}
+
+.fg-red {
+  color: var(--red) !important;
+}
+
+.bg-orange {
+  background-color: var(--orange) !important;
+}
+
+.fg-orange {
+  color: var(--orange) !important;
+}
+
+.bg-yellow {
+  background-color: var(--yellow) !important;
+}
+
+.fg-yellow {
+  color: var(--yellow) !important;
+}
+
+.bg-green {
+  background-color: var(--green) !important;
+}
+
+.fg-green {
+  color: var(--green) !important;
+}
+
+.bg-teal {
+  background-color: var(--teal) !important;
+}
+
+.fg-teal {
+  color: var(--teal) !important;
+}
+
+.bg-cyan {
+  background-color: var(--cyan) !important;
+}
+
+.fg-cyan {
+  color: var(--cyan) !important;
+}
+
+.middles,
+.middles * {
+  vertical-align: middle;
+}
+
+/**
+ * is-grouped
+ */
+.is-grouped {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.is-grouped.is-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.is-grouped > *,
+.file-select > * {
+  border-radius: var(--radius);
+}
+
+.is-grouped:not(.is-vertical) > :not(:first-child),
+.file-select > :not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.file-select > [type=file] + :nth-child(2) {
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+
+.is-grouped:not(.is-vertical) > :not(:last-child),
+.file-select > :not(:last-child) {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.is-grouped.is-vertical > :not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.is-grouped.is-vertical > :not(:last-child) {
+  border-bottom-width: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /**

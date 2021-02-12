@@ -43,57 +43,59 @@
       <nav>
         <div class="toc">
           <a href="#overview" :class="{ active: topic === 'overview' }">Overview</a>
-          <a href="#button"   :class="{ active: topic === 'button'   }">Button</a>
+          <a href="#button" :class="{ active: topic === 'button'   }">Button</a>
           <ul class="subsections">
-            <li>Togglable</li>
-            <li>Sizes</li>
-            <li>Colors</li>
-            <li>States</li>
-            <li>Styles</li>
-            <li>Grouped</li>
+            <li><a href="#button-togglable">Togglable</a></li>
+            <li><a href="#button-sizes">Sizes</a></li>
+            <li><a href="#button-colors">Colors</a></li>
+            <li><a href="#button-states">States</a></li>
+            <li><a href="#button-styles">Styles</a></li>
+            <li><a href="#button-grouped">Grouped</a></li>
           </ul>
-          <a href="#input-text"     :class="{ active: topic === 'input-text' }">Text input</a>
+          <a href="#text-input" :class="{ active: topic === 'text-input' }">Text input</a>
           <ul class="subsections">
-            <li>States</li>
-            <li>Sizes</li>
+            <li><a href="#text-input-states">States</a></li>
+            <li><a href="#text-input-sizes">Sizes</a></li>
           </ul>
-          <a href="#input-select"   :class="{ active: topic === 'input-select' }">Select</a>
+          <a href="#select" :class="{ active: topic === 'select' }">Select</a>
           <ul class="subsections">
-            <li>States</li>
-            <li>Sizes</li>
+            <li><a href="#select-states">States</a></li>
+            <li><a href="#select-sizes">Sizes</a></li>
           </ul>
-          <a href="#input-multiple" :class="{ active: topic === 'input-multiple' }">Multiple select</a>
+          <a href="#multiple-select" :class="{ active: topic === 'multiple-select' }">Multiple select</a>
           <ul class="subsections">
-            <li>States</li>
-            <li>Sizes</li>
+            <li><a href="#multiple-select-states">States</a></li>
+            <li><a href="#multiple-select-sizes">Sizes</a></li>
           </ul>
-          <a href="#file-select"    :class="{ active: topic === 'file-select' }">File select</a>
+          <a href="#file-select" :class="{ active: topic === 'file-select' }">File select</a>
           <ul class="subsections">
-            <li>States</li>
-            <li>Sizes</li>
+            <li><a href="#file-select-states">States</a></li>
+            <li><a href="#file-select-sizes">Sizes</a></li>
           </ul>
           <a href="#box" :class="{ active: topic === 'box' }">Box</a>
           <ul class="subsections">
-            <li>Sizes</li>
+            <li><a href="#box-sizes">Sizes</a></li>
           </ul>
           <a href="#tag" :class="{ active: topic === 'tag' }">Tag</a>
           <ul class="subsections">
-            <li>Sizes</li>
-            <li>Colors</li>
-            <li>Styles</li>
-            <li>Grouped</li>
+            <li><a href="#tag-sizes">Sizes</a></li>
+            <li><a href="#tag-colors">Colors</a></li>
+            <li><a href="#tag-styles">Styles</a></li>
+            <li><a href="#tag-grouped">Grouped</a></li>
           </ul>
-          <a href="#table"        :class="{ active: topic === 'table' }">Table</a>
+          <a href="#table" :class="{ active: topic === 'table' }">Table</a>
           <ul class="subsections">
-            <li>Full width</li>
-            <li>Hoverable</li>
-            <li>Bordered</li>
+            <li><a href="#table-fullwidth">Full width</a></li>
+            <li><a href="#table-hoverable">Hoverable</a></li>
+            <li><a href="#table-bordered">Bordered</a></li>
           </ul>
-          <a href="#modal"        :class="{ active: topic === 'modal'        }">Modal</a>
+          <!--
+          <a href="#modal" :class="{ active: topic === 'modal' }">Modal</a>
           <a href="#notification" :class="{ active: topic === 'notification' }">Notification</a>
           <a href="#progress"     :class="{ active: topic === 'progress'     }">Progress</a>
           <a href="#document"     :class="{ active: topic === 'document'     }">Document</a>
           <a href="#modifier"     :class="{ active: topic === 'modifier'     }">Modifier</a>
+          -->
         </div>
 
         <div class="box is-size-s controls">
@@ -149,7 +151,6 @@
               <ul>
                 <li>No JavaScript</li>
                 <li>No images</li>
-                <li>No css preprocessors</li>
               </ul>
             </li>
             <li>
@@ -166,7 +167,9 @@
                 <li><a href="https://www.w3.org/TR/selectors-4/#matches">pseudo-class <code>:is()</code></a></li>
 
               </ul>
-              <p>You can customize colors, sizes and properties overwriting pre-defined CSS variables.</p>
+            </li>
+            <li>
+              <p>Customizable colors, sizes and properties overwriting pre-defined CSS variables.</p>
             </li>
             <li>
               <p>Size is automatically adjusted by its font size.</p>
@@ -193,10 +196,6 @@
           <div class="snippet">
             <div>
               <button class="button">Button</button>
-              <button class="button">__<i class="icon material-icons">favorite</i>__</button>
-              <button class="button"><i class="icon material-icons">favorite</i></button>
-              <button class="button">Button</button>
-              <button class="button"><i class="icon material-icons">favorite</i></button>
             </div>
             <pre class="box">
               <code class="html">
@@ -230,7 +229,7 @@
             </pre>
           </div>
 
-          <h2>Togglable</h2>
+          <h2 id="button-togglable">Togglable</h2>
 
           <div class="snippet">
             <div>
@@ -279,7 +278,7 @@
             </pre>
           </div>
 
-          <h2>Sizes</h2>
+          <h2 id="button-sizes">Sizes</h2>
 
           <div class="snippet">
             <div>
@@ -319,7 +318,7 @@
             </pre>
           </div>
 
-          <h2>Colors</h2>
+          <h2 id="button-colors">Colors</h2>
 
           <div class="snippet">
             <div>
@@ -376,7 +375,7 @@
             </pre>
           </div>
 
-          <h2>States</h2>
+          <h2 id="button-states">States</h2>
 
           <div class="snippet">
             <div>
@@ -426,7 +425,7 @@
             </pre>
           </div>
 
-          <h2>Styles</h2>
+          <h2 id="button-styles">Styles</h2>
 
           <div class="snippet">
             <div>
@@ -497,7 +496,7 @@
             </pre>
           </div>
 
-          <h2>Grouped</h2>
+          <h2 id="button-grouped">Grouped</h2>
 
           <div class="snippet">
             <div>
@@ -622,7 +621,7 @@
 
         </section>
 
-        <section id="input-text">
+        <section id="text-input">
           <h1>Text input</h1>
 
           <div class="snippet">
@@ -639,7 +638,7 @@
               <div>
                 <label class="label is-grouped">
                   Label
-                  <input type="text" class="input" id="input-text-grouped" size="20" placeholder="Input text here...">
+                  <input type="text" class="input" id="text-input-grouped" size="20" placeholder="Input text here...">
                   <button type="button" class="button is-primary">Button</button>
                 </label>
               </div>
@@ -649,6 +648,9 @@
                   <input type="text" class="input" size="1" value="__is__">
                 </label>
                 <button type="button" class="button is-primary">__aligned__</button>
+              </div>
+              <div>
+                <textarea class="textarea" placeholder="Input text here..."></textarea>
               </div>
             </div>
             <pre class="box">
@@ -665,15 +667,24 @@
                 &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
                 &nbsp;&nbsp;&lt;button type="button" class="button is-primary"&gt;Button&lt;/button&gt;<br>
                 &lt;/label&gt;<br>
+                &lt;textarea class="textarea"&gt;&lt;/textarea&gt;<br>
               </code>
             </pre>
           </div>
 
-          <h2>States</h2>
+          <h2 id="text-input-states">States</h2>
           <div class="snippet">
             <div>
+              <div>
+                <input type="text" class="input" disabled value="disabled">
+              </div>
               <fieldset disabled>
-                <input type="text" class="input" value="disabled">
+                <p>
+                  <input type="text" class="input" value="disabled">
+                </p>
+                <p>
+                  <textarea class="textarea">disabled</textarea>
+                </p>
               </fieldset>
               <div>
                 <input type="text" class="input" value="readonly" readonly tabindex="-1">
@@ -681,22 +692,30 @@
               <div>
                 <input type="text" class="input" value="invalid" pattern="^$">
               </div>
+              <div>
+                <textarea class="textarea" required placeholder="invalid"></textarea>
+              </div>
             </div>
             <pre class="box">
               <code class="html">
+                &lt;input type="text" class="input" disabled value="disabled"&gt;<br>
+                <br>
                 &lt;fieldset disabled&gt;<br>
                 &nbsp;&nbsp;&lt;input type="text" class="input" value="disabled"&gt;<br>
+                &nbsp;&nbsp;&lt;textarea class="textarea"&gt;disabled&lt;/textarea&gt;<br>
                 &lt;/fieldset&gt;<br>
                 <br>
                 &lt;input type="text" class="input" value="readonly" readonly tabindex="-1"&gt;<br>
                 <br>
                 &lt;input type="text" class="input" value="invalid" pattern="^$"&gt;<br>
+                <br>
+                &lt;textarea class="textarea" required placeholder="invalid"&gt;&lt;/textarea&gt;<br>
               </code>
             </pre>
           </div>
 
+          <h2 id="text-input-sizes">Sizes</h2>
           <div>
-            <h2>Sizes</h2>
             <div class="snippet">
               <div>
                 <div>
@@ -749,7 +768,7 @@
           </div>
         </section>
 
-        <section id="input-select">
+        <section id="select">
           <h1>Select</h1>
 
           <div class="snippet">
@@ -778,7 +797,7 @@
               <div>
                 <label class="label is-grouped">
                   Label
-                  <select class="select" id="input-select-grouped">
+                  <select class="select" id="select-grouped">
                     <option></option>
                     <option>item</option>
                     <option>item</option>
@@ -825,7 +844,7 @@
             </pre>
           </div>
 
-          <h2>States</h2>
+          <h2 id="select-states">States</h2>
           <div class="snippet">
             <div>
               <fieldset disabled>
@@ -865,8 +884,8 @@
             </pre>
           </div>
 
+          <h2 id="select-sizes">Sizes</h2>
           <div>
-            <h2>Sizes</h2>
             <div class="snippet">
               <div>
                 <p><label class="label is-size-xs">Label <select class="select"><option>.is-size-xs</option></select></label></p>
@@ -899,7 +918,7 @@
           </div>
         </section>
 
-        <section id="input-multiple">
+        <section id="multiple-select">
           <h1>Multiple select</h1>
 
           <div class="snippet">
@@ -922,7 +941,7 @@
             </pre>
           </div>
 
-          <h2>States</h2>
+          <h2 id="multiple-select-states">States</h2>
           <div class="snippet">
             <div>
               <fieldset disabled>
@@ -969,8 +988,8 @@
             </pre>
           </div>
 
+          <h2 id="multiple-select-sizes">Sizes</h2>
           <div>
-            <h2>Sizes</h2>
             <div class="snippet">
               <div>
                 <p>
@@ -1066,49 +1085,42 @@
                 </label>
               </div>
               <div>
-                <div class="is-grouped">
-                  <label class="file-select is-info">
-                    <input type="file">
-                    <span>Choose file...</span>
-                  </label>
-                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
-                </div>
+                <label class="file-select is-info">
+                  <input type="file">
+                  <span>Choose file...</span>
+                  <input type="text" class="input" readonly tabindex="-1" placeholder="File name...">
+                </label>
               </div>
               <div>
-                <div class="is-grouped">
-                  <input type="text" class="input" size="10" readonly tabindex="-1" value="File name...">
-                  <label class="file-select" tabindex="0">
-                    <input type="file">
-                    <span>Choose file...</span>
-                  </label>
-                </div>
+                <label class="file-select" tabindex="0">
+                  <input type="text" class="input" readonly tabindex="-1" placeholder="File name...">
+                  <input type="file">
+                  <span>Choose file...</span>
+                </label>
               </div>
+              <p>Selected file name should be shown by JavaScript.</p>
             </div>
             <pre class="box">
               <code class="html">
                 <p>
-                &nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
-                &nbsp;&nbsp;&lt;/label&gt;<br>
+                  &lt;label class="file-select"&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                  &nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
+                  &lt;/label&gt;<br>
                 </p>
                 <p>
-                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select is-info"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
-                &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;label class="file-select is-info"&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                  &nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
+                  &nbsp;&nbsp;&lt;input type="text" class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
+                  &lt;/label&gt;<br>
                 </p>
                 <p>
-                &nbsp;&nbsp;&lt;div class="is-grouped"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly value="File name..."&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="file-select"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>
-                &nbsp;&nbsp;&lt;/div&gt;<br>
+                  &lt;label class="file-select"&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="text" class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
+                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                  &nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
+                  &lt;/label&gt;<br>
                 </p>
               </code>
             </pre>
@@ -1129,7 +1141,7 @@
             </pre>
           </div>
 
-          <h2>Sizes</h2>
+          <h2 id="box-sizes">Sizes</h2>
           <div class="snippet">
             <div>
               <div>
@@ -1204,7 +1216,7 @@
             </pre>
           </div>
 
-          <h2>Sizes</h2>
+          <h2 id="tag-sizes">Sizes</h2>
 
           <div class="snippet">
             <div>
@@ -1247,7 +1259,7 @@
             </pre>
           </div>
 
-          <h2>Colors</h2>
+          <h2 id="tag-colors">Colors</h2>
 
           <div class="snippet">
             <div>
@@ -1320,7 +1332,7 @@
             </pre>
           </div>
 
-          <h2>Styles</h2>
+          <h2 id="tag-styles">Styles</h2>
 
           <div class="snippet">
             <div>
@@ -1391,7 +1403,7 @@
             </pre>
           </div>
 
-          <h2>Grouped</h2>
+          <h2 id="tag-grouped">Grouped</h2>
 
           <div class="snippet">
             <div>
@@ -1553,7 +1565,7 @@
             </pre>
           </div>
 
-          <h2>Full width</h2>
+          <h2 id="table-fullwidth">Full width</h2>
 
           <div class="snippet">
             <div>
@@ -1589,7 +1601,7 @@
             </pre>
           </div>
 
-          <h2>Hoverable</h2>
+          <h2 id="table-hoverable">Hoverable</h2>
 
           <div class="snippet">
             <div>
@@ -1625,7 +1637,7 @@
             </pre>
           </div>
 
-          <h2>Bordered</h2>
+          <h2 id="table-bordered">Bordered</h2>
 
           <div class="snippet">
             <div>
@@ -1663,7 +1675,27 @@
 
         </section>
 
-        <!-- Modal -->
+        <!--
+        <section id="modal">
+          <h1>Modal</h1>
+
+          <div class="snippet">
+            <p>
+              <a class="button is-primary"
+                 href="javascript: document.querySelector('dialog').showModal()">
+                show modal
+              </a>
+            </p>
+            <dialog class="modal">
+              <p>This is a dialog.</p>
+              <form method="dialog">
+                <button>close</button>
+              </form>
+            </dialog>
+          </div>
+        </section>
+        -->
+
         <!-- Icon -->
         <!-- Image -->
         <!-- Notification -->
