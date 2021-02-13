@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         store.topic
       )
     },
-    { rootMargin: '-50% 0px' }
+    { rootMargin: '-40% 0px -60%' }
   )
   document.querySelectorAll('section').forEach(target => {
     menuObserver.observe(target)

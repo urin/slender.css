@@ -49,6 +49,10 @@ main > .document > section {
   transition: opacity .15s linear;
 }
 
+main > .document h2[id] {
+  padding-top: .75em;
+}
+
 @media screen and (max-width: 1087px), print {
   main {
     flex-direction: column;
@@ -227,10 +231,32 @@ main > .document > section {
   width: 100%;
 }
 
-#text-input .snippet > div > :not(:last-child),
-#select .snippet > div > :not(:last-child),
-#multiple-select .snippet > div > :not(:last-child),
-#file-select .snippet > div > :not(:last-child) {
+:is(
+  #text-input,
+  #select,
+  #multiple-select,
+  #file-select,
+  #checkbox-radio
+) .snippet > div > :not(:last-child) {
   margin-bottom: 1rem;
+}
+
+#dialog-simple > p {
+  max-width: fit-content;
+}
+
+#dialog-simple > form {
+  width: 30rem;
+  text-align: center;
+}
+
+#dialog-close .icon {
+  font-size: 4rem;
+  margin-right: .5rem;
+  color: rgba(128, 128, 128, .3);
+}
+
+#dialog-close > div {
+  display: flex;
 }
 
