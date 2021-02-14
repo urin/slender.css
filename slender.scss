@@ -39,8 +39,9 @@ $colors: join($colors-light, $colors-dark);
   --bg-h: 211;
   --bg-s: .30;
   --bg-l: .14;
-  --radius: calc(1em / 5);
+  --radius: max(2px, calc(1em / 5));
   --duration: .25s;
+  --disabled-opacity: .4;
 
   --bg-l-invert: calc(1 - var(--bg-l));
   --bg: hsl(var(--bg-h), calc(var(--bg-s) * 100%), calc(var(--bg-l) * 100%));
@@ -184,6 +185,7 @@ td,
 th {
   padding: 0;
   text-align: left;
+  vertical-align: top;
 }
 
 fieldset {
@@ -340,7 +342,7 @@ fieldset {
 .document pre {
   -webkit-overflow-scrolling: touch;
   padding: 1.25em 1.5em;
-  word-wrap: normal;
+  overflow-wrap: normal;
 }
 
 .document sup,
@@ -352,36 +354,10 @@ fieldset {
   margin: 1rem 0;
 }
 
-.document table {
-  width: 100%;
-}
-
-.document table td,
-.document table th {
-  border: 1px solid hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .2);
-  border-width: 0 0 1px;
-  padding: .5em .75em;
-  vertical-align: top;
-}
-
-.document table thead td,
-.document table thead th {
-  border-width: 0 0 2px;
-}
-
-.document table tfoot td,
-.document table tfoot th {
-  border-width: 2px 0 0;
-}
-
-.document table tbody tr:last-child td,
-.document table tbody tr:last-child th {
-  border-bottom-width: 0;
-}
-
 .document :not(pre) > code {
   padding: .2em .4em;
   border-radius: var(--radius);
+  white-space: nowrap;
   background-color: hsla(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
   color: var(--warning);
 }
@@ -482,39 +458,39 @@ fieldset[disabled] :is(
   .toggle-button > input + *,
   .file-select > [type=file] + *
 ) {
-  opacity: .3;
+  opacity: var(--disabled-opacity);
   cursor: not-allowed;
 }
 
-.button.is-rounded,
-:is(.toggle-button, .file-select).is-rounded > input + * {
+.button.rounded,
+:is(.toggle-button, .file-select).rounded > input + * {
   border-radius: 100vmax;
 }
 
-.is-grouped:not(.is-vertical) > :is(
+.grouped:not(.vertical) > :is(
   .toggle-button, .file-select
 ):not(:first-child) > input + * {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.is-grouped:not(.is-vertical) > :is(
+.grouped:not(.vertical) > :is(
   .toggle-button, .file-select
 ):not(:last-child) > input + *,
-.is-grouped:not(.is-vertical) > .file-select:not(:last-child) > input + * {
+.grouped:not(.vertical) > .file-select:not(:last-child) > input + * {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :is(
+.grouped.vertical > :is(
   .toggle-button, .file-select
 ):not(:first-child) > input + * {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :is(
+.grouped.vertical > :is(
   .toggle-button, .file-select
 ):not(:last-child) > input + * {
   border-bottom-width: 0;
@@ -538,8 +514,8 @@ fieldset[disabled] :is(
 }
 
 @each $color in $colors {
-  .button.is-outlined.is-#{$color},
-  :is(.toggle-button, .file-select).is-outlined.is-#{$color} > input + * {
+  .button.outlined.is-#{$color},
+  :is(.toggle-button, .file-select).outlined.is-#{$color} > input + * {
     background-color: transparent;
     color: var(--#{$color});
     border-color: var(--#{$color});
@@ -553,6 +529,7 @@ fieldset[disabled] :is(
   display: inline-flex;
   font-size: .6rem;
   padding: .4em .7em;
+  line-height: 1;
   border-radius: var(--radius);
   vertical-align: baseline;
   text-align: center;
@@ -563,52 +540,52 @@ fieldset[disabled] :is(
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
 }
 
-.tag.is-rounded {
+.tag.rounded {
   border-radius: 100vw;
 }
 
-.tag.is-size-xs,
-.is-grouped.is-size-xs > .tag {
+.tag.size-xs,
+.grouped.size-xs > .tag {
   font-size: .4rem;
 }
-.tag.is-size-s,
-.is-grouped.is-size-s > .tag {
+.tag.size-s,
+.grouped.size-s > .tag {
   font-size: .5rem;
 }
-.tag.is-size-m,
-.is-grouped.is-size-m > .tag {
+.tag.size-m,
+.grouped.size-m > .tag {
   font-size: .6rem;
 }
-.tag.is-size-l,
-.is-grouped.is-size-l > .tag {
+.tag.size-l,
+.grouped.size-l > .tag {
   font-size: 1rem;
 }
-.tag.is-size-xl,
-.is-grouped.is-size-xl > .tag {
+.tag.size-xl,
+.grouped.size-xl > .tag {
   font-size: 1.2rem;
 }
 
-.is-grouped > .tag {
+.grouped > .tag {
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
 }
 
-.is-grouped:not(.is-vertical) > .tag:not(:first-child) {
+.grouped:not(.vertical) > .tag:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.is-grouped:not(.is-vertical) > .tag:not(:last-child) {
+.grouped:not(.vertical) > .tag:not(:last-child) {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.is-grouped.is-vertical > .tag:not(:first-child) {
+.grouped.vertical > .tag:not(:first-child) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.is-grouped.is-vertical > .tag:not(:last-child) {
+.grouped.vertical > .tag:not(:last-child) {
   border-bottom-width: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -628,7 +605,7 @@ fieldset[disabled] :is(
 }
 
 @each $color in $colors {
-  .tag.is-outlined.is-#{$color} {
+  .tag.outlined.is-#{$color} {
     background-color: transparent;
     color: var(--#{$color});
     border: 1px solid var(--#{$color});
@@ -643,7 +620,7 @@ fieldset[disabled] :is(
   cursor: pointer;
 }
 
-.label.is-grouped > :first-child {
+.label.grouped > :first-child {
   margin-left: .3em;
 }
 
@@ -699,7 +676,7 @@ fieldset[disabled] :is(
 }
 
 .select:not([multiple]),
-.is-grouped > .select:not([multiple]) {
+.grouped > .select:not([multiple]) {
   padding-right: 2em;
 }
 
@@ -787,8 +764,8 @@ fieldset[disabled] :is(
 ),
 [disabled]:is(.select, .textarea),
 fieldset[disabled] :is(.select, .textarea) {
-  opacity: 1;
-  background-color: var(--gray-light);
+  opacity: var(--disabled-opacity);
+  background-color: var(--light);
   color: var(--gray);
   cursor: not-allowed;
 }
@@ -832,63 +809,83 @@ fieldset[disabled] :is(.select, .textarea) {
   border-color: var(--danger);
 }
 
+// Firefox only
+@-moz-document url-prefix() {
+  .range {
+    appearance: none;
+    width: fit-content;
+    height: 8px;
+    border-radius: 100vmax;
+    background-color: var(--blue);
+  }
+
+  .range::-moz-range-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: none;
+    border-radius: 100vmax;
+    box-shadow: 0 0 0 1rem var(--blue) inset;
+  }
+}
+
 /**
  * modifiers
  */
-.is-fullwidth {
+.fullwidth {
   width: 100%;
 }
 
-.is-fullwidth:not(.table) {
+.fullwidth:not(.table) {
   display: flex;
 }
 
-.is-fullwidth:not(.table):not([multiple]) > * {
+.fullwidth:not(.table):not([multiple]) > * {
   width: 100%;
 }
 
-:not(.is-vertical) .is-fullwidth:not(
-  :is(.table, [multiple], .is-vertical)
-) > :not(.is-vertical) {
+:not(.vertical) .fullwidth:not(
+  :is(.table, [multiple], .vertical)
+) > :not(.vertical) {
   margin-left: .5em;
 }
 
-.is-size-xs {
+.size-xs {
   font-size: .7rem;
 }
 
-.is-size-s {
+.size-s {
   font-size: .9rem;
 }
 
-.is-size-m {
+.size-m {
   font-size: 1rem;
 }
 
-.is-size-l {
+.size-l {
   font-size: 1.3rem;
 }
 
-.is-size-xl {
+.size-xl {
   font-size: 1.5rem;
 }
 
-.is-grouped:not(.is-vertical) > :not(:first-child) {
+.grouped:not(.vertical) > :not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.is-grouped:not(.is-vertical) > :not(:last-child) {
+.grouped:not(.vertical) > :not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :not(:first-child) {
+.grouped.vertical > :not(:first-child) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :not(:last-child) {
+.grouped.vertical > :not(:last-child) {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -903,7 +900,7 @@ fieldset[disabled] :is(.select, .textarea) {
 .table :is(td, th) {
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
   border-width: 0 0 1px;
-  padding: .5em .75em;
+  padding: .25em .75em;
 }
 
 .table thead :is(td, th) {
@@ -918,15 +915,15 @@ fieldset[disabled] :is(.select, .textarea) {
   border-bottom-width: 0;
 }
 
-.table.is-bordered :is(td, th) {
+.table.bordered :is(td, th) {
   border-width: 1px;
 }
 
-.table.is-bordered tr:last-child :is(td, th) {
+.table.bordered tr:last-child :is(td, th) {
   border-bottom-width: 1px;
 }
 
-.table.is-hoverable tbody tr:hover {
+.table.hoverable tbody tr:hover {
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), .08);
 }
 
@@ -944,7 +941,7 @@ fieldset[disabled] :is(.select, .textarea) {
   border-radius: var(--radius);
   box-shadow: 0 0 1px var(--gray) inset;
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity var(--duration);
 }
 
 .dialog[open] {
@@ -972,7 +969,6 @@ fieldset[disabled] :is(.select, .textarea) {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  vertical-align: middle;
   border: none;
   border-radius: 100vmax;
   cursor: pointer;
@@ -1027,24 +1023,24 @@ fieldset[disabled] :is(.select, .textarea) {
 }
 
 /**
- * is-grouped
+ * grouped
  */
-.is-grouped {
+.grouped {
   display: inline-flex;
   align-items: baseline;
 }
 
-.is-grouped.is-vertical {
+.grouped.vertical {
   flex-direction: column;
   align-items: stretch;
 }
 
-.is-grouped > *,
+.grouped > *,
 .file-select > * {
   border-radius: var(--radius);
 }
 
-.is-grouped:not(.is-vertical) > :not(:first-child),
+.grouped:not(.vertical) > :not(:first-child),
 .file-select > :not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -1055,19 +1051,19 @@ fieldset[disabled] :is(.select, .textarea) {
   border-bottom-left-radius: var(--radius);
 }
 
-.is-grouped:not(.is-vertical) > :not(:last-child),
+.grouped:not(.vertical) > :not(:last-child),
 .file-select > :not(:last-child) {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :not(:first-child) {
+.grouped.vertical > :not(:first-child) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.is-grouped.is-vertical > :not(:last-child) {
+.grouped.vertical > :not(:last-child) {
   border-bottom-width: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

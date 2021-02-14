@@ -1,7 +1,7 @@
 /* global Vue, hljs, IntersectionObserver */
 const store = {
-  hash: null,
   topic: null,
+  tuning: null,
   color: {
     h: +cssvar('--h'),
     s: +cssvar('--s'),

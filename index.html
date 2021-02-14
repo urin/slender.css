@@ -39,11 +39,64 @@
       <div class="bg-cyan" title="cyan"></div>
     </header>
 
-    <main>
+    <main id="main">
       <nav>
+        <h1>
+          <span>slender.css <small>0.0.0</small></span>
+          <i class="icon material-icons" @click="tuning = !tuning">tune</i>
+        </h1>
+        <div class="box size-s controls" :class="{ tuning: tuning }">
+          <div class="group">
+            <div class="group-title">Primary color</div>
+            <label>
+              <span class="control-title">H</span>
+              <input type="range" class="range" max="360" v-model.number="color.h">
+              <small class="value">{{ color.h }}</small>
+            </label>
+            <label>
+              <span class="control-title">S</span>
+              <input type="range" class="range" max="1" step="0.01" v-model.number="color.s">
+              <small class="value">{{ color.s }}</small>
+            </label>
+            <label>
+              <span class="control-title">L</span>
+              <input type="range" class="range" max="1" step="0.01" v-model.number="color.l">
+              <small class="value">{{ color.l }}</small>
+            </label>
+          </div>
+          <div class="group">
+            <div class="group-title">Background</div>
+            <label>
+              <span class="control-title">H</span>
+              <input type="range" class="range" max="360" v-model.number="bg.h">
+              <small class="value">{{ bg.h }}</small>
+            </label>
+            <label>
+              <span class="control-title">S</span>
+              <input type="range" class="range" max="1" step="0.01" v-model.number="bg.s">
+              <small class="value">{{ bg.s }}</small>
+            </label>
+            <label>
+              <span class="control-title">L</span>
+              <input type="range" class="range" max="1" step="0.01" v-model.number="bg.l">
+              <small class="value">{{ bg.l }}</small>
+            </label>
+          </div>
+        </div>
+
         <div class="toc">
-          <a href="#overview" :class="{ active: topic === 'overview' }">Overview</a>
-          <a href="#button" :class="{ active: topic === 'button'   }">Button</a>
+          <a href="#overview" :class="{ active: topic === 'overview' }">
+            <i class="icon material-icons">highlight</i>
+            Overview
+          </a>
+          <a href="#customize" :class="{ active: topic === 'customize' }">
+            <i class="icon material-icons">settings</i>
+            Customize
+          </a>
+          <a href="#button" :class="{ active: topic === 'button' }">
+            <i class="icon material-icons">crop_square</i>
+            Button
+          </a>
           <ul class="subsections">
             <li><a href="#button-togglable">Togglable</a></li>
             <li><a href="#button-sizes">Sizes</a></li>
@@ -52,100 +105,94 @@
             <li><a href="#button-styles">Styles</a></li>
             <li><a href="#button-grouped">Grouped</a></li>
           </ul>
-          <a href="#text-input" :class="{ active: topic === 'text-input' }">Text input</a>
+          <a href="#text-input" :class="{ active: topic === 'text-input' }">
+            <i class="icon material-icons">short_text</i>
+            Text input
+          </a>
           <ul class="subsections">
             <li><a href="#text-input-states">States</a></li>
             <li><a href="#text-input-sizes">Sizes</a></li>
           </ul>
-          <a href="#select" :class="{ active: topic === 'select' }">Select</a>
+          <a href="#select" :class="{ active: topic === 'select' }">
+            <i class="icon material-icons">keyboard_arrow_down</i>
+            Select
+          </a>
           <ul class="subsections">
             <li><a href="#select-states">States</a></li>
             <li><a href="#select-sizes">Sizes</a></li>
           </ul>
-          <a href="#multiple-select" :class="{ active: topic === 'multiple-select' }">Multiple select</a>
+          <a href="#multiple-select" :class="{ active: topic === 'multiple-select' }">
+            <i class="icon material-icons">format_list_bulleted</i>
+            Multiple select
+          </a>
           <ul class="subsections">
             <li><a href="#multiple-select-states">States</a></li>
             <li><a href="#multiple-select-sizes">Sizes</a></li>
           </ul>
-          <a href="#file-select" :class="{ active: topic === 'file-select' }">File select</a>
+          <a href="#file-select" :class="{ active: topic === 'file-select' }">
+            <i class="icon material-icons">upload_file</i>
+            File select
+          </a>
           <ul class="subsections">
             <li><a href="#file-select-states">States</a></li>
             <li><a href="#file-select-sizes">Sizes</a></li>
           </ul>
-          <a href="#checkbox-radio" :class="{ active: topic === 'checkbox-radio' }">Checkbox and radio</a>
+          <a href="#checkbox-radio" :class="{ active: topic === 'checkbox-radio' }">
+            <i class="icon material-icons">check_box</i>
+            Checkbox and radio
+          </a>
           <ul class="subsections">
             <li><a href="#checkbox-radio-togglable">Togglable</a></li>
           </ul>
-          <a href="#box" :class="{ active: topic === 'box' }">Box</a>
+          <a href="#box" :class="{ active: topic === 'box' }">
+            <i class="icon material-icons">folder</i>
+            Box
+          </a>
           <ul class="subsections">
             <li><a href="#box-sizes">Sizes</a></li>
           </ul>
-          <a href="#tag" :class="{ active: topic === 'tag' }">Tag</a>
+          <a href="#tag" :class="{ active: topic === 'tag' }">
+            <i class="icon material-icons">sell</i>
+            Tag
+          </a>
           <ul class="subsections">
             <li><a href="#tag-sizes">Sizes</a></li>
             <li><a href="#tag-colors">Colors</a></li>
             <li><a href="#tag-styles">Styles</a></li>
             <li><a href="#tag-grouped">Grouped</a></li>
           </ul>
-          <a href="#table" :class="{ active: topic === 'table' }">Table</a>
+          <a href="#table" :class="{ active: topic === 'table' }">
+            <i class="icon material-icons">table_rows</i>
+            Table
+          </a>
           <ul class="subsections">
             <li><a href="#table-fullwidth">Full width</a></li>
             <li><a href="#table-hoverable">Hoverable</a></li>
             <li><a href="#table-bordered">Bordered</a></li>
           </ul>
-          <a href="#dialog" :class="{ active: topic === 'dialog' }">Dialog</a>
+          <a href="#dialog" :class="{ active: topic === 'dialog' }">
+            <i class="icon material-icons">picture_in_picture</i>
+            Dialog
+          </a>
           <!--
           <a href="#notification" :class="{ active: topic === 'notification' }">Notification</a>
           <a href="#progress" :class="{ active: topic === 'progress' }">Progress</a>
           <a href="#document" :class="{ active: topic === 'document' }">Document</a>
-          <a href="#helper" :class="{ active: topic === 'helper' }">Helper</a>
           -->
-        </div>
-
-        <div class="box is-size-s controls">
-          <div class="group">
-            <div class="group-title">Primary color</div>
-            <label>
-              <span class="control-title">H</span>
-              <input type="range" max="360" v-model.number="color.h">
-              <small class="value">{{ color.h }}</small>
-            </label>
-            <label>
-              <span class="control-title">S</span>
-              <input type="range" max="1" step="0.01" v-model.number="color.s">
-              <small class="value">{{ color.s }}</small>
-            </label>
-            <label>
-              <span class="control-title">L</span>
-              <input type="range" max="1" step="0.01" v-model.number="color.l">
-              <small class="value">{{ color.l }}</small>
-            </label>
-          </div>
-          <div class="group">
-            <div class="group-title">Background</div>
-            <label>
-              <span class="control-title">H</span>
-              <input type="range" max="360" v-model.number="bg.h">
-              <small class="value">{{ bg.h }}</small>
-            </label>
-            <label>
-              <span class="control-title">S</span>
-              <input type="range" max="1" step="0.01" v-model.number="bg.s">
-              <small class="value">{{ bg.s }}</small>
-            </label>
-            <label>
-              <span class="control-title">L</span>
-              <input type="range" max="1" step="0.01" v-model.number="bg.l">
-              <small class="value">{{ bg.l }}</small>
-            </label>
-          </div>
+          <a href="#helper" :class="{ active: topic === 'helper' }">
+            <i class="icon material-icons">extension</i>
+            Helper
+          </a>
+          <ul class="subsections">
+            <li><a href="#helper-colors">Colors</a></li>
+          </ul>
         </div>
       </nav>
 
       <article class="document">
 
         <section id="overview">
-          <h1>Overview</h1>
+          <h1><a href="#overview">Overview</a></h1>
           <p>
             slender.css is a progressive CSS framework with following features.
           </p>
@@ -169,7 +216,6 @@
                 <li><a href="https://www.w3.org/TR/html52/interactive-elements.html#the-dialog-element"><code>&lt;dialog&gt;</code> element</a></li>
                 <li><a href="https://www.w3.org/TR/html50/disabled-elements.html#selector-invalid">selector <code>:invalid</code></a></li>
                 <li><a href="https://www.w3.org/TR/selectors-4/#matches">pseudo-class <code>:is()</code></a></li>
-
               </ul>
             </li>
             <li>
@@ -194,8 +240,82 @@
           </p>
         </section>
 
+        <section id="customize">
+          <h1><a href="#customize">Customize</a></h1>
+          <div class="snippet">
+            <div>
+              <p>Customize overwriting following CSS variables.</p>
+              <table class="table">
+                <tbody>
+                  <tr><td><code>--h</code></td><td>Hue of primary color.</td></tr>
+                  <tr><td><code>--s</code></td><td>Saturation of primary color.</td></tr>
+                  <tr><td><code>--l</code></td><td>Lightness of primary color.</td></tr>
+                  <tr><td><code>--bg-h</code></td><td>Hue of background color.</td></tr>
+                  <tr><td><code>--bg-s</code></td><td>Saturation of background color.</td></tr>
+                  <tr><td><code>--bg-l</code></td><td>Lightness of background color.</td></tr>
+                  <tr><td><code>--radius</code></td><td>Border radius. Unit should be <code>em</code>.</td></tr>
+                  <tr><td><code>--duration</code></td><td>Animation duration.</td></tr>
+                  <tr>
+                    <td>
+                      <code>--(color)</code>
+                    </td>
+                    <td style="max-width: fit-content;">
+                      <p>Colors.</p>
+                      <p>
+                        <code>--white</code>
+                        <code>--light</code>
+                        <code>--gray-lighter</code>
+                        <code>--gray-light</code>
+                        <br>
+                        <code>--gray</code>
+                        <code>--gray-dark</code>
+                        <code>--dark</code>
+                        <code>--black</code>
+                        <br>
+                        <code>--primary</code>
+                        <code>--secondary</code>
+                        <code>--success</code>
+                        <code>--info</code>
+                        <br>
+                        <code>--warning</code>
+                        <code>--danger</code>
+                        <code>--blue</code>
+                        <code>--indigo</code>
+                        <br>
+                        <code>--purple</code>
+                        <code>--pink</code>
+                        <code>--red</code>
+                        <code>--orange</code>
+                        <br>
+                        <code>--yellow</code>
+                        <code>--green</code>
+                        <code>--teal</code>
+                        <code>--cyan</code>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="box">
+              <code class="css">
+                :root {<br>
+                &nbsp;&nbsp;--h: 211;<br>
+                &nbsp;&nbsp;--s: .8;<br>
+                &nbsp;&nbsp;--l: .95;<br>
+                &nbsp;&nbsp;--bg-h: 211;<br>
+                &nbsp;&nbsp;--bg-s: .30;<br>
+                &nbsp;&nbsp;--bg-l: .14;<br>
+                &nbsp;&nbsp;--radius: calc(1em / 5);<br>
+                &nbsp;&nbsp;--duration: .25s;<br>
+                }<br>
+              </code>
+            </pre>
+          </div>
+        </section>
+
         <section id="button">
-          <h1>Button</h1>
+          <h1><a href="#button">Button</a></h1>
 
           <div class="snippet">
             <div>
@@ -282,38 +402,38 @@
 
           <div class="snippet">
             <div>
-              <p><button class="button is-size-xs">.is-size-xs</button></p>
-              <p><button class="button is-size-s">.is-size-s</button></p>
-              <p><button class="button is-size-m">.is-size-m</button></p>
-              <p><button class="button is-size-l">.is-size-l</button></p>
-              <p><button class="button is-size-xl">.is-size-xl</button></p>
-              <p><button class="button is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</button></p>
-              <p><button class="button is-fullwidth is-size-s">.is-fullwidth.is-size-s</button></p>
-              <p><button class="button is-fullwidth is-size-m">.is-fullwidth.is-size-m</button></p>
-              <p><button class="button is-fullwidth is-size-l">.is-fullwidth.is-size-l</button></p>
-              <p><button class="button is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</button></p>
+              <p><button class="button size-xs">.size-xs</button></p>
+              <p><button class="button size-s">.size-s</button></p>
+              <p><button class="button size-m">.size-m</button></p>
+              <p><button class="button size-l">.size-l</button></p>
+              <p><button class="button size-xl">.size-xl</button></p>
+              <p><button class="button fullwidth size-xs">.fullwidth.size-xs</button></p>
+              <p><button class="button fullwidth size-s">.fullwidth.size-s</button></p>
+              <p><button class="button fullwidth size-m">.fullwidth.size-m</button></p>
+              <p><button class="button fullwidth size-l">.fullwidth.size-l</button></p>
+              <p><button class="button fullwidth size-xl">.fullwidth.size-xl</button></p>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;button class="button is-size-xs"&gt;.is-size-xs&lt;/button&gt;<br>
+                &lt;button class="button size-xs"&gt;.size-xs&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-size-s"&gt;.is-size-s&lt;/button&gt;<br>
+                &lt;button class="button size-s"&gt;.size-s&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-size-m"&gt;.is-size-m&lt;/button&gt;<br>
+                &lt;button class="button size-m"&gt;.size-m&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-size-l"&gt;.is-size-l&lt;/button&gt;<br>
+                &lt;button class="button size-l"&gt;.size-l&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-size-xl"&gt;.is-size-xl&lt;/button&gt;<br>
+                &lt;button class="button size-xl"&gt;.size-xl&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-fullwidth is-size-xs"&gt;.is-fullwidth.is-size-xs&lt;/button&gt;<br>
+                &lt;button class="button fullwidth size-xs"&gt;.fullwidth.size-xs&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-fullwidth is-size-s"&gt;.is-fullwidth.is-size-s&lt;/button&gt;<br>
+                &lt;button class="button fullwidth size-s"&gt;.fullwidth.size-s&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-fullwidth is-size-m"&gt;.is-fullwidth.is-size-m&lt;/button&gt;<br>
+                &lt;button class="button fullwidth size-m"&gt;.fullwidth.size-m&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-fullwidth is-size-l"&gt;.is-fullwidth.is-size-l&lt;/button&gt;<br>
+                &lt;button class="button fullwidth size-l"&gt;.fullwidth.size-l&lt;/button&gt;<br>
                 <br>
-                &lt;button class="button is-fullwidth is-size-xl"&gt;.is-fullwidth.is-size-xl&lt;/button&gt;<br>
+                &lt;button class="button fullwidth size-xl"&gt;.fullwidth.size-xl&lt;/button&gt;<br>
               </code>
             </pre>
           </div>
@@ -429,69 +549,69 @@
 
           <div class="snippet">
             <div>
-              <p><button class="button is-rounded">Button</button></p>
-              <p><button class="button is-rounded is-primary">Button</button></p>
-              <p><button class="button is-rounded is-secondary">Button</button></p>
-              <p><button class="button is-rounded is-success">Button</button></p>
-              <p><button class="button is-rounded is-info">Button</button></p>
-              <p><button class="button is-rounded is-warning">Button</button></p>
-              <p><button class="button is-rounded is-danger">Button</button></p>
+              <p><button class="button rounded">Button</button></p>
+              <p><button class="button rounded is-primary">Button</button></p>
+              <p><button class="button rounded is-secondary">Button</button></p>
+              <p><button class="button rounded is-success">Button</button></p>
+              <p><button class="button rounded is-info">Button</button></p>
+              <p><button class="button rounded is-warning">Button</button></p>
+              <p><button class="button rounded is-danger">Button</button></p>
             </div>
             <pre class="box">
               <code class="html">
-                <p>&lt;button class="button is-rounded"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-primary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-secondary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-success"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-info"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-warning"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-danger"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-primary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-secondary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-success"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-info"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-warning"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded is-danger"&gt;Button&lt;/button&gt;</p>
               </code>
             </pre>
           </div>
 
           <div class="snippet">
             <div>
-              <p><button class="button is-outlined">Button</button></p>
-              <p><button class="button is-outlined is-primary">Button</button></p>
-              <p><button class="button is-outlined is-secondary">Button</button></p>
-              <p><button class="button is-outlined is-success">Button</button></p>
-              <p><button class="button is-outlined is-info">Button</button></p>
-              <p><button class="button is-outlined is-warning">Button</button></p>
-              <p><button class="button is-outlined is-danger">Button</button></p>
+              <p><button class="button outlined">Button</button></p>
+              <p><button class="button outlined is-primary">Button</button></p>
+              <p><button class="button outlined is-secondary">Button</button></p>
+              <p><button class="button outlined is-success">Button</button></p>
+              <p><button class="button outlined is-info">Button</button></p>
+              <p><button class="button outlined is-warning">Button</button></p>
+              <p><button class="button outlined is-danger">Button</button></p>
             </div>
             <pre class="box">
               <code class="html">
-                <p>&lt;button class="button is-outlined"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-primary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-secondary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-success"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-info"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-warning"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-outlined is-danger"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-primary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-secondary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-success"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-info"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-warning"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button outlined is-danger"&gt;Button&lt;/button&gt;</p>
               </code>
             </pre>
           </div>
 
           <div class="snippet">
             <div>
-              <p><button class="button is-rounded is-outlined">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-primary">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-secondary">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-success">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-info">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-warning">Button</button></p>
-              <p><button class="button is-rounded is-outlined is-danger">Button</button></p>
+              <p><button class="button rounded outlined">Button</button></p>
+              <p><button class="button rounded outlined is-primary">Button</button></p>
+              <p><button class="button rounded outlined is-secondary">Button</button></p>
+              <p><button class="button rounded outlined is-success">Button</button></p>
+              <p><button class="button rounded outlined is-info">Button</button></p>
+              <p><button class="button rounded outlined is-warning">Button</button></p>
+              <p><button class="button rounded outlined is-danger">Button</button></p>
             </div>
             <pre class="box">
               <code class="html">
-                <p>&lt;button class="button is-rounded is-outlined"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-primary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-secondary"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-success"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-info"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-warning"&gt;Button&lt;/button&gt;</p>
-                <p>&lt;button class="button is-rounded is-outlined is-danger"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-primary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-secondary"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-success"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-info"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-warning"&gt;Button&lt;/button&gt;</p>
+                <p>&lt;button class="button rounded outlined is-danger"&gt;Button&lt;/button&gt;</p>
               </code>
             </pre>
           </div>
@@ -501,13 +621,13 @@
           <div class="snippet">
             <div>
               <p>
-                <div class="is-grouped">
+                <div class="grouped">
                   <button class="button is-primary">Button</button>
                   <button class="button is-secondary">Button</button>
                 </div>
               </p>
               <p>
-                <div class="is-grouped is-size-xs">
+                <div class="grouped size-xs">
                   <span class="button is-danger">Button</span>
                   <span class="button is-warning">Button</span>
                   <span class="button is-secondary">Button</span>
@@ -515,14 +635,14 @@
                 </div>
               </p>
               <p>
-                <div class="is-grouped">
-                  <button class="button is-rounded">Rounded</button>
-                  <button class="button is-rounded">Rounded</button>
-                  <button class="button is-rounded">Rounded</button>
+                <div class="grouped">
+                  <button class="button rounded">Rounded</button>
+                  <button class="button rounded">Rounded</button>
+                  <button class="button rounded">Rounded</button>
                 </div>
               </p>
               <p>
-                <div class="is-grouped">
+                <div class="grouped">
                   <button class="button">&lt;</button>
                   <label class="toggle-button">
                     <input type="radio" name="pager" checked><span>1</span>
@@ -540,13 +660,13 @@
             <pre class="box">
               <code class="html">
                 <p>
-                  &lt;div class="is-grouped"&gt;<br>
+                  &lt;div class="grouped"&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button is-primary"&gt;Button&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button is-secondary"&gt;Button&lt;/button&gt;<br>
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped is-size-xs"&gt;<br>
+                  &lt;div class="grouped size-xs"&gt;<br>
                   &nbsp;&nbsp;&lt;span class="button is-danger"&gt;Button&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="button is-warning"&gt;Button&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="button is-secondary"&gt;Button&lt;/span&gt;<br>
@@ -554,14 +674,14 @@
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &lt;div class="grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
+                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped"&gt;<br>
+                  &lt;div class="grouped"&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button"&gt;&amp;lt;&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
                   &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager" checked&gt;<br>
@@ -585,7 +705,7 @@
           <div class="snippet">
             <div>
               <p>
-                <div class="is-grouped is-vertical">
+                <div class="grouped vertical">
                   <button class="button is-purple">The first button</button>
                   <button class="button is-purple">Button between buttons</button>
                   <button class="button is-purple">Button between buttons</button>
@@ -593,7 +713,7 @@
                 </div>
               </p>
               <p>
-                <div class="is-grouped is-vertical is-fullwidth">
+                <div class="grouped vertical fullwidth">
                   <button class="button">Full width button</button>
                   <button class="button">Full width button</button>
                   <button class="button">Full width button</button>
@@ -604,7 +724,7 @@
             <pre class="box">
               <code class="html">
                 <p>
-                  &lt;div class="is-grouped is-vertical"&gt;<br>
+                  &lt;div class="grouped vertical"&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button is-purple"&gt;The first button&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
@@ -612,7 +732,7 @@
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped is-vertical is-fullwidth"&gt;<br>
+                  &lt;div class="grouped vertical fullwidth"&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
                   &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
@@ -626,7 +746,7 @@
         </section>
 
         <section id="text-input">
-          <h1>Text input</h1>
+          <h1><a href="#text input">Text input</a></h1>
 
           <div class="snippet">
             <div>
@@ -640,7 +760,7 @@
                 </label>
               </div>
               <div>
-                <label class="label is-grouped">
+                <label class="label grouped">
                   Label
                   <input type="text" class="input" id="text-input-grouped" size="20" placeholder="Input text here...">
                   <button class="button is-primary">Button</button>
@@ -648,10 +768,10 @@
               </div>
               <div>
                 <label class="label">
-                  __Baseline__
-                  <input type="text" class="input" size="1" value="__is__">
+                  _Baseline__
+                  <input type="text" class="input" size="1" value="_is__">
                 </label>
-                <button class="button is-primary">__aligned__</button>
+                <button class="button is-primary">_aligned__</button>
               </div>
               <div>
                 <textarea class="textarea" placeholder="Input text here..."></textarea>
@@ -666,7 +786,7 @@
                 &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
                 &lt;/label&gt;<br>
                 <br>
-                &lt;label class="label is-grouped"&gt;<br>
+                &lt;label class="label grouped"&gt;<br>
                 &nbsp;&nbsp;Label<br>
                 &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
                 &nbsp;&nbsp;&lt;button class="button is-primary"&gt;Button&lt;/button&gt;<br>
@@ -724,49 +844,49 @@
             <div class="snippet">
               <div>
                 <div>
-                  <label class="label is-size-xs">Label <input type="text" class="input" placeholder=".is-size-xs"></label>
+                  <label class="label size-xs">Label <input type="text" class="input" placeholder=".size-xs"></label>
                 </div>
                 <div>
-                  <label class="label is-size-s">Label <input type="text" class="input" placeholder=".is-size-s"></label>
+                  <label class="label size-s">Label <input type="text" class="input" placeholder=".size-s"></label>
                 </div>
                 <div>
-                  <label class="label is-size-m">Label <input type="text" class="input" placeholder=".is-size-m"></label>
+                  <label class="label size-m">Label <input type="text" class="input" placeholder=".size-m"></label>
                 </div>
                 <div>
-                  <label class="label is-size-l">Label <input type="text" class="input" placeholder=".is-size-l"></label>
+                  <label class="label size-l">Label <input type="text" class="input" placeholder=".size-l"></label>
                 </div>
                 <div>
-                  <label class="label is-size-xl">Label <input type="text" class="input" placeholder=".is-size-xl"></label>
+                  <label class="label size-xl">Label <input type="text" class="input" placeholder=".size-xl"></label>
                 </div>
                 <div>
-                  <label class="label is-fullwidth is-size-xs">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xs"></label>
+                  <label class="label fullwidth size-xs">Label <input type="text" class="input" placeholder=".fullwidth.size-xs"></label>
                 </div>
                 <div>
-                  <label class="label is-fullwidth is-size-s">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-s"></label>
+                  <label class="label fullwidth size-s">Label <input type="text" class="input" placeholder=".fullwidth.size-s"></label>
                 </div>
                 <div>
-                  <label class="label is-fullwidth is-size-m">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-m"></label>
+                  <label class="label fullwidth size-m">Label <input type="text" class="input" placeholder=".fullwidth.size-m"></label>
                 </div>
                 <div>
-                  <label class="label is-fullwidth is-size-l">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-l"></label>
+                  <label class="label fullwidth size-l">Label <input type="text" class="input" placeholder=".fullwidth.size-l"></label>
                 </div>
                 <div>
-                  <label class="label is-fullwidth is-size-xl">Label <input type="text" class="input" placeholder=".is-fullwidth.is-size-xl"></label>
+                  <label class="label fullwidth size-xl">Label <input type="text" class="input" placeholder=".fullwidth.size-xl"></label>
                 </div>
               </div>
               <pre class="box">
                 <code class="html">
-                  &lt;label class="label is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
                   <br>
-                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;
+                  &lt;label class="label fullwidth size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;
                 </code>
               </pre>
             </div>
@@ -774,7 +894,7 @@
         </section>
 
         <section id="select">
-          <h1>Select</h1>
+          <h1><a href="#select">Select</a></h1>
 
           <div class="snippet">
             <div>
@@ -800,7 +920,7 @@
                 </label>
               </div>
               <div>
-                <label class="label is-grouped">
+                <label class="label grouped">
                   Label
                   <select class="select" id="select-grouped">
                     <option></option>
@@ -814,15 +934,15 @@
               </div>
               <div>
                 <label class="label">
-                  __Baseline__
+                  _Baseline__
                   <select class="select">
-                    <option>__is__</option>
-                    <option>__is__</option>
-                    <option>__is__</option>
-                    <option>__is__</option>
+                    <option>_is__</option>
+                    <option>_is__</option>
+                    <option>_is__</option>
+                    <option>_is__</option>
                   </select>
                 </label>
-                <button class="button is-primary">__aligned__</button>
+                <button class="button is-primary">_aligned__</button>
               </div>
             </div>
             <pre class="box">
@@ -838,7 +958,7 @@
                 &nbsp;&nbsp;&lt;/select&gt;<br>
                 &lt;/label&gt;<br>
                 <br>
-                &lt;label class="label is-grouped""&gt;<br>
+                &lt;label class="label grouped""&gt;<br>
                 &nbsp;&nbsp;Label<br>
                 &nbsp;&nbsp;&lt;select class="select"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;...&lt;/option&gt;<br>
@@ -893,30 +1013,30 @@
           <div>
             <div class="snippet">
               <div>
-                <p><label class="label is-size-xs">Label <select class="select"><option>.is-size-xs</option></select></label></p>
-                <p><label class="label is-size-s">Label <select class="select"><option> .is-size-s</option></select></label></p>
-                <p><label class="label is-size-m">Label <select class="select"><option> .is-size-m</option></select></label></p>
-                <p><label class="label is-size-l">Label <select class="select"><option> .is-size-l</option></select></label></p>
-                <p><label class="label is-size-xl">Label <select class="select"><option>.is-size-xl</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-xs">Label <select class="select"><option>.is-fullwidth.is-size-xs</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-s">Label <select class="select"><option> .is-fullwidth.is-size-s</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-m">Label <select class="select"><option> .is-fullwidth.is-size-m</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-l">Label <select class="select"><option> .is-fullwidth.is-size-l</option></select></label></p>
-                <p><label class="label is-fullwidth is-size-xl">Label <select class="select"><option>.is-fullwidth.is-size-xl</option></select></label></p>
+                <p><label class="label size-xs">Label <select class="select"><option>.size-xs</option></select></label></p>
+                <p><label class="label size-s">Label <select class="select"><option> .size-s</option></select></label></p>
+                <p><label class="label size-m">Label <select class="select"><option> .size-m</option></select></label></p>
+                <p><label class="label size-l">Label <select class="select"><option> .size-l</option></select></label></p>
+                <p><label class="label size-xl">Label <select class="select"><option>.size-xl</option></select></label></p>
+                <p><label class="label fullwidth size-xs">Label <select class="select"><option>.fullwidth.size-xs</option></select></label></p>
+                <p><label class="label fullwidth size-s">Label <select class="select"><option> .fullwidth.size-s</option></select></label></p>
+                <p><label class="label fullwidth size-m">Label <select class="select"><option> .fullwidth.size-m</option></select></label></p>
+                <p><label class="label fullwidth size-l">Label <select class="select"><option> .fullwidth.size-l</option></select></label></p>
+                <p><label class="label fullwidth size-xl">Label <select class="select"><option>.fullwidth.size-xl</option></select></label></p>
               </div>
               <pre class="box">
                 <code class="html">
-                  &lt;label class="label is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
                   <br>
-                  &lt;label class="label is-fullwidth is-size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
-                  &lt;label class="label is-fullwidth is-size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;
+                  &lt;label class="label fullwidth size-xs"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-s"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-m"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-l"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-xl"&gt;Label &lt;select class="select"&gt;...&lt;/select&gt;&lt;/label&gt;
                 </code>
               </pre>
             </div>
@@ -924,7 +1044,7 @@
         </section>
 
         <section id="multiple-select">
-          <h1>Multiple select</h1>
+          <h1><a href="#multiple select">Multiple select</a></h1>
 
           <div class="snippet">
             <div>
@@ -998,80 +1118,80 @@
             <div class="snippet">
               <div>
                 <p>
-                  <select multiple size="2" class="select is-size-xs">
-                    <option>.is-size-xs
+                  <select multiple size="2" class="select size-xs">
+                    <option>.size-xs
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-size-s">
-                    <option>.is-size-s
+                  <select multiple size="2" class="select size-s">
+                    <option>.size-s
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-size-m">
-                    <option>.is-size-m
+                  <select multiple size="2" class="select size-m">
+                    <option>.size-m
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-size-l">
-                    <option>.is-size-l
+                  <select multiple size="2" class="select size-l">
+                    <option>.size-l
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-size-xl">
-                    <option>.is-size-xl
+                  <select multiple size="2" class="select size-xl">
+                    <option>.size-xl
                     </option>
                   </select>
                 </p>
 
                 <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-xs">
-                    <option>.is-fullwidth.is-size-xs
+                  <select multiple size="2" class="select fullwidth size-xs">
+                    <option>.fullwidth.size-xs
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-s">
-                    <option>.is-fullwidth.is-size-s
+                  <select multiple size="2" class="select fullwidth size-s">
+                    <option>.fullwidth.size-s
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-m">
-                    <option>.is-fullwidth.is-size-m
+                  <select multiple size="2" class="select fullwidth size-m">
+                    <option>.fullwidth.size-m
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-l">
-                    <option>.is-fullwidth.is-size-l
+                  <select multiple size="2" class="select fullwidth size-l">
+                    <option>.fullwidth.size-l
                     </option>
                   </select>
                 </p>
                 <p>
-                  <select multiple size="2" class="select is-fullwidth is-size-xl">
-                    <option>.is-fullwidth.is-size-xl
+                  <select multiple size="2" class="select fullwidth size-xl">
+                    <option>.fullwidth.size-xl
                     </option>
                   </select>
                 </p>
               </div>
               <pre class="box">
                 <code class="html">
-                  <p>&lt;select class="select is-size-xs"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-s"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-m"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-l"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-size-xl"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select size-xs"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select size-s"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select size-m"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select size-l"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select size-xl"&gt;...&lt;/select&gt;<br></p>
                   <p><br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-xs"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-s"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-m"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-l"&gt;...&lt;/select&gt;<br></p>
-                  <p>&lt;select class="select is-fullwidth is-size-xl"&gt;...&lt;/select&gt;</p>
+                  <p>&lt;select class="select fullwidth size-xs"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select fullwidth size-s"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select fullwidth size-m"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select fullwidth size-l"&gt;...&lt;/select&gt;<br></p>
+                  <p>&lt;select class="select fullwidth size-xl"&gt;...&lt;/select&gt;</p>
                 </code>
               </pre>
             </div>
@@ -1079,7 +1199,7 @@
         </section>
 
         <section id="file-select">
-          <h1>File select</h1>
+          <h1><a href="#file select">File select</a></h1>
 
           <div class="snippet">
             <div>
@@ -1174,28 +1294,28 @@
           <h2 id="file-select-sizes">Sizes</h2>
           <div class="snippet">
             <div>
-              <label class="file-select is-size-xs"><input type="file"><span>.is-size-xs</span></label>
-              <label class="file-select is-size-s"><input type="file"><span>.is-size-s</span></label>
-              <label class="file-select is-size-m"><input type="file"><span>.is-size-m</span></label>
-              <label class="file-select is-size-l"><input type="file"><span>.is-size-l</span></label>
-              <label class="file-select is-size-xl"><input type="file"><span>.is-size-xl</span></label>
+              <label class="file-select size-xs"><input type="file"><span>.size-xs</span></label>
+              <label class="file-select size-s"><input type="file"><span>.size-s</span></label>
+              <label class="file-select size-m"><input type="file"><span>.size-m</span></label>
+              <label class="file-select size-l"><input type="file"><span>.size-l</span></label>
+              <label class="file-select size-xl"><input type="file"><span>.size-xl</span></label>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;label class="file-select is-size-xs"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.is-size-xs&lt;/span&gt;<br>
+                &lt;label class="file-select size-xs"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.size-xs&lt;/span&gt;<br>
                 &lt;/label&gt;<br>
-                &lt;label class="file-select is-size-s"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.is-size-s&lt;/span&gt;<br>
+                &lt;label class="file-select size-s"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.size-s&lt;/span&gt;<br>
                 &lt;/label&gt;<br>
-                &lt;label class="file-select is-size-m"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.is-size-m&lt;/span&gt;<br>
+                &lt;label class="file-select size-m"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.size-m&lt;/span&gt;<br>
                 &lt;/label&gt;<br>
-                &lt;label class="file-select is-size-l"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.is-size-l&lt;/span&gt;<br>
+                &lt;label class="file-select size-l"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.size-l&lt;/span&gt;<br>
                 &lt;/label&gt;<br>
-                &lt;label class="file-select is-size-xl"&gt;<br>
-                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.is-size-xl&lt;/span&gt;<br>
+                &lt;label class="file-select size-xl"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;&lt;span&gt;.size-xl&lt;/span&gt;<br>
                 &lt;/label&gt;<br>
               </code>
             </pre>
@@ -1203,7 +1323,7 @@
         </section>
 
         <section id="checkbox-radio">
-          <h1>Checkbox and radio</h1>
+          <h1><a href="#checkbox and radio">Checkbox and radio</a></h1>
 
           <div class="snippet">
             <div>
@@ -1247,7 +1367,7 @@
           <div class="snippet">
             <div>
               <div>
-                <div class="is-grouped">
+                <div class="grouped">
                   <label class="toggle-button">
                     <input type="checkbox">
                     <span>Checkbox</span>
@@ -1263,7 +1383,7 @@
                 </div>
               </div>
               <div>
-                <div class="is-grouped">
+                <div class="grouped">
                   <label class="toggle-button">
                     <input type="radio" name="radio-button-grouped">
                     <span>Radio</span>
@@ -1281,7 +1401,7 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;div class="is-grouped"&gt;<br>
+                &lt;div class="grouped"&gt;<br>
                 &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Checkbox&lt;/span&gt;<br>
@@ -1296,7 +1416,7 @@
                 &nbsp;&nbsp;&lt;/label&gt;<br>
                 &lt;/div&gt;<br>
                 <br>
-                &lt;div class="is-grouped"&gt;<br>
+                &lt;div class="grouped"&gt;<br>
                 &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="grouped-button"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Radio&lt;/span&gt;<br>
@@ -1315,7 +1435,7 @@
         </section>
 
         <section id="box">
-          <h1>Box</h1>
+          <h1><a href="#box">Box</a></h1>
 
           <div class="snippet">
             <div>
@@ -1332,62 +1452,62 @@
           <div class="snippet">
             <div>
               <div>
-                <div class="box is-size-xs">.is-size-xs</div>
+                <div class="box size-xs">.size-xs</div>
               </div>
               <div>
-                <div class="box is-size-s">.is-size-s</div>
+                <div class="box size-s">.size-s</div>
               </div>
               <div>
-                <div class="box is-size-m">.is-size-m</div>
+                <div class="box size-m">.size-m</div>
               </div>
               <div>
-                <div class="box is-size-l">.is-size-l</div>
+                <div class="box size-l">.size-l</div>
               </div>
               <div>
-                <div class="box is-size-xl">.is-size-xl</div>
+                <div class="box size-xl">.size-xl</div>
               </div>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;div class="box is-size-xs"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box size-xs"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-size-s"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box size-s"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-size-m"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box size-m"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-size-l"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box size-l"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-size-xl"&gt;...&lt;/div&gt;
+                &lt;div class="box size-xl"&gt;...&lt;/div&gt;
               </code>
             </pre>
           </div>
 
           <div class="snippet">
             <div>
-              <div><div class="box is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</div></div>
-              <div><div class="box is-fullwidth is-size-s"> .is-fullwidth.is-size-s</div></div>
-              <div><div class="box is-fullwidth is-size-m"> .is-fullwidth.is-size-m</div></div>
-              <div><div class="box is-fullwidth is-size-l"> .is-fullwidth.is-size-l</div></div>
-              <div><div class="box is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</div></div>
+              <div><div class="box fullwidth size-xs">.fullwidth.size-xs</div></div>
+              <div><div class="box fullwidth size-s"> .fullwidth.size-s</div></div>
+              <div><div class="box fullwidth size-m"> .fullwidth.size-m</div></div>
+              <div><div class="box fullwidth size-l"> .fullwidth.size-l</div></div>
+              <div><div class="box fullwidth size-xl">.fullwidth.size-xl</div></div>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;div class="box is-fullwidth is-size-xs"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box fullwidth size-xs"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-fullwidth is-size-s"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box fullwidth size-s"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-fullwidth is-size-m"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box fullwidth size-m"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-fullwidth is-size-l"&gt;...&lt;/div&gt;<br>
+                &lt;div class="box fullwidth size-l"&gt;...&lt;/div&gt;<br>
                 <br>
-                &lt;div class="box is-fullwidth is-size-xl"&gt;...&lt;/div&gt;
+                &lt;div class="box fullwidth size-xl"&gt;...&lt;/div&gt;
               </code>
             </pre>
           </div>
         </section>
 
         <section id="tag">
-          <h1>Tag</h1>
+          <h1><a href="#tag">Tag</a></h1>
 
           <div class="snippet">
             <div>
@@ -1407,40 +1527,40 @@
 
           <div class="snippet">
             <div>
-              <p><span class="tag is-size-xs">.is-size-xs</span></p>
-              <p><span class="tag is-size-s">.is-size-s</span></p>
-              <p><span class="tag is-size-m">.is-size-m</span></p>
-              <p><span class="tag is-size-l">.is-size-l</span></p>
-              <p><span class="tag is-size-xl">.is-size-xl</span></p>
-              <p><span class="tag is-fullwidth is-size-xs">.is-fullwidth.is-size-xs</span></p>
-              <p><span class="tag is-fullwidth is-size-s">.is-fullwidth.is-size-s</span></p>
-              <p><span class="tag is-fullwidth is-size-m">.is-fullwidth.is-size-m</span></p>
-              <p><span class="tag is-fullwidth is-size-l">.is-fullwidth.is-size-l</span></p>
-              <p><span class="tag is-fullwidth is-size-xl">.is-fullwidth.is-size-xl</span></p>
+              <p><span class="tag size-xs">.size-xs</span></p>
+              <p><span class="tag size-s">.size-s</span></p>
+              <p><span class="tag size-m">.size-m</span></p>
+              <p><span class="tag size-l">.size-l</span></p>
+              <p><span class="tag size-xl">.size-xl</span></p>
+              <p><span class="tag fullwidth size-xs">.fullwidth.size-xs</span></p>
+              <p><span class="tag fullwidth size-s">.fullwidth.size-s</span></p>
+              <p><span class="tag fullwidth size-m">.fullwidth.size-m</span></p>
+              <p><span class="tag fullwidth size-l">.fullwidth.size-l</span></p>
+              <p><span class="tag fullwidth size-xl">.fullwidth.size-xl</span></p>
             </div>
             <pre class="box">
               <code class="html">
                 <p>
-                  &lt;span class="tag is-size-xs"&gt;.is-size-xs&lt;/span&gt;<br>
+                  &lt;span class="tag size-xs"&gt;.size-xs&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-size-s"&gt;.is-size-s&lt;/span&gt;<br>
+                  &lt;span class="tag size-s"&gt;.size-s&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-size-m"&gt;.is-size-m&lt;/span&gt;<br>
+                  &lt;span class="tag size-m"&gt;.size-m&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-size-l"&gt;.is-size-l&lt;/span&gt;<br>
+                  &lt;span class="tag size-l"&gt;.size-l&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-size-xl"&gt;.is-size-xl&lt;/span&gt;
+                  &lt;span class="tag size-xl"&gt;.size-xl&lt;/span&gt;
                 </p>
                 <p>
-                  &lt;span class="tag is-fullwidth is-size-xs"&gt;.is-fullwidth.is-size-xs&lt;/span&gt;<br>
+                  &lt;span class="tag fullwidth size-xs"&gt;.fullwidth.size-xs&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-fullwidth is-size-s"&gt;.is-fullwidth.is-size-s&lt;/span&gt;<br>
+                  &lt;span class="tag fullwidth size-s"&gt;.fullwidth.size-s&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-fullwidth is-size-m"&gt;.is-fullwidth.is-size-m&lt;/span&gt;<br>
+                  &lt;span class="tag fullwidth size-m"&gt;.fullwidth.size-m&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-fullwidth is-size-l"&gt;.is-fullwidth.is-size-l&lt;/span&gt;<br>
+                  &lt;span class="tag fullwidth size-l"&gt;.fullwidth.size-l&lt;/span&gt;<br>
                   <br>
-                  &lt;span class="tag is-fullwidth is-size-xl"&gt;.is-fullwidth.is-size-xl&lt;/span&gt;<br>
+                  &lt;span class="tag fullwidth size-xl"&gt;.fullwidth.size-xl&lt;/span&gt;<br>
                 </p>
               </code>
             </pre>
@@ -1523,69 +1643,69 @@
 
           <div class="snippet">
             <div>
-              <span class="tag is-rounded">Tag</span>
-              <span class="tag is-rounded is-primary">Tag</span>
-              <span class="tag is-rounded is-secondary">Tag</span>
-              <span class="tag is-rounded is-success">Tag</span>
-              <span class="tag is-rounded is-info">Tag</span>
-              <span class="tag is-rounded is-warning">Tag</span>
-              <span class="tag is-rounded is-danger">Tag</span>
+              <span class="tag rounded">Tag</span>
+              <span class="tag rounded is-primary">Tag</span>
+              <span class="tag rounded is-secondary">Tag</span>
+              <span class="tag rounded is-success">Tag</span>
+              <span class="tag rounded is-info">Tag</span>
+              <span class="tag rounded is-warning">Tag</span>
+              <span class="tag rounded is-danger">Tag</span>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;span class="tag is-rounded"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-primary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-secondary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-success"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-info"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-warning"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-danger"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-primary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-secondary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-success"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-info"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-warning"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded is-danger"&gt;Tag&lt;/span&gt;<br>
               </code>
             </pre>
           </div>
 
           <div class="snippet">
             <div>
-              <span class="tag is-outlined">Tag</span>
-              <span class="tag is-outlined is-primary">Tag</span>
-              <span class="tag is-outlined is-secondary">Tag</span>
-              <span class="tag is-outlined is-success">Tag</span>
-              <span class="tag is-outlined is-info">Tag</span>
-              <span class="tag is-outlined is-warning">Tag</span>
-              <span class="tag is-outlined is-danger">Tag</span>
+              <span class="tag outlined">Tag</span>
+              <span class="tag outlined is-primary">Tag</span>
+              <span class="tag outlined is-secondary">Tag</span>
+              <span class="tag outlined is-success">Tag</span>
+              <span class="tag outlined is-info">Tag</span>
+              <span class="tag outlined is-warning">Tag</span>
+              <span class="tag outlined is-danger">Tag</span>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;span class="tag is-outlined"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-primary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-secondary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-success"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-info"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-warning"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-outlined is-danger"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-primary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-secondary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-success"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-info"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-warning"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag outlined is-danger"&gt;Tag&lt;/span&gt;<br>
               </code>
             </pre>
           </div>
 
           <div class="snippet">
             <div>
-              <span class="tag is-rounded is-outlined">Tag</span>
-              <span class="tag is-rounded is-outlined is-primary">Tag</span>
-              <span class="tag is-rounded is-outlined is-secondary">Tag</span>
-              <span class="tag is-rounded is-outlined is-success">Tag</span>
-              <span class="tag is-rounded is-outlined is-info">Tag</span>
-              <span class="tag is-rounded is-outlined is-warning">Tag</span>
-              <span class="tag is-rounded is-outlined is-danger">Tag</span>
+              <span class="tag rounded outlined">Tag</span>
+              <span class="tag rounded outlined is-primary">Tag</span>
+              <span class="tag rounded outlined is-secondary">Tag</span>
+              <span class="tag rounded outlined is-success">Tag</span>
+              <span class="tag rounded outlined is-info">Tag</span>
+              <span class="tag rounded outlined is-warning">Tag</span>
+              <span class="tag rounded outlined is-danger">Tag</span>
             </div>
             <pre class="box">
               <code class="html">
-                &lt;span class="tag is-rounded is-outlined"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-primary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-secondary"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-success"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-info"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-warning"&gt;Tag&lt;/span&gt;<br>
-                &lt;span class="tag is-rounded is-outlined is-danger"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-primary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-secondary"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-success"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-info"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-warning"&gt;Tag&lt;/span&gt;<br>
+                &lt;span class="tag rounded outlined is-danger"&gt;Tag&lt;/span&gt;<br>
               </code>
             </pre>
           </div>
@@ -1595,13 +1715,13 @@
           <div class="snippet">
             <div>
               <p>
-                <div class="is-grouped">
+                <div class="grouped">
                   <span class="tag is-primary">Tag</span>
                   <span class="tag is-secondary">Tag</span>
                 </div>
               </p>
               <p>
-                <div class="is-grouped is-size-xs">
+                <div class="grouped size-xs">
                   <span class="tag is-danger">Tag</span>
                   <span class="tag is-warning">Tag</span>
                   <span class="tag is-secondary">Tag</span>
@@ -1609,23 +1729,23 @@
                 </div>
               </p>
               <p>
-                <div class="is-grouped">
-                  <span class="tag is-rounded">Rounded</span>
-                  <span class="tag is-rounded">Rounded</span>
-                  <span class="tag is-rounded">Rounded</span>
+                <div class="grouped">
+                  <span class="tag rounded">Rounded</span>
+                  <span class="tag rounded">Rounded</span>
+                  <span class="tag rounded">Rounded</span>
                 </div>
               </p>
             </div>
             <pre class="box">
               <code class="html">
                 <p>
-                  &lt;div class="is-grouped"&gt;<br>
+                  &lt;div class="grouped"&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-primary"&gt;Tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped is-size-xs"&gt;<br>
+                  &lt;div class="grouped size-xs"&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-danger"&gt;Tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-warning"&gt;Tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
@@ -1633,10 +1753,10 @@
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &lt;div class="grouped"&gt;<br>
+                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
+                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
                   &lt;/div&gt;<br>
                 </p>
               </code>
@@ -1646,7 +1766,7 @@
           <div class="snippet">
             <div>
               <p>
-                <div class="is-grouped is-vertical">
+                <div class="grouped vertical">
                   <span class="tag is-purple">The first tag</span>
                   <span class="tag is-purple">Tag between tags</span>
                   <span class="tag is-purple">Tag between tags</span>
@@ -1654,7 +1774,7 @@
                 </div>
               </p>
               <p>
-                <div class="is-grouped is-vertical is-fullwidth">
+                <div class="grouped vertical fullwidth">
                   <span class="tag">Full width tag</span>
                   <span class="tag">Full width tag</span>
                   <span class="tag">Full width tag</span>
@@ -1665,7 +1785,7 @@
             <pre class="box">
               <code class="html">
                 <p>
-                  &lt;div class="is-grouped is-vertical"&gt;<br>
+                  &lt;div class="grouped vertical"&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The first tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
@@ -1673,7 +1793,7 @@
                   &lt;/div&gt;<br>
                 </p>
                 <p>
-                  &lt;div class="is-grouped is-vertical is-fullwidth"&gt;<br>
+                  &lt;div class="grouped vertical fullwidth"&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
                   &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
@@ -1687,7 +1807,7 @@
         </section>
 
         <section id="table">
-          <h1>Table</h1>
+          <h1><a href="#table">Table</a></h1>
 
           <div class="snippet">
             <div>
@@ -1753,10 +1873,9 @@
           </div>
 
           <h2 id="table-fullwidth">Full width</h2>
-
           <div class="snippet">
             <div>
-              <table class="table is-fullwidth">
+              <table class="table fullwidth">
                 <thead>
                   <tr>
                     <td></td>
@@ -1781,7 +1900,7 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;table class="table is-fullwidth"&gt;<br>
+                &lt;table class="table fullwidth"&gt;<br>
                 &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
                 &lt;/table&gt;
               </code>
@@ -1789,10 +1908,9 @@
           </div>
 
           <h2 id="table-hoverable">Hoverable</h2>
-
           <div class="snippet">
             <div>
-              <table class="table is-fullwidth is-hoverable">
+              <table class="table fullwidth hoverable">
                 <thead>
                   <tr>
                     <td></td>
@@ -1817,7 +1935,7 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;table class="table is-fullwidth is-hoverable"&gt;<br>
+                &lt;table class="table fullwidth hoverable"&gt;<br>
                 &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
                 &lt;/table&gt;
               </code>
@@ -1828,7 +1946,7 @@
 
           <div class="snippet">
             <div>
-              <table class="table is-fullwidth is-bordered">
+              <table class="table fullwidth bordered">
                 <thead>
                   <tr>
                     <td></td>
@@ -1853,7 +1971,7 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;table class="table is-fullwidth is-bordered"&gt;<br>
+                &lt;table class="table fullwidth bordered"&gt;<br>
                 &nbsp;&nbsp;&lt;!-- ... --&gt;<br>
                 &lt;/table&gt;
               </code>
@@ -1863,7 +1981,7 @@
         </section>
 
         <section id="dialog">
-          <h1>Dialog</h1>
+          <h1><a href="#dialog">Dialog</a></h1>
 
           <div class="snippet">
             <div>
@@ -1878,7 +1996,7 @@
                 </a>
               </p>
               <dialog class="dialog" id="dialog-simple">
-                <h1>Modal dialog</h1>
+                <h1><a href="#modal dialog">Modal dialog</a></h1>
                 <ul>
                   <li>
                     <code>showModal()</code> method is to open <a href="https://www.w3.org/TR/html52/interactive-elements.html#the-dialog-element">HTML 5.2 dialog</a>.
@@ -1930,11 +2048,98 @@
           </div>
         </section>
 
-        <!-- Image -->
+        <!-- Document -->
         <!-- Notification -->
         <!-- Progress bar -->
-        <!-- Document -->
-        <!-- Helper -->
+
+        <section id="helper">
+          <h1><a href="#helper">Helper</a></h1>
+
+          <h2 id="colors">Colors</h2>
+          <div class="snippet">
+            <div>
+              <div>
+                <p>
+                  <span class="fg-white">.fg-white</span>
+                  <span class="fg-light">.fg-light</span>
+                  <span class="fg-gray-lighter">.fg-gray-lighter</span>
+                  <span class="fg-gray-light">.fg-gray-light</span>
+                  <span class="fg-gray">.fg-gray</span>
+                  <span class="fg-gray-dark">.fg-gray-dark</span>
+                  <span class="fg-dark">.fg-dark</span>
+                  <span class="fg-black">.fg-black</span>
+                </p>
+                <p>
+                  <span class="fg-primary">.fg-primary</span>
+                  <span class="fg-secondary">.fg-secondary</span>
+                  <span class="fg-success">.fg-success</span>
+                  <span class="fg-info">.fg-info</span>
+                  <span class="fg-warning">.fg-warning</span>
+                  <span class="fg-danger">.fg-danger</span>
+                </p>
+                <p>
+                  <span class="fg-blue">.fg-blue</span>
+                  <span class="fg-indigo">.fg-indigo</span>
+                  <span class="fg-purple">.fg-purple</span>
+                  <span class="fg-pink">.fg-pink</span>
+                  <span class="fg-red">.fg-red</span>
+                </p>
+                <p>
+                  <span class="fg-orange">.fg-orange</span>
+                  <span class="fg-yellow">.fg-yellow</span>
+                  <span class="fg-green">.fg-green</span>
+                  <span class="fg-teal">.fg-teal</span>
+                  <span class="fg-cyan">.fg-cyan</span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="bg-white">.bg-white</span>
+                  <span class="bg-light">.bg-light</span>
+                  <span class="bg-gray-lighter">.bg-gray-lighter</span>
+                  <span class="bg-gray-light">.bg-gray-light</span>
+                  <span class="bg-gray">.bg-gray</span>
+                  <span class="bg-gray-dark">.bg-gray-dark</span>
+                  <span class="bg-dark">.bg-dark</span>
+                  <span class="bg-black">.bg-black</span>
+                </p>
+                <p>
+                  <span class="bg-primary">.bg-primary</span>
+                  <span class="bg-secondary">.bg-secondary</span>
+                  <span class="bg-success">.bg-success</span>
+                  <span class="bg-info">.bg-info</span>
+                  <span class="bg-warning">.bg-warning</span>
+                  <span class="bg-danger">.bg-danger</span>
+                </p>
+                <p>
+                  <span class="bg-blue">.bg-blue</span>
+                  <span class="bg-indigo">.bg-indigo</span>
+                  <span class="bg-purple">.bg-purple</span>
+                  <span class="bg-pink">.bg-pink</span>
+                  <span class="bg-red">.bg-red</span>
+                </p>
+                <p>
+                  <span class="bg-orange">.bg-orange</span>
+                  <span class="bg-yellow">.bg-yellow</span>
+                  <span class="bg-green">.bg-green</span>
+                  <span class="bg-teal">.bg-teal</span>
+                  <span class="bg-cyan">.bg-cyan</span>
+                </p>
+              </div>
+            </div>
+            <pre class="box">
+              <code class="html">
+                &lt;span class="fg-white"&gt;.fg-white&lt;/span&gt;<br>
+                &lt;span class="fg-light"&gt;.fg-light&lt;/span&gt;<br>
+                ...<br>
+                <br>
+                &lt;span class="bg-white"&gt;.fg-white&lt;/span&gt;<br>
+                &lt;span class="bg-light"&gt;.fg-light&lt;/span&gt;<br>
+                ...<br>
+              </code>
+            </pre>
+          </div>
+        </section>
       </article>
     </main>
 
