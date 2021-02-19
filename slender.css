@@ -76,6 +76,24 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
   outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-lighter) var(--gray-light);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-lighter);
+  box-shadow: 0 0 1px var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vmax;
+  background-color: var(--gray-light);
+  box-shadow: 0 0 1px var(--gray) inset;
 }
 
 body {
@@ -159,22 +177,6 @@ fieldset {
   border: none;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--gray-lighter);
-  box-shadow: 0 0 1px var(--light);
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 100vmax;
-  background-color: var(--gray-light);
-  box-shadow: 0 0 1px var(--gray) inset;
-}
-
 /**
  * common
  */
@@ -205,7 +207,7 @@ fieldset {
  * document
  */
 .document {
-  padding: 2em;
+  padding: min(2em, 100vw / 40);
   line-height: 1.5;
 }
 
@@ -1289,11 +1291,11 @@ fieldset[disabled] :is(.select, .textarea) {
 
   .range::-moz-range-thumb {
     appearance: none;
-    width: 1rem;
-    height: 1rem;
+    width: 14px;
+    height: 14px;
     border: none;
     border-radius: 100vmax;
-    box-shadow: 0 0 0 1rem var(--blue) inset;
+    box-shadow: 0 0 0 1px var(--gray);
   }
 }
 /**

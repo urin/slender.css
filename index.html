@@ -87,15 +87,15 @@
         <div class="toc">
           <a href="#overview" :class="{ active: topic === 'overview' }">
             <i class="icon material-icons">highlight</i>
-            Overview
+            <span>Overview</span>
           </a>
           <a href="#customize" :class="{ active: topic === 'customize' }">
             <i class="icon material-icons">settings</i>
-            Customize
+            <span>Customize</span>
           </a>
           <a href="#button" :class="{ active: topic === 'button' }">
             <i class="icon material-icons">crop_square</i>
-            Button
+            <span>Button</span>
           </a>
           <ul class="subsections">
             <li><a href="#button-togglable">Togglable</a></li>
@@ -107,7 +107,7 @@
           </ul>
           <a href="#text-input" :class="{ active: topic === 'text-input' }">
             <i class="icon material-icons">short_text</i>
-            Text input
+            <span>Text input</span>
           </a>
           <ul class="subsections">
             <li><a href="#text-input-states">States</a></li>
@@ -115,7 +115,7 @@
           </ul>
           <a href="#select" :class="{ active: topic === 'select' }">
             <i class="icon material-icons">keyboard_arrow_down</i>
-            Select
+            <span>Select</span>
           </a>
           <ul class="subsections">
             <li><a href="#select-states">States</a></li>
@@ -123,7 +123,7 @@
           </ul>
           <a href="#multiple-select" :class="{ active: topic === 'multiple-select' }">
             <i class="icon material-icons">format_list_bulleted</i>
-            Multiple select
+            <span>Multiple select</span>
           </a>
           <ul class="subsections">
             <li><a href="#multiple-select-states">States</a></li>
@@ -131,7 +131,7 @@
           </ul>
           <a href="#file-select" :class="{ active: topic === 'file-select' }">
             <i class="icon material-icons">upload_file</i>
-            File select
+            <span>File select</span>
           </a>
           <ul class="subsections">
             <li><a href="#file-select-states">States</a></li>
@@ -139,21 +139,21 @@
           </ul>
           <a href="#checkbox-radio" :class="{ active: topic === 'checkbox-radio' }">
             <i class="icon material-icons">check_box</i>
-            Checkbox and radio
+            <span>Checkbox and radio</span>
           </a>
           <ul class="subsections">
             <li><a href="#checkbox-radio-togglable">Togglable</a></li>
           </ul>
           <a href="#box" :class="{ active: topic === 'box' }">
             <i class="icon material-icons">folder</i>
-            Box
+            <span>Box</span>
           </a>
           <ul class="subsections">
             <li><a href="#box-sizes">Sizes</a></li>
           </ul>
           <a href="#tag" :class="{ active: topic === 'tag' }">
             <i class="icon material-icons">sell</i>
-            Tag
+            <span>Tag</span>
           </a>
           <ul class="subsections">
             <li><a href="#tag-sizes">Sizes</a></li>
@@ -163,7 +163,7 @@
           </ul>
           <a href="#table" :class="{ active: topic === 'table' }">
             <i class="icon material-icons">table_rows</i>
-            Table
+            <span>Table</span>
           </a>
           <ul class="subsections">
             <li><a href="#table-fullwidth">Full width</a></li>
@@ -172,7 +172,7 @@
           </ul>
           <a href="#dialog" :class="{ active: topic === 'dialog' }">
             <i class="icon material-icons">picture_in_picture</i>
-            Dialog
+            <span>Dialog</span>
           </a>
           <!--
           <a href="#notification" :class="{ active: topic === 'notification' }">Notification</a>
@@ -181,7 +181,7 @@
           -->
           <a href="#helper" :class="{ active: topic === 'helper' }">
             <i class="icon material-icons">extension</i>
-            Helper
+            <span>Helper</span>
           </a>
           <ul class="subsections">
             <li><a href="#helper-colors">Colors</a></li>
@@ -201,7 +201,7 @@
               <p>Only 1 CSS file.</p>
               <ul>
                 <li>No JavaScript</li>
-                <li>No images</li>
+                <li>No image file</li>
               </ul>
             </li>
             <li>
@@ -222,7 +222,7 @@
               <p>Customizable colors, sizes and properties overwriting pre-defined CSS variables.</p>
             </li>
             <li>
-              <p>Size is automatically adjusted by its font size.</p>
+              <p>Size is automatically adjusted by base font size.</p>
               <ul>
                 <li>padding</li>
                 <li>line-height</li>
