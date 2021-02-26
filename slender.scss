@@ -160,8 +160,12 @@ textarea {
   font: inherit;
 }
 
+textarea {
+  overflow-anchor: none;
+}
+
 a {
-  color: var(--fg);
+  color: inherit;
   text-decoration: none;
 }
 

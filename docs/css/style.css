@@ -243,42 +243,48 @@
 
 .snippet > :first-child {
   flex-grow: 1;
+  flex-shrink: 1;
+  line-height: 2;
+  margin-bottom: 1rem;
 }
 
 .snippet > pre {
+  position: relative;
   flex-grow: 0;
+  margin-left: 1rem;
+  padding: 0;
+  line-height: 1.5;
   white-space: nowrap;
   overflow: auto;
-  margin-left: 1rem;
-  position: relative;
 }
 
-.snippet > pre p:not(:last-child) {
-  margin-bottom: 2em;
+.snippet > pre > code {
+  padding: 1.25rem 1rem .5rem;
 }
 
-.snippet > pre code:is(
-  .html,
-  .css
-)::before {
+.snippet > pre > code::before {
   position: absolute;
   display: inline-flex;
   text-align: center;
-  padding: .2rem .5rem;
+  padding: .1em .75em;
   font-size: .6rem;
   top: 0;
-  right: 0;
-  border-bottom-left-radius: .3rem;
+  left: 0;
+  border-bottom-right-radius: .3rem;
   color: var(--light);
   background-color: var(--secondary);
 }
 
-.snippet > pre code.html::before {
+.snippet > pre > code.html::before {
   content: "HTML";
 }
 
-.snippet > pre code.css::before {
+.snippet > pre > code.css::before {
   content: "CSS";
+}
+
+.snippet > pre p:not(:last-child) {
+  margin-bottom: 2em;
 }
 
 @media screen and (max-width: 1087px), print {
@@ -300,38 +306,6 @@
   .snippet pre p:not(:last-child) {
     margin-bottom: 0;
   }
-}
-
-#helper .snippet > * {
-  width: auto;
-  flex-shrink: 1;
-}
-
-#helper .snippet > div span {
-  padding: .1em .2em;
-  border-radius: var(--radius);
-}
-
-#button-grouped + .snippet > :first-child > .grouped {
-  margin-bottom: 7rem;
-}
-
-@media screen and (max-width: 1087px), print {
-  #button-grouped + .snippet > :first-child > .grouped {
-    margin-bottom: 0;
-  }
-}
-
-#box .snippet > div > :not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-#table .table {
-  width: auto;
-}
-
-#table .table.fullwidth {
-  width: 100%;
 }
 
 :is(
@@ -361,5 +335,31 @@
 
 #dialog-close > div {
   display: flex;
+}
+
+#box .snippet > div > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+#box .snippet > :first-child {
+  line-height: 1;
+}
+
+#table .table {
+  width: auto;
+}
+
+#table .table.fullwidth {
+  width: 100%;
+}
+
+#helper .snippet > * {
+  width: auto;
+  flex-shrink: 1;
+}
+
+#helper .snippet > div span {
+  padding: .1em .2em;
+  border-radius: var(--radius);
 }
 
