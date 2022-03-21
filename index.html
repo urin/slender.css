@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>slender.css documentation</title>
-    <link rel="stylesheet" href="./slender.css">
+    <link rel="stylesheet" href="./dist/slender.css">
     <link rel="stylesheet" href="./docs/css/solarized.css">
     <link rel="stylesheet" href="./docs/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -353,35 +353,37 @@
 
           <div class="snippet">
             <div>
-              <p>
-                <label class="toggle-button">
-                  <input type="radio" name="button-radio">
-                  <span>Radio</span>
-                </label>
-                <label class="toggle-button">
-                  <input type="radio" name="button-radio">
-                  <span>Radio</span>
-                </label>
-                <label class="toggle-button">
-                  <input type="radio" name="button-radio">
-                  <span>Radio</span>
-                </label>
-              </p>
-              <p>
-                <label class="toggle-button">
-                  <input type="checkbox">
-                  <span>Checkbox</span>
-                </label>
-                <label class="toggle-button">
-                  <input type="checkbox">
-                  <span>Checkbox</span>
-                </label>
-                <label class="toggle-button">
-                  <input type="checkbox">
-                  <span>Checkbox</span>
-                </label>
-              </p>
-              <p>Selectable by keyboard.</p>
+              <div>
+                <p>
+                  <label class="toggle-button">
+                    <input type="radio" name="button-radio">
+                    <span>Radio</span>
+                  </label>
+                  <label class="toggle-button">
+                    <input type="radio" name="button-radio">
+                    <span>Radio</span>
+                  </label>
+                  <label class="toggle-button">
+                    <input type="radio" name="button-radio">
+                    <span>Radio</span>
+                  </label>
+                </p>
+                <p>
+                  <label class="toggle-button">
+                    <input type="checkbox">
+                    <span>Checkbox</span>
+                  </label>
+                  <label class="toggle-button">
+                    <input type="checkbox">
+                    <span>Checkbox</span>
+                  </label>
+                  <label class="toggle-button">
+                    <input type="checkbox">
+                    <span>Checkbox</span>
+                  </label>
+                </p>
+                <p>Selectable by keyboard.</p>
+              </div>
             </div>
             <pre class="box">
               <code class="html">
@@ -617,6 +619,7 @@
                   <button class="button is-secondary">Button</button>
                 </div>
               </p>
+
               <p>
                 <div class="grouped size-xs">
                   <span class="button is-danger">Button</span>
@@ -625,6 +628,7 @@
                   <span class="button is-success">Button</span>
                 </div>
               </p>
+
               <p>
                 <div class="grouped">
                   <button class="button rounded">Rounded</button>
@@ -632,6 +636,7 @@
                   <button class="button rounded">Rounded</button>
                 </div>
               </p>
+
               <p>
                 <div class="grouped">
                   <button class="button">&lt;</button>
@@ -647,48 +652,44 @@
                   <button class="button">&gt;</button>
                 </div>
               </p>
+
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;div class="grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-primary"&gt;Button&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-secondary"&gt;Button&lt;/button&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped size-xs"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="button is-danger"&gt;Button&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="button is-warning"&gt;Button&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="button is-secondary"&gt;Button&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="button is-success"&gt;Button&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;&amp;lt;&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager" checked&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;1&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;/label&gt;<br>
-                  &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;2&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;/label&gt;<br>
-                  &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;3&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;/label&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;&amp;gt;&lt;/button&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
+                &lt;div class="grouped"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-primary"&gt;Button&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-secondary"&gt;Button&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped size-xs"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="button is-danger"&gt;Button&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="button is-warning"&gt;Button&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="button is-secondary"&gt;Button&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="button is-success"&gt;Button&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button rounded"&gt;Rounded&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;&amp;lt;&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager" checked&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;1&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;2&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;label class="toggle-button"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" name="pager"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;3&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;&amp;gt;&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
               </code>
             </pre>
           </div>
@@ -703,6 +704,7 @@
                   <button class="button is-purple">The last button</button>
                 </div>
               </p>
+
               <p>
                 <div class="grouped vertical fullwidth">
                   <button class="button">Full width button</button>
@@ -711,25 +713,23 @@
                   <button class="button">Full width button</button>
                 </div>
               </p>
+
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;div class="grouped vertical"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-purple"&gt;The first button&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button is-purple"&gt;The last button&lt;/button&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped vertical fullwidth"&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
-                  &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
+                &lt;div class="grouped vertical"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-purple"&gt;The first button&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-purple"&gt;Button between buttons&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button is-purple"&gt;The last button&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped vertical fullwidth"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="button"&gt;Full width button&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
               </code>
             </pre>
           </div>
@@ -742,25 +742,25 @@
           <div class="snippet">
             <div>
               <div>
-                <input type="text" class="input" size="20" placeholder="Input text here...">
+                <input class="input" placeholder="Input text here...">
               </div>
               <div>
                 <label class="label">
                   Label
-                  <input type="text" class="input" size="20" placeholder="Input text here...">
+                  <input class="input" placeholder="Input text here...">
                 </label>
               </div>
               <div>
                 <label class="label grouped">
                   Label
-                  <input type="text" class="input" id="text-input-grouped" size="20" placeholder="Input text here...">
+                  <input class="input" id="text-input-grouped" placeholder="Input text here...">
                   <button class="button is-primary">Button</button>
                 </label>
               </div>
               <div>
                 <label class="label">
                   _Baseline__
-                  <input type="text" class="input" size="1" value="_is__">
+                  <input class="input" size="1" value="_is__">
                 </label>
                 <button class="button is-primary">_aligned__</button>
               </div>
@@ -770,16 +770,16 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;input type="text" class="input"&gt;<br>
+                &lt;input class="input"&gt;<br>
                 <br>
                 &lt;label class="label"&gt;<br>
                 &nbsp;&nbsp;Label<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
+                &nbsp;&nbsp;&lt;input class="input"&gt;<br>
                 &lt;/label&gt;<br>
                 <br>
                 &lt;label class="label grouped"&gt;<br>
                 &nbsp;&nbsp;Label<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input"&gt;<br>
+                &nbsp;&nbsp;&lt;input class="input"&gt;<br>
                 &nbsp;&nbsp;&lt;button class="button is-primary"&gt;Button&lt;/button&gt;<br>
                 &lt;/label&gt;<br>
                 <br>
@@ -792,21 +792,21 @@
           <div class="snippet">
             <div>
               <div>
-                <input type="text" class="input" disabled value="disabled">
+                <input class="input" disabled value="disabled">
               </div>
               <fieldset disabled>
                 <p>
-                  <input type="text" class="input" value="disabled">
+                  <input class="input" value="disabled">
                 </p>
                 <p>
                   <textarea class="textarea">disabled</textarea>
                 </p>
               </fieldset>
               <div>
-                <input type="text" class="input" value="readonly" readonly tabindex="-1">
+                <input class="input" value="readonly" readonly tabindex="-1">
               </div>
               <div>
-                <input type="text" class="input" value="invalid" pattern="^$">
+                <input class="input" value="invalid" pattern="^$">
               </div>
               <div>
                 <textarea class="textarea" required placeholder="invalid"></textarea>
@@ -814,16 +814,16 @@
             </div>
             <pre class="box">
               <code class="html">
-                &lt;input type="text" class="input" disabled value="disabled"&gt;<br>
+                &lt;input class="input" disabled value="disabled"&gt;<br>
                 <br>
                 &lt;fieldset disabled&gt;<br>
-                &nbsp;&nbsp;&lt;input type="text" class="input" value="disabled"&gt;<br>
+                &nbsp;&nbsp;&lt;input class="input" value="disabled"&gt;<br>
                 &nbsp;&nbsp;&lt;textarea class="textarea"&gt;disabled&lt;/textarea&gt;<br>
                 &lt;/fieldset&gt;<br>
                 <br>
-                &lt;input type="text" class="input" value="readonly" readonly tabindex="-1"&gt;<br>
+                &lt;input class="input" value="readonly" readonly tabindex="-1"&gt;<br>
                 <br>
-                &lt;input type="text" class="input" value="invalid" pattern="^$"&gt;<br>
+                &lt;input class="input" value="invalid" pattern="^$"&gt;<br>
                 <br>
                 &lt;textarea class="textarea" required placeholder="invalid"&gt;&lt;/textarea&gt;<br>
               </code>
@@ -835,49 +835,49 @@
             <div class="snippet">
               <div>
                 <div>
-                  <label class="label size-xs">Label <input type="text" class="input" placeholder=".size-xs"></label>
+                  <label class="label size-xs">Label <input class="input" placeholder=".size-xs"></label>
                 </div>
                 <div>
-                  <label class="label size-s">Label <input type="text" class="input" placeholder=".size-s"></label>
+                  <label class="label size-s">Label <input class="input" placeholder=".size-s"></label>
                 </div>
                 <div>
-                  <label class="label size-m">Label <input type="text" class="input" placeholder=".size-m"></label>
+                  <label class="label size-m">Label <input class="input" placeholder=".size-m"></label>
                 </div>
                 <div>
-                  <label class="label size-l">Label <input type="text" class="input" placeholder=".size-l"></label>
+                  <label class="label size-l">Label <input class="input" placeholder=".size-l"></label>
                 </div>
                 <div>
-                  <label class="label size-xl">Label <input type="text" class="input" placeholder=".size-xl"></label>
+                  <label class="label size-xl">Label <input class="input" placeholder=".size-xl"></label>
                 </div>
                 <div>
-                  <label class="label fullwidth size-xs">Label <input type="text" class="input" placeholder=".fullwidth.size-xs"></label>
+                  <label class="label fullwidth size-xs">Label <input class="input" placeholder=".fullwidth.size-xs"></label>
                 </div>
                 <div>
-                  <label class="label fullwidth size-s">Label <input type="text" class="input" placeholder=".fullwidth.size-s"></label>
+                  <label class="label fullwidth size-s">Label <input class="input" placeholder=".fullwidth.size-s"></label>
                 </div>
                 <div>
-                  <label class="label fullwidth size-m">Label <input type="text" class="input" placeholder=".fullwidth.size-m"></label>
+                  <label class="label fullwidth size-m">Label <input class="input" placeholder=".fullwidth.size-m"></label>
                 </div>
                 <div>
-                  <label class="label fullwidth size-l">Label <input type="text" class="input" placeholder=".fullwidth.size-l"></label>
+                  <label class="label fullwidth size-l">Label <input class="input" placeholder=".fullwidth.size-l"></label>
                 </div>
                 <div>
-                  <label class="label fullwidth size-xl">Label <input type="text" class="input" placeholder=".fullwidth.size-xl"></label>
+                  <label class="label fullwidth size-xl">Label <input class="input" placeholder=".fullwidth.size-xl"></label>
                 </div>
               </div>
               <pre class="box">
                 <code class="html">
-                  &lt;label class="label size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xs"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-s"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-m"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-l"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label size-xl"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
                   <br>
-                  &lt;label class="label fullwidth size-xs"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label fullwidth size-s"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label fullwidth size-m"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label fullwidth size-l"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;<br>
-                  &lt;label class="label fullwidth size-xl"&gt;Label &lt;input type="text" class="input"&gt;&lt;/label&gt;
+                  &lt;label class="label fullwidth size-xs"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-s"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-m"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-l"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;<br>
+                  &lt;label class="label fullwidth size-xl"&gt;Label &lt;input class="input"&gt;&lt;/label&gt;
                 </code>
               </pre>
             </div>
@@ -1204,12 +1204,12 @@
                 <label class="file-select is-primary">
                   <input type="file">
                   <span>Choose file...</span>
-                  <input type="text" class="input" readonly tabindex="-1" size="8" placeholder="File name...">
+                  <input class="input" readonly tabindex="-1" size="8" placeholder="File name...">
                 </label>
               </div>
               <div>
                 <label class="file-select" tabindex="0">
-                  <input type="text" class="input" readonly tabindex="-1" size="8" placeholder="File name...">
+                  <input class="input" readonly tabindex="-1" size="8" placeholder="File name...">
                   <input type="file">
                   <span>Choose file...</span>
                 </label>
@@ -1218,26 +1218,22 @@
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;label class="file-select"&gt;<br>
-                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                  &nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
-                  &lt;/label&gt;<br>
-                </p>
-                <p>
-                  &lt;label class="file-select is-info"&gt;<br>
-                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                  &nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                  &nbsp;&nbsp;&lt;input type="text" class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
-                  &lt;/label&gt;<br>
-                </p>
-                <p>
-                  &lt;label class="file-select"&gt;<br>
-                  &nbsp;&nbsp;&lt;input type="text" class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
-                  &nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                  &nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                  &lt;/label&gt;<br>
-                </p>
+                &lt;label class="file-select"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
+                &lt;/label&gt;<br>
+                <br>
+                &lt;label class="file-select is-info"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Choose file...<br>
+                &nbsp;&nbsp;&lt;input class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
+                &lt;/label&gt;<br>
+                <br>
+                &lt;label class="file-select"&gt;<br>
+                &nbsp;&nbsp;&lt;input class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Choose file...<br>
+                &lt;/label&gt;<br>
               </code>
             </pre>
           </div>
@@ -1256,28 +1252,25 @@
                   <label class="file-select is-primary">
                     <input type="file">
                     <span>Choose file...</span>
-                    <input type="text" class="input" readonly tabindex="-1" placeholder="File name...">
+                    <input class="input" readonly tabindex="-1" placeholder="File name...">
                   </label>
                 </fieldset>
               </div>
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;label class="file-select"&gt;<br>
-                  &nbsp;&nbsp;&lt;input type="file" disabled&gt;<br>
-                  &nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
-                  &lt;/label&gt;<br>
-                </p>
-                <p>
-                  &lt;fieldset disabled&gt;<br>
-                  &nbsp;&nbsp;&lt;label class="file-select is-info"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...</span><br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
-                  &nbsp;&nbsp;&lt;/label&gt;<br>
-                  &lt;/fieldset&gt;<br>
-                </p>
+                &lt;label class="file-select"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="file" disabled&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Choose file...&lt;/span&gt;<br>
+                &lt;/label&gt;<br>
+                <br>
+                &lt;fieldset disabled&gt;<br>
+                &nbsp;&nbsp;&lt;label class="file-select is-info"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Choose file...<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input class="input" readonly tabindex="-1" placeholder="File name..."&gt;<br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                &lt;/fieldset&gt;<br>
               </code>
             </pre>
           </div>
@@ -1423,6 +1416,7 @@
                 &lt;/div&gt;<br>
               </code>
             </pre>
+          </div>
         </section>
 
         <section id="box">
@@ -1523,20 +1517,17 @@
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;span class="tag size-xs"&gt;.size-xs&lt;/span&gt;<br>
-                  &lt;span class="tag size-s"&gt;.size-s&lt;/span&gt;<br>
-                  &lt;span class="tag size-m"&gt;.size-m&lt;/span&gt;<br>
-                  &lt;span class="tag size-l"&gt;.size-l&lt;/span&gt;<br>
-                  &lt;span class="tag size-xl"&gt;.size-xl&lt;/span&gt;<br>
-                </p>
-                <p>
-                  &lt;span class="tag fullwidth size-xs"&gt;.fullwidth.size-xs&lt;/span&gt;<br>
-                  &lt;span class="tag fullwidth size-s"&gt;.fullwidth.size-s&lt;/span&gt;<br>
-                  &lt;span class="tag fullwidth size-m"&gt;.fullwidth.size-m&lt;/span&gt;<br>
-                  &lt;span class="tag fullwidth size-l"&gt;.fullwidth.size-l&lt;/span&gt;<br>
-                  &lt;span class="tag fullwidth size-xl"&gt;.fullwidth.size-xl&lt;/span&gt;<br>
-                </p>
+                &lt;span class="tag size-xs"&gt;.size-xs&lt;/span&gt;<br>
+                &lt;span class="tag size-s"&gt;.size-s&lt;/span&gt;<br>
+                &lt;span class="tag size-m"&gt;.size-m&lt;/span&gt;<br>
+                &lt;span class="tag size-l"&gt;.size-l&lt;/span&gt;<br>
+                &lt;span class="tag size-xl"&gt;.size-xl&lt;/span&gt;<br>
+                <br>
+                &lt;span class="tag fullwidth size-xs"&gt;.fullwidth.size-xs&lt;/span&gt;<br>
+                &lt;span class="tag fullwidth size-s"&gt;.fullwidth.size-s&lt;/span&gt;<br>
+                &lt;span class="tag fullwidth size-m"&gt;.fullwidth.size-m&lt;/span&gt;<br>
+                &lt;span class="tag fullwidth size-l"&gt;.fullwidth.size-l&lt;/span&gt;<br>
+                &lt;span class="tag fullwidth size-xl"&gt;.fullwidth.size-xl&lt;/span&gt;<br>
               </code>
             </pre>
           </div>
@@ -1579,37 +1570,32 @@
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;span class="tag is-primary"&gt;.is-primary&lt;/span&gt;<br>
-                  &lt;span class="tag is-secondary"&gt;.is-secondary&lt;/span&gt;<br>
-                  &lt;span class="tag is-success"&gt;.is-success&lt;/span&gt;<br>
-                  &lt;span class="tag is-info"&gt;.is-info&lt;/span&gt;<br>
-                  &lt;span class="tag is-warning"&gt;.is-warning&lt;/span&gt;<br>
-                  &lt;span class="tag is-danger"&gt;.is-danger&lt;/span&gt;<br>
-                </p>
-                <p>
-                  &lt;span class="tag is-white"&gt;.is-white&lt;/span&gt;<br>
-                  &lt;span class="tag is-light"&gt;.is-light&lt;/span&gt;<br>
-                  &lt;span class="tag is-gray-light"&gt;.is-gray-light&lt;/span&gt;<br>
-                  &lt;span class="tag is-gray"&gt;.is-gray&lt;/span&gt;<br>
-                  &lt;span class="tag is-gray-dark"&gt;.is-gray-dark&lt;/span&gt;<br>
-                  &lt;span class="tag is-dark"&gt;.is-dark&lt;/span&gt;<br>
-                  &lt;span class="tag is-black"&gt;.is-black&lt;/span&gt;<br>
-                </p>
-                <p>
-                  &lt;span class="tag is-blue"&gt;.is-blue&lt;/span&gt;<br>
-                  &lt;span class="tag is-indigo"&gt;.is-indigo&lt;/span&gt;<br>
-                  &lt;span class="tag is-purple"&gt;.is-purple&lt;/span&gt;<br>
-                  &lt;span class="tag is-pink"&gt;.is-pink&lt;/span&gt;<br>
-                  &lt;span class="tag is-red"&gt;.is-red&lt;/span&gt;<br>
-                </p>
-                <p>
-                  &lt;span class="tag is-orange"&gt;.is-orange&lt;/span&gt;<br>
-                  &lt;span class="tag is-yellow"&gt;.is-yellow&lt;/span&gt;<br>
-                  &lt;span class="tag is-green"&gt;.is-green&lt;/span&gt;<br>
-                  &lt;span class="tag is-teal"&gt;.is-teal&lt;/span&gt;<br>
-                  &lt;span class="tag is-cyan"&gt;.is-cyan&lt;/span&gt;<br>
-                </p>
+                &lt;span class="tag is-primary"&gt;.is-primary&lt;/span&gt;<br>
+                &lt;span class="tag is-secondary"&gt;.is-secondary&lt;/span&gt;<br>
+                &lt;span class="tag is-success"&gt;.is-success&lt;/span&gt;<br>
+                &lt;span class="tag is-info"&gt;.is-info&lt;/span&gt;<br>
+                &lt;span class="tag is-warning"&gt;.is-warning&lt;/span&gt;<br>
+                &lt;span class="tag is-danger"&gt;.is-danger&lt;/span&gt;<br>
+                <br>
+                &lt;span class="tag is-white"&gt;.is-white&lt;/span&gt;<br>
+                &lt;span class="tag is-light"&gt;.is-light&lt;/span&gt;<br>
+                &lt;span class="tag is-gray-light"&gt;.is-gray-light&lt;/span&gt;<br>
+                &lt;span class="tag is-gray"&gt;.is-gray&lt;/span&gt;<br>
+                &lt;span class="tag is-gray-dark"&gt;.is-gray-dark&lt;/span&gt;<br>
+                &lt;span class="tag is-dark"&gt;.is-dark&lt;/span&gt;<br>
+                &lt;span class="tag is-black"&gt;.is-black&lt;/span&gt;<br>
+                <br>
+                &lt;span class="tag is-blue"&gt;.is-blue&lt;/span&gt;<br>
+                &lt;span class="tag is-indigo"&gt;.is-indigo&lt;/span&gt;<br>
+                &lt;span class="tag is-purple"&gt;.is-purple&lt;/span&gt;<br>
+                &lt;span class="tag is-pink"&gt;.is-pink&lt;/span&gt;<br>
+                &lt;span class="tag is-red"&gt;.is-red&lt;/span&gt;<br>
+                <br>
+                &lt;span class="tag is-orange"&gt;.is-orange&lt;/span&gt;<br>
+                &lt;span class="tag is-yellow"&gt;.is-yellow&lt;/span&gt;<br>
+                &lt;span class="tag is-green"&gt;.is-green&lt;/span&gt;<br>
+                &lt;span class="tag is-teal"&gt;.is-teal&lt;/span&gt;<br>
+                &lt;span class="tag is-cyan"&gt;.is-cyan&lt;/span&gt;<br>
               </code>
             </pre>
           </div>
@@ -1689,51 +1675,50 @@
 
           <div class="snippet">
             <div>
-              <p>
+              <div>
                 <div class="grouped">
                   <span class="tag is-primary">Tag</span>
                   <span class="tag is-secondary">Tag</span>
                 </div>
-              </p>
-              <p>
+              </div>
+
+              <div>
                 <div class="grouped size-xs">
                   <span class="tag is-danger">Tag</span>
                   <span class="tag is-warning">Tag</span>
                   <span class="tag is-secondary">Tag</span>
                   <span class="tag is-success">Tag</span>
                 </div>
-              </p>
-              <p>
+              </div>
+
+              <div>
                 <div class="grouped">
                   <span class="tag rounded">Rounded</span>
                   <span class="tag rounded">Rounded</span>
                   <span class="tag rounded">Rounded</span>
                 </div>
-              </p>
+              </div>
+
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;div class="grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-primary"&gt;Tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped size-xs"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-danger"&gt;Tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-warning"&gt;Tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-success"&gt;Tag&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
+                &lt;div class="grouped"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-primary"&gt;Tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped size-xs"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-danger"&gt;Tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-warning"&gt;Tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-secondary"&gt;Tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-success"&gt;Tag&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag rounded"&gt;Rounded&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
               </code>
             </pre>
           </div>
@@ -1748,6 +1733,7 @@
                   <span class="tag is-purple">The last tag</span>
                 </div>
               </p>
+
               <p>
                 <div class="grouped vertical fullwidth">
                   <span class="tag">Full width tag</span>
@@ -1756,25 +1742,23 @@
                   <span class="tag">Full width tag</span>
                 </div>
               </p>
+
             </div>
             <pre class="box">
               <code class="html">
-                <p>
-                  &lt;div class="grouped vertical"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The first tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The last tag&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
-                <p>
-                  &lt;div class="grouped vertical fullwidth"&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
-                  &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
-                  &lt;/div&gt;<br>
-                </p>
+                &lt;div class="grouped vertical"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The first tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;Tag between tags&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag is-purple"&gt;The last tag&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
+                <br>
+                &lt;div class="grouped vertical fullwidth"&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                &nbsp;&nbsp;&lt;span class="tag"&gt;Full width tag&lt;/span&gt;<br>
+                &lt;/div&gt;<br>
               </code>
             </pre>
           </div>
@@ -2119,7 +2103,7 @@
     </main>
 
     <!-- Google Universal Analytics -->
-<!-- TODO
+    <!-- TODO
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

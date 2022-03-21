@@ -7,7 +7,6 @@ slender.css is a progressive CSS framework with following features.
 - Only 1 CSS file.
   - No JavaScript
   - No images
-  - No css preprocessors
 - Semantic markup.
   - No wrapper elements
 - Using progressive HTML5 and CSS3 features:

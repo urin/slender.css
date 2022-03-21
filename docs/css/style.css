@@ -228,11 +228,12 @@
   content: "SNIPPET";
   position: absolute;
   display: inline-flex;
-  text-align: center;
-  padding: .2rem .5rem;
   font-size: .6rem;
   top: calc(-1rem - 1px);
   left: -1px;
+  padding: .2rem .5rem;
+  line-height: 1;
+  text-align: center;
   color: var(--light);
   background-color: var(--secondary);
 }

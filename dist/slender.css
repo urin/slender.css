@@ -211,7 +211,7 @@ fieldset {
  * document
  */
 .document {
-  padding: min(2em, 100vw / 40);
+  padding: min(2em, 2.5vw);
   line-height: 1.5;
 }
 
@@ -406,8 +406,8 @@ a.button:not([href]):hover,
 .toggle-button:hover > input[disabled] + *,
 .file-select:hover > [type=file][disabled] + *,
 fieldset[disabled] :is(.button:hover,
-  .toggle-button:hover > input + *,
-  .file-select:hover > [type=file] + *) {
+.toggle-button:hover > input + *,
+.file-select:hover > [type=file] + *) {
   box-shadow: none;
 }
 
@@ -421,8 +421,8 @@ a.button:not([href]),
 .toggle-button > input[disabled] + *,
 .file-select > [type=file][disabled] + *,
 fieldset[disabled] :is(.button,
-  .toggle-button > input + *,
-  .file-select > [type=file] + *) {
+.toggle-button > input + *,
+.file-select > [type=file] + *) {
   opacity: var(--disabled-opacity);
   cursor: not-allowed;
 }
@@ -1120,19 +1120,20 @@ fieldset[disabled] :is(.button,
   color: var(--gray);
 }
 
+.input:not([type]),
 .input:is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
 .select,
 .textarea {
   display: inline-flex;
@@ -1169,7 +1170,7 @@ fieldset[disabled] :is(.button,
 .select:not([multiple]) {
   background-repeat: no-repeat;
   background-size: 1em 1em;
-  background-position: calc(100% - .5em) 0.5em;
+  background-position: calc(100% - 0.5em) 0.5em;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cg%3E%20%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22none%22%2F%3E%20%3Cpolygon%20fill%3D%22%23b2b2b2%22%20points%3D%2247.25%2C15%2045.164%2C12.914%2025%2C33.078%204.836%2C12.914%202.75%2C15%2025%2C37.25%20%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
@@ -1198,49 +1199,52 @@ fieldset[disabled] :is(.button,
   cursor: pointer;
 }
 
+.input[readonly]:not([type]),
 .input[readonly]:is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
 [readonly]:is(.select, .textarea) {
   color: var(--gray);
 }
 
+.input[disabled]:not([type]),
 .input[disabled]:is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
-fieldset[disabled] :is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
+fieldset[disabled] :is(.input:not([type]),
+[type=text],
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
 [disabled]:is(.select, .textarea),
 fieldset[disabled] :is(.select, .textarea) {
   opacity: var(--disabled-opacity);
@@ -1249,36 +1253,38 @@ fieldset[disabled] :is(.select, .textarea) {
   cursor: not-allowed;
 }
 
+.input:focus:not([type]),
 .input:focus:is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
 :focus:is(.select, .textarea) {
   box-shadow: 0 0 2px 1px var(--primary) inset;
 }
 
+.input:invalid:not([type]),
 .input:invalid:is([type=text],
-  [type=date],
-  [type=datetime-local],
-  [type=email],
-  [type=file],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week]),
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=file],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week]),
 :invalid:is(.select, .textarea) {
   background-color: hsl(354, calc(var(--s) * 100%), calc(90% + 7% * var(--bg-l)));
   border-color: var(--danger);

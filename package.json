@@ -1,0 +1,25 @@
+{
+  "name": "slender.css",
+  "version": "0.0.0",
+  "description": "Progressive CSS framework",
+  "scripts": {
+    "build": "sass src/slender.scss dist/slender.css",
+    "watch": "sass src/slender.scss dist/slender.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urin/slender.css.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "urinkun <urinkun@gmail.com> (https://urin.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urin/slender.css/issues"
+  },
+  "homepage": "https://github.com/urin/slender.css#readme",
+  "devDependencies": {
+    "sass": "^1.49.9"
+  }
+}

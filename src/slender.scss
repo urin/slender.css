@@ -638,6 +638,7 @@ fieldset[disabled] :is(
   color: var(--gray);
 }
 
+.input:not([type]),
 .input:is(
   [type=text],
   [type=date],
@@ -719,6 +720,7 @@ fieldset[disabled] :is(
   cursor: pointer;
 }
 
+.input[readonly]:not([type]),
 .input[readonly]:is(
   [type=text],
   [type=date],
@@ -738,6 +740,7 @@ fieldset[disabled] :is(
   color: var(--gray);
 }
 
+.input[disabled]:not([type]),
 .input[disabled]:is(
   [type=text],
   [type=date],
@@ -754,6 +757,7 @@ fieldset[disabled] :is(
   [type=week]
 ),
 fieldset[disabled] :is(
+  .input:not([type]),
   [type=text],
   [type=date],
   [type=datetime-local],
@@ -776,6 +780,7 @@ fieldset[disabled] :is(.select, .textarea) {
   cursor: not-allowed;
 }
 
+.input:focus:not([type]),
 .input:focus:is(
   [type=text],
   [type=date],
@@ -795,6 +800,7 @@ fieldset[disabled] :is(.select, .textarea) {
   box-shadow: 0 0 2px 1px var(--primary) inset;
 }
 
+.input:invalid:not([type]),
 .input:invalid:is(
   [type=text],
   [type=date],
