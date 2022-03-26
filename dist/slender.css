@@ -42,40 +42,102 @@
   --cyan: hsl(188, calc(var(--s) * 80%), calc(var(--l) * 40%));
 }
 
-html,
-body,
-p,
-ol,
-ul,
-li,
-dl,
-dt,
-dd,
-blockquote,
-figure,
-fieldset,
-legend,
-textarea,
-pre,
-iframe,
-hr,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
+/**
+ * reset
+ */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
 }
 
-html {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  outline: none;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  outline: none;
+a, button {
+  cursor: revert;
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+textarea {
+  overflow-anchor: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+pre {
+  white-space: pre-line;
+}
+
+img, embed, iframe, object, audio, video {
+  height: auto;
+  max-width: 100%;
+}
+
+td, th {
+  text-align: left;
+  vertical-align: top;
+}
+
+fieldset {
+  min-width: 0;
+  border: none;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([type=checkbox], [type=radio]) {
+  appearance: auto;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/**
+ * common
+ */
+*, *::before, *::after {
   scrollbar-width: thin;
   scrollbar-color: var(--gray-lighter) var(--gray-light);
 }
@@ -104,41 +166,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 100%;
-  font-weight: normal;
-}
-
-ul {
-  list-style: none;
-}
-
-button,
-input,
-select,
-textarea {
-  margin: 0;
-  font: inherit;
-}
-
-textarea {
-  overflow-anchor: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-pre {
-  white-space: pre-line;
-}
-
 code, kbd, pre, samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -150,40 +177,6 @@ hr {
   border-bottom: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 40%));
 }
 
-img,
-embed,
-iframe,
-object,
-audio,
-video {
-  height: auto;
-  max-width: 100%;
-}
-
-iframe {
-  border: 0;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-td,
-th {
-  padding: 0;
-  text-align: left;
-  vertical-align: top;
-}
-
-fieldset {
-  min-width: 0;
-  border: none;
-}
-
-/**
- * common
- */
 @keyframes ripple {
   from {
     background-size: 0%;
@@ -192,17 +185,17 @@ fieldset {
     background-size: 400%;
   }
 }
-.button,
-.toggle-button,
-.file-select,
-.box,
-.tag,
-.table,
-.input,
-.dialog,
-.icon,
-.notification,
-.progress {
+:where(.button,
+  .toggle-button,
+  .file-select,
+  .box,
+  .tag,
+  .table,
+  .input,
+  .dialog,
+  .icon,
+  .notification,
+  .progress) {
   transition-duration: var(--duration);
   transition-timing-function: ease-in-out;
 }
@@ -214,116 +207,92 @@ fieldset {
   padding: min(2em, 2.5vw);
   line-height: 1.5;
 }
-
-.document a:not(.button):not(.tag) {
+.document :where(a:not(.button):not(.tag)) {
   color: var(--info);
 }
-
-.document :is(p, dl, ol, ul, li, blockquote, pre, table) {
+.document :where(p, dl, ol, ul, li, blockquote, pre, table) {
   margin-bottom: 0.5em;
 }
-
-.document :is(h1, h2, h3, h4, h5, h6) {
+.document :where(h1, h2, h3, h4, h5, h6) {
   font-weight: 600;
   line-height: 1.125;
   margin-bottom: 0.4em;
 }
-
-.document h1 {
+.document :where(h1) {
   font-size: 2em;
 }
-
-.document h2 {
+.document :where(h2) {
   font-size: 1.75em;
 }
-
-.document h3 {
+.document :where(h3) {
   font-size: 1.5em;
 }
-
-.document h4 {
+.document :where(h4) {
   font-size: 1.25em;
 }
-
-.document h5 {
+.document :where(h5) {
   font-size: 1.125em;
 }
-
-.document h6 {
+.document :where(h6) {
   font-size: 1em;
 }
-
-.document blockquote {
+.document :where(blockquote) {
   padding: 1.25em 1.5em;
 }
-
-.document ol {
+.document :where(ol) {
   list-style-position: outside;
   margin-left: 2em;
   margin-top: 1em;
 }
-
-.document ol:not([type]) {
+.document :where(ol):not([type]) {
   list-style-type: decimal;
 }
-
-.document ul {
+.document :where(ul) {
   list-style: disc outside;
   margin-left: 2em;
   margin-bottom: 1em;
 }
-
-.document ul ul {
-  list-style-type: circle;
-  margin-bottom: 0.5em;
+.document :where(ul) {
+  list-style-type: disc;
 }
-
-.document ul ul ul {
+.document :where(ul ul) {
+  list-style-type: circle;
+}
+.document :where(ul ul ul) {
   list-style-type: square;
 }
-
-.document dd {
+.document :where(dd) {
   margin-left: 2em;
 }
-
-.document figure {
+.document :where(figure) {
   margin-left: 2em;
   margin-right: 2em;
   text-align: center;
 }
-
-.document figure:not(:first-child) {
+.document :where(figure:not(:first-child)) {
   margin-top: 2em;
 }
-
-.document figure:not(:last-child) {
+.document :where(figure:not(:last-child)) {
   margin-bottom: 2em;
 }
-
-.document figure img {
+.document :where(figure, img) {
   display: inline-block;
 }
-
-.document figure figcaption {
+.document :where(figure figcaption) {
   font-style: italic;
 }
-
-.document pre {
+.document :where(pre) {
   -webkit-overflow-scrolling: touch;
   padding: 1.25em 1.5em;
   overflow-wrap: normal;
 }
-
-.document sup,
-.document sub {
+.document :where(sup, sub) {
   font-size: 75%;
 }
-
-.document hr {
+.document :where(hr) {
   margin: 1rem 0;
 }
-
-.document :not(pre) > code {
+.document :where(:not(pre) > code) {
   padding: 0.2em 0.4em;
   border-radius: var(--radius);
   white-space: nowrap;
@@ -334,7 +303,7 @@ fieldset {
 /**
  * box
  */
-.box {
+:where(.box) {
   display: inline-flex;
   padding: 1em;
   border-radius: calc(1.5 * var(--radius));
@@ -344,9 +313,9 @@ fieldset {
 /**
  * button
  */
-.button,
-.toggle-button > input + *,
-.file-select > [type=file] + * {
+:where(.button,
+  .toggle-button > input + *,
+  .file-select > [type=file] + *) {
   display: inline-flex;
   line-height: 2;
   padding: 0 0.8em;
@@ -370,13 +339,13 @@ fieldset {
   background-size: 0%;
 }
 
-.toggle-button,
-.file-select {
+:where(.toggle-button,
+  .file-select) {
   display: inline-flex;
   position: relative;
 }
 
-.toggle-button > input {
+:where(.toggle-button > input) {
   position: absolute;
   appearance: none;
   -moz-appearance: none;
@@ -386,380 +355,392 @@ fieldset {
   cursor: pointer;
 }
 
-.button:focus,
-.toggle-button > input:focus + *,
-.file-select > [type=file]:focus + * {
+:where(.button:focus,
+  .toggle-button > input:focus + *,
+  .file-select > [type=file]:focus + *) {
   animation: var(--duration) linear ripple;
 }
 
-.button:hover,
-.button:focus,
-.toggle-button:hover > input + *,
-.toggle-button > input:focus + *,
-.file-select:hover > [type=file] + *,
-.file-select > [type=file]:focus + * {
+:where(.button:hover,
+  .button:focus,
+  .toggle-button:hover > input + *,
+  .toggle-button > input:focus + *,
+  .file-select:hover > [type=file] + *,
+  .file-select > [type=file]:focus + *) {
   box-shadow: inset 100vw 100vh hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.2);
 }
 
-a.button:not([href]):hover,
-.button[disabled]:hover,
-.toggle-button:hover > input[disabled] + *,
-.file-select:hover > [type=file][disabled] + *,
-fieldset[disabled] :is(.button:hover,
-.toggle-button:hover > input + *,
-.file-select:hover > [type=file] + *) {
+:where(a.button:not([href]):hover,
+  .button[disabled]:hover,
+  .toggle-button:hover > input[disabled] + *,
+  .file-select:hover > [type=file][disabled] + *,
+  fieldset[disabled] :where(
+    .button:hover,
+    .toggle-button:hover > input + *,
+    .file-select:hover > [type=file] + *
+  )) {
   box-shadow: none;
 }
 
-.toggle-button > :checked + * {
+:where(.toggle-button > :checked + *) {
   background-color: var(--primary) !important;
   color: var(--light);
 }
 
-a.button:not([href]),
-.button[disabled],
-.toggle-button > input[disabled] + *,
-.file-select > [type=file][disabled] + *,
-fieldset[disabled] :is(.button,
-.toggle-button > input + *,
-.file-select > [type=file] + *) {
+:where(a.button:not([href]),
+  .button[disabled],
+  .toggle-button > input[disabled] + *,
+  .file-select > [type=file][disabled] + *,
+  fieldset[disabled] :where(
+    .button,
+    .toggle-button > input + *,
+    .file-select > [type=file] + *
+  )) {
   opacity: var(--disabled-opacity);
   cursor: not-allowed;
 }
 
-.button.rounded,
-:is(.toggle-button, .file-select).rounded > input + * {
+:where(.button.rounded,
+  :where(.toggle-button, .file-select).rounded > input + *) {
   border-radius: 100vmax;
 }
 
-.grouped:not(.vertical) > :is(.toggle-button, .file-select):not(:first-child) > input + * {
+:where(.grouped:not(.vertical) > :where(
+    .toggle-button, .file-select
+  ):not(:first-child) > input + *) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.grouped:not(.vertical) > :is(.toggle-button, .file-select):not(:last-child) > input + *,
-.grouped:not(.vertical) > .file-select:not(:last-child) > input + * {
+:where(.grouped:not(.vertical) > :where(
+    .toggle-button, .file-select
+  ):not(:last-child) > input + *,
+  .grouped:not(.vertical) > .file-select:not(:last-child) > input + *) {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.grouped.vertical > :is(.toggle-button, .file-select):not(:first-child) > input + * {
+:where(.grouped.vertical > :where(
+    .toggle-button, .file-select
+  ):not(:first-child) > input + *) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.grouped.vertical > :is(.toggle-button, .file-select):not(:last-child) > input + * {
+:where(.grouped.vertical > :where(
+    .toggle-button, .file-select
+  ):not(:last-child) > input + *) {
   border-bottom-width: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .button.is-white,
-:is(.toggle-button, .file-select).is-white > input + * {
+:where(.toggle-button, .file-select).is-white > input + * {
   background-color: var(--white);
 }
 
 .button.is-light,
-:is(.toggle-button, .file-select).is-light > input + * {
+:where(.toggle-button, .file-select).is-light > input + * {
   background-color: var(--light);
 }
 
-.button.is-gray-lighter,
-:is(.toggle-button, .file-select).is-gray-lighter > input + * {
+:where(.button.is-gray-lighter,
+    :where(.toggle-button, .file-select).is-gray-lighter > input + *) {
   background-color: var(--gray-lighter);
   color: var(--light);
 }
 
-.button.is-gray-light,
-:is(.toggle-button, .file-select).is-gray-light > input + * {
+:where(.button.is-gray-light,
+    :where(.toggle-button, .file-select).is-gray-light > input + *) {
   background-color: var(--gray-light);
   color: var(--light);
 }
 
-.button.is-gray,
-:is(.toggle-button, .file-select).is-gray > input + * {
+:where(.button.is-gray,
+    :where(.toggle-button, .file-select).is-gray > input + *) {
   background-color: var(--gray);
   color: var(--light);
 }
 
-.button.is-gray-dark,
-:is(.toggle-button, .file-select).is-gray-dark > input + * {
+:where(.button.is-gray-dark,
+    :where(.toggle-button, .file-select).is-gray-dark > input + *) {
   background-color: var(--gray-dark);
   color: var(--light);
 }
 
-.button.is-dark,
-:is(.toggle-button, .file-select).is-dark > input + * {
+:where(.button.is-dark,
+    :where(.toggle-button, .file-select).is-dark > input + *) {
   background-color: var(--dark);
   color: var(--light);
 }
 
-.button.is-black,
-:is(.toggle-button, .file-select).is-black > input + * {
+:where(.button.is-black,
+    :where(.toggle-button, .file-select).is-black > input + *) {
   background-color: var(--black);
   color: var(--light);
 }
 
-.button.is-primary,
-:is(.toggle-button, .file-select).is-primary > input + * {
+:where(.button.is-primary,
+    :where(.toggle-button, .file-select).is-primary > input + *) {
   background-color: var(--primary);
   color: var(--light);
 }
 
-.button.is-secondary,
-:is(.toggle-button, .file-select).is-secondary > input + * {
+:where(.button.is-secondary,
+    :where(.toggle-button, .file-select).is-secondary > input + *) {
   background-color: var(--secondary);
   color: var(--light);
 }
 
-.button.is-success,
-:is(.toggle-button, .file-select).is-success > input + * {
+:where(.button.is-success,
+    :where(.toggle-button, .file-select).is-success > input + *) {
   background-color: var(--success);
   color: var(--light);
 }
 
-.button.is-info,
-:is(.toggle-button, .file-select).is-info > input + * {
+:where(.button.is-info,
+    :where(.toggle-button, .file-select).is-info > input + *) {
   background-color: var(--info);
   color: var(--light);
 }
 
-.button.is-warning,
-:is(.toggle-button, .file-select).is-warning > input + * {
+:where(.button.is-warning,
+    :where(.toggle-button, .file-select).is-warning > input + *) {
   background-color: var(--warning);
   color: var(--light);
 }
 
-.button.is-danger,
-:is(.toggle-button, .file-select).is-danger > input + * {
+:where(.button.is-danger,
+    :where(.toggle-button, .file-select).is-danger > input + *) {
   background-color: var(--danger);
   color: var(--light);
 }
 
-.button.is-blue,
-:is(.toggle-button, .file-select).is-blue > input + * {
+:where(.button.is-blue,
+    :where(.toggle-button, .file-select).is-blue > input + *) {
   background-color: var(--blue);
   color: var(--light);
 }
 
-.button.is-indigo,
-:is(.toggle-button, .file-select).is-indigo > input + * {
+:where(.button.is-indigo,
+    :where(.toggle-button, .file-select).is-indigo > input + *) {
   background-color: var(--indigo);
   color: var(--light);
 }
 
-.button.is-purple,
-:is(.toggle-button, .file-select).is-purple > input + * {
+:where(.button.is-purple,
+    :where(.toggle-button, .file-select).is-purple > input + *) {
   background-color: var(--purple);
   color: var(--light);
 }
 
-.button.is-pink,
-:is(.toggle-button, .file-select).is-pink > input + * {
+:where(.button.is-pink,
+    :where(.toggle-button, .file-select).is-pink > input + *) {
   background-color: var(--pink);
   color: var(--light);
 }
 
-.button.is-red,
-:is(.toggle-button, .file-select).is-red > input + * {
+:where(.button.is-red,
+    :where(.toggle-button, .file-select).is-red > input + *) {
   background-color: var(--red);
   color: var(--light);
 }
 
-.button.is-orange,
-:is(.toggle-button, .file-select).is-orange > input + * {
+:where(.button.is-orange,
+    :where(.toggle-button, .file-select).is-orange > input + *) {
   background-color: var(--orange);
   color: var(--light);
 }
 
-.button.is-yellow,
-:is(.toggle-button, .file-select).is-yellow > input + * {
+:where(.button.is-yellow,
+    :where(.toggle-button, .file-select).is-yellow > input + *) {
   background-color: var(--yellow);
   color: var(--light);
 }
 
-.button.is-green,
-:is(.toggle-button, .file-select).is-green > input + * {
+:where(.button.is-green,
+    :where(.toggle-button, .file-select).is-green > input + *) {
   background-color: var(--green);
   color: var(--light);
 }
 
-.button.is-teal,
-:is(.toggle-button, .file-select).is-teal > input + * {
+:where(.button.is-teal,
+    :where(.toggle-button, .file-select).is-teal > input + *) {
   background-color: var(--teal);
   color: var(--light);
 }
 
-.button.is-cyan,
-:is(.toggle-button, .file-select).is-cyan > input + * {
+:where(.button.is-cyan,
+    :where(.toggle-button, .file-select).is-cyan > input + *) {
   background-color: var(--cyan);
   color: var(--light);
 }
 
-.button.outlined.is-white,
-:is(.toggle-button, .file-select).outlined.is-white > input + * {
+:where(.button.outlined.is-white,
+    :where(.toggle-button, .file-select).outlined.is-white > input + *) {
   background-color: transparent;
   color: var(--white);
   border-color: var(--white);
 }
 
-.button.outlined.is-light,
-:is(.toggle-button, .file-select).outlined.is-light > input + * {
+:where(.button.outlined.is-light,
+    :where(.toggle-button, .file-select).outlined.is-light > input + *) {
   background-color: transparent;
   color: var(--light);
   border-color: var(--light);
 }
 
-.button.outlined.is-gray-lighter,
-:is(.toggle-button, .file-select).outlined.is-gray-lighter > input + * {
+:where(.button.outlined.is-gray-lighter,
+    :where(.toggle-button, .file-select).outlined.is-gray-lighter > input + *) {
   background-color: transparent;
   color: var(--gray-lighter);
   border-color: var(--gray-lighter);
 }
 
-.button.outlined.is-gray-light,
-:is(.toggle-button, .file-select).outlined.is-gray-light > input + * {
+:where(.button.outlined.is-gray-light,
+    :where(.toggle-button, .file-select).outlined.is-gray-light > input + *) {
   background-color: transparent;
   color: var(--gray-light);
   border-color: var(--gray-light);
 }
 
-.button.outlined.is-gray,
-:is(.toggle-button, .file-select).outlined.is-gray > input + * {
+:where(.button.outlined.is-gray,
+    :where(.toggle-button, .file-select).outlined.is-gray > input + *) {
   background-color: transparent;
   color: var(--gray);
   border-color: var(--gray);
 }
 
-.button.outlined.is-gray-dark,
-:is(.toggle-button, .file-select).outlined.is-gray-dark > input + * {
+:where(.button.outlined.is-gray-dark,
+    :where(.toggle-button, .file-select).outlined.is-gray-dark > input + *) {
   background-color: transparent;
   color: var(--gray-dark);
   border-color: var(--gray-dark);
 }
 
-.button.outlined.is-dark,
-:is(.toggle-button, .file-select).outlined.is-dark > input + * {
+:where(.button.outlined.is-dark,
+    :where(.toggle-button, .file-select).outlined.is-dark > input + *) {
   background-color: transparent;
   color: var(--dark);
   border-color: var(--dark);
 }
 
-.button.outlined.is-black,
-:is(.toggle-button, .file-select).outlined.is-black > input + * {
+:where(.button.outlined.is-black,
+    :where(.toggle-button, .file-select).outlined.is-black > input + *) {
   background-color: transparent;
   color: var(--black);
   border-color: var(--black);
 }
 
-.button.outlined.is-primary,
-:is(.toggle-button, .file-select).outlined.is-primary > input + * {
+:where(.button.outlined.is-primary,
+    :where(.toggle-button, .file-select).outlined.is-primary > input + *) {
   background-color: transparent;
   color: var(--primary);
   border-color: var(--primary);
 }
 
-.button.outlined.is-secondary,
-:is(.toggle-button, .file-select).outlined.is-secondary > input + * {
+:where(.button.outlined.is-secondary,
+    :where(.toggle-button, .file-select).outlined.is-secondary > input + *) {
   background-color: transparent;
   color: var(--secondary);
   border-color: var(--secondary);
 }
 
-.button.outlined.is-success,
-:is(.toggle-button, .file-select).outlined.is-success > input + * {
+:where(.button.outlined.is-success,
+    :where(.toggle-button, .file-select).outlined.is-success > input + *) {
   background-color: transparent;
   color: var(--success);
   border-color: var(--success);
 }
 
-.button.outlined.is-info,
-:is(.toggle-button, .file-select).outlined.is-info > input + * {
+:where(.button.outlined.is-info,
+    :where(.toggle-button, .file-select).outlined.is-info > input + *) {
   background-color: transparent;
   color: var(--info);
   border-color: var(--info);
 }
 
-.button.outlined.is-warning,
-:is(.toggle-button, .file-select).outlined.is-warning > input + * {
+:where(.button.outlined.is-warning,
+    :where(.toggle-button, .file-select).outlined.is-warning > input + *) {
   background-color: transparent;
   color: var(--warning);
   border-color: var(--warning);
 }
 
-.button.outlined.is-danger,
-:is(.toggle-button, .file-select).outlined.is-danger > input + * {
+:where(.button.outlined.is-danger,
+    :where(.toggle-button, .file-select).outlined.is-danger > input + *) {
   background-color: transparent;
   color: var(--danger);
   border-color: var(--danger);
 }
 
-.button.outlined.is-blue,
-:is(.toggle-button, .file-select).outlined.is-blue > input + * {
+:where(.button.outlined.is-blue,
+    :where(.toggle-button, .file-select).outlined.is-blue > input + *) {
   background-color: transparent;
   color: var(--blue);
   border-color: var(--blue);
 }
 
-.button.outlined.is-indigo,
-:is(.toggle-button, .file-select).outlined.is-indigo > input + * {
+:where(.button.outlined.is-indigo,
+    :where(.toggle-button, .file-select).outlined.is-indigo > input + *) {
   background-color: transparent;
   color: var(--indigo);
   border-color: var(--indigo);
 }
 
-.button.outlined.is-purple,
-:is(.toggle-button, .file-select).outlined.is-purple > input + * {
+:where(.button.outlined.is-purple,
+    :where(.toggle-button, .file-select).outlined.is-purple > input + *) {
   background-color: transparent;
   color: var(--purple);
   border-color: var(--purple);
 }
 
-.button.outlined.is-pink,
-:is(.toggle-button, .file-select).outlined.is-pink > input + * {
+:where(.button.outlined.is-pink,
+    :where(.toggle-button, .file-select).outlined.is-pink > input + *) {
   background-color: transparent;
   color: var(--pink);
   border-color: var(--pink);
 }
 
-.button.outlined.is-red,
-:is(.toggle-button, .file-select).outlined.is-red > input + * {
+:where(.button.outlined.is-red,
+    :where(.toggle-button, .file-select).outlined.is-red > input + *) {
   background-color: transparent;
   color: var(--red);
   border-color: var(--red);
 }
 
-.button.outlined.is-orange,
-:is(.toggle-button, .file-select).outlined.is-orange > input + * {
+:where(.button.outlined.is-orange,
+    :where(.toggle-button, .file-select).outlined.is-orange > input + *) {
   background-color: transparent;
   color: var(--orange);
   border-color: var(--orange);
 }
 
-.button.outlined.is-yellow,
-:is(.toggle-button, .file-select).outlined.is-yellow > input + * {
+:where(.button.outlined.is-yellow,
+    :where(.toggle-button, .file-select).outlined.is-yellow > input + *) {
   background-color: transparent;
   color: var(--yellow);
   border-color: var(--yellow);
 }
 
-.button.outlined.is-green,
-:is(.toggle-button, .file-select).outlined.is-green > input + * {
+:where(.button.outlined.is-green,
+    :where(.toggle-button, .file-select).outlined.is-green > input + *) {
   background-color: transparent;
   color: var(--green);
   border-color: var(--green);
 }
 
-.button.outlined.is-teal,
-:is(.toggle-button, .file-select).outlined.is-teal > input + * {
+:where(.button.outlined.is-teal,
+    :where(.toggle-button, .file-select).outlined.is-teal > input + *) {
   background-color: transparent;
   color: var(--teal);
   border-color: var(--teal);
 }
 
-.button.outlined.is-cyan,
-:is(.toggle-button, .file-select).outlined.is-cyan > input + * {
+:where(.button.outlined.is-cyan,
+    :where(.toggle-button, .file-select).outlined.is-cyan > input + *) {
   background-color: transparent;
   color: var(--cyan);
   border-color: var(--cyan);
@@ -768,7 +749,7 @@ fieldset[disabled] :is(.button,
 /**
  * tag
  */
-.tag {
+:where(.tag) {
   display: inline-flex;
   font-size: 0.6rem;
   padding: 0.4em 0.7em;
@@ -783,318 +764,318 @@ fieldset[disabled] :is(.button,
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.08);
 }
 
-.tag.rounded {
+:where(.tag.rounded) {
   border-radius: 100vw;
 }
 
-.tag.size-xs,
-.grouped.size-xs > .tag {
+:where(.tag.size-xs,
+  .grouped.size-xs > .tag) {
   font-size: 0.4rem;
 }
 
-.tag.size-s,
-.grouped.size-s > .tag {
+:where(.tag.size-s,
+  .grouped.size-s > .tag) {
   font-size: 0.5rem;
 }
 
-.tag.size-m,
-.grouped.size-m > .tag {
+:where(.tag.size-m,
+  .grouped.size-m > .tag) {
   font-size: 0.6rem;
 }
 
-.tag.size-l,
-.grouped.size-l > .tag {
+:where(.tag.size-l,
+  .grouped.size-l > .tag) {
   font-size: 1rem;
 }
 
-.tag.size-xl,
-.grouped.size-xl > .tag {
+:where(.tag.size-xl,
+  .grouped.size-xl > .tag) {
   font-size: 1.2rem;
 }
 
-.grouped > .tag {
+:where(.grouped > .tag) {
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
 }
 
-.grouped:not(.vertical) > .tag:not(:first-child) {
+:where(.grouped:not(.vertical) > .tag:not(:first-child)) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.grouped:not(.vertical) > .tag:not(:last-child) {
+:where(.grouped:not(.vertical) > .tag:not(:last-child)) {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.grouped.vertical > .tag:not(:first-child) {
+:where(.grouped.vertical > .tag:not(:first-child)) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.grouped.vertical > .tag:not(:last-child) {
+:where(.grouped.vertical > .tag:not(:last-child)) {
   border-bottom-width: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.tag.is-white {
+:where(.tag.is-white) {
   background-color: var(--white);
 }
 
-.tag.is-light {
+:where(.tag.is-light) {
   background-color: var(--light);
 }
 
-.tag.is-gray-lighter {
+:where(.tag.is-gray-lighter) {
   background-color: var(--gray-lighter);
   color: var(--light);
 }
 
-.tag.is-gray-light {
+:where(.tag.is-gray-light) {
   background-color: var(--gray-light);
   color: var(--light);
 }
 
-.tag.is-gray {
+:where(.tag.is-gray) {
   background-color: var(--gray);
   color: var(--light);
 }
 
-.tag.is-gray-dark {
+:where(.tag.is-gray-dark) {
   background-color: var(--gray-dark);
   color: var(--light);
 }
 
-.tag.is-dark {
+:where(.tag.is-dark) {
   background-color: var(--dark);
   color: var(--light);
 }
 
-.tag.is-black {
+:where(.tag.is-black) {
   background-color: var(--black);
   color: var(--light);
 }
 
-.tag.is-primary {
+:where(.tag.is-primary) {
   background-color: var(--primary);
   color: var(--light);
 }
 
-.tag.is-secondary {
+:where(.tag.is-secondary) {
   background-color: var(--secondary);
   color: var(--light);
 }
 
-.tag.is-success {
+:where(.tag.is-success) {
   background-color: var(--success);
   color: var(--light);
 }
 
-.tag.is-info {
+:where(.tag.is-info) {
   background-color: var(--info);
   color: var(--light);
 }
 
-.tag.is-warning {
+:where(.tag.is-warning) {
   background-color: var(--warning);
   color: var(--light);
 }
 
-.tag.is-danger {
+:where(.tag.is-danger) {
   background-color: var(--danger);
   color: var(--light);
 }
 
-.tag.is-blue {
+:where(.tag.is-blue) {
   background-color: var(--blue);
   color: var(--light);
 }
 
-.tag.is-indigo {
+:where(.tag.is-indigo) {
   background-color: var(--indigo);
   color: var(--light);
 }
 
-.tag.is-purple {
+:where(.tag.is-purple) {
   background-color: var(--purple);
   color: var(--light);
 }
 
-.tag.is-pink {
+:where(.tag.is-pink) {
   background-color: var(--pink);
   color: var(--light);
 }
 
-.tag.is-red {
+:where(.tag.is-red) {
   background-color: var(--red);
   color: var(--light);
 }
 
-.tag.is-orange {
+:where(.tag.is-orange) {
   background-color: var(--orange);
   color: var(--light);
 }
 
-.tag.is-yellow {
+:where(.tag.is-yellow) {
   background-color: var(--yellow);
   color: var(--light);
 }
 
-.tag.is-green {
+:where(.tag.is-green) {
   background-color: var(--green);
   color: var(--light);
 }
 
-.tag.is-teal {
+:where(.tag.is-teal) {
   background-color: var(--teal);
   color: var(--light);
 }
 
-.tag.is-cyan {
+:where(.tag.is-cyan) {
   background-color: var(--cyan);
   color: var(--light);
 }
 
-.tag.outlined.is-white {
+:where(.tag.outlined.is-white) {
   background-color: transparent;
   color: var(--white);
   border: 1px solid var(--white);
 }
 
-.tag.outlined.is-light {
+:where(.tag.outlined.is-light) {
   background-color: transparent;
   color: var(--light);
   border: 1px solid var(--light);
 }
 
-.tag.outlined.is-gray-lighter {
+:where(.tag.outlined.is-gray-lighter) {
   background-color: transparent;
   color: var(--gray-lighter);
   border: 1px solid var(--gray-lighter);
 }
 
-.tag.outlined.is-gray-light {
+:where(.tag.outlined.is-gray-light) {
   background-color: transparent;
   color: var(--gray-light);
   border: 1px solid var(--gray-light);
 }
 
-.tag.outlined.is-gray {
+:where(.tag.outlined.is-gray) {
   background-color: transparent;
   color: var(--gray);
   border: 1px solid var(--gray);
 }
 
-.tag.outlined.is-gray-dark {
+:where(.tag.outlined.is-gray-dark) {
   background-color: transparent;
   color: var(--gray-dark);
   border: 1px solid var(--gray-dark);
 }
 
-.tag.outlined.is-dark {
+:where(.tag.outlined.is-dark) {
   background-color: transparent;
   color: var(--dark);
   border: 1px solid var(--dark);
 }
 
-.tag.outlined.is-black {
+:where(.tag.outlined.is-black) {
   background-color: transparent;
   color: var(--black);
   border: 1px solid var(--black);
 }
 
-.tag.outlined.is-primary {
+:where(.tag.outlined.is-primary) {
   background-color: transparent;
   color: var(--primary);
   border: 1px solid var(--primary);
 }
 
-.tag.outlined.is-secondary {
+:where(.tag.outlined.is-secondary) {
   background-color: transparent;
   color: var(--secondary);
   border: 1px solid var(--secondary);
 }
 
-.tag.outlined.is-success {
+:where(.tag.outlined.is-success) {
   background-color: transparent;
   color: var(--success);
   border: 1px solid var(--success);
 }
 
-.tag.outlined.is-info {
+:where(.tag.outlined.is-info) {
   background-color: transparent;
   color: var(--info);
   border: 1px solid var(--info);
 }
 
-.tag.outlined.is-warning {
+:where(.tag.outlined.is-warning) {
   background-color: transparent;
   color: var(--warning);
   border: 1px solid var(--warning);
 }
 
-.tag.outlined.is-danger {
+:where(.tag.outlined.is-danger) {
   background-color: transparent;
   color: var(--danger);
   border: 1px solid var(--danger);
 }
 
-.tag.outlined.is-blue {
+:where(.tag.outlined.is-blue) {
   background-color: transparent;
   color: var(--blue);
   border: 1px solid var(--blue);
 }
 
-.tag.outlined.is-indigo {
+:where(.tag.outlined.is-indigo) {
   background-color: transparent;
   color: var(--indigo);
   border: 1px solid var(--indigo);
 }
 
-.tag.outlined.is-purple {
+:where(.tag.outlined.is-purple) {
   background-color: transparent;
   color: var(--purple);
   border: 1px solid var(--purple);
 }
 
-.tag.outlined.is-pink {
+:where(.tag.outlined.is-pink) {
   background-color: transparent;
   color: var(--pink);
   border: 1px solid var(--pink);
 }
 
-.tag.outlined.is-red {
+:where(.tag.outlined.is-red) {
   background-color: transparent;
   color: var(--red);
   border: 1px solid var(--red);
 }
 
-.tag.outlined.is-orange {
+:where(.tag.outlined.is-orange) {
   background-color: transparent;
   color: var(--orange);
   border: 1px solid var(--orange);
 }
 
-.tag.outlined.is-yellow {
+:where(.tag.outlined.is-yellow) {
   background-color: transparent;
   color: var(--yellow);
   border: 1px solid var(--yellow);
 }
 
-.tag.outlined.is-green {
+:where(.tag.outlined.is-green) {
   background-color: transparent;
   color: var(--green);
   border: 1px solid var(--green);
 }
 
-.tag.outlined.is-teal {
+:where(.tag.outlined.is-teal) {
   background-color: transparent;
   color: var(--teal);
   border: 1px solid var(--teal);
 }
 
-.tag.outlined.is-cyan {
+:where(.tag.outlined.is-cyan) {
   background-color: transparent;
   color: var(--cyan);
   border: 1px solid var(--cyan);
@@ -1103,39 +1084,41 @@ fieldset[disabled] :is(.button,
 /**
  * input
  */
-.label {
+:where(.label) {
   line-height: 2;
   cursor: pointer;
 }
 
-.label.grouped > :first-child {
+:where(.label.grouped > :first-child) {
   margin-left: 0.3em;
 }
 
-:is(.input, .textarea)::placeholder {
+:where(.input, .textarea)::placeholder {
   color: var(--gray-lighter);
 }
 
-:is(.input, .textarea):invalid::placeholder {
+:where(.input, .textarea):invalid::placeholder {
   color: var(--gray);
 }
 
-.input:not([type]),
-.input:is([type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-.select,
-.textarea {
+:where(.input:not([type]),
+  .input:where(
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  .select,
+  .textarea) {
   display: inline-flex;
   appearance: none;
   -webkit-appearance: none;
@@ -1149,157 +1132,167 @@ fieldset[disabled] :is(.button,
   transition-property: border-color, box-shadow;
 }
 
-.textarea {
+:where(.textarea) {
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   line-height: 1.5;
 }
 
-.select {
+:where(.select) {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
   outline: none;
 }
 
-.select:not([multiple]),
-.grouped > .select:not([multiple]) {
+:where(.select:not([multiple]),
+  .grouped > .select:not([multiple])) {
   padding-right: 2em;
 }
 
-.select:not([multiple]) {
+:where(.select:not([multiple])) {
   background-repeat: no-repeat;
   background-size: 1em 1em;
   background-position: calc(100% - 0.5em) 0.5em;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cg%3E%20%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22none%22%2F%3E%20%3Cpolygon%20fill%3D%22%23b2b2b2%22%20points%3D%2247.25%2C15%2045.164%2C12.914%2025%2C33.078%204.836%2C12.914%202.75%2C15%2025%2C37.25%20%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
-.select > option {
+:where(.select > option) {
   padding: 0 1em;
 }
 
-.select[multiple] {
+:where(.select[multiple]) {
   padding: 0;
   height: auto;
 }
 
-.select[multiple] > option {
+:where(.select[multiple] > option) {
   padding: 0.5em 0.6em;
 }
 
-.file-select > [type=file] {
+:where(.file-select > [type=file]) {
   position: absolute;
   opacity: 0 !important;
   width: 100%;
   height: 100%;
 }
 
-.radio,
-.checkbox {
+:where(.radio,
+  .checkbox) {
   cursor: pointer;
 }
 
-.input[readonly]:not([type]),
-.input[readonly]:is([type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-[readonly]:is(.select, .textarea) {
+:where(.input[readonly]:not([type]),
+  .input[readonly]:where(
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  :where(.select, .textarea)[readonly]) {
   color: var(--gray);
 }
 
-.input[disabled]:not([type]),
-.input[disabled]:is([type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-fieldset[disabled] :is(.input:not([type]),
-[type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-[disabled]:is(.select, .textarea),
-fieldset[disabled] :is(.select, .textarea) {
+:where(.input[disabled]:not([type]),
+  .input[disabled]:where(
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  fieldset[disabled] :where(
+    .input:not([type]),
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  :where(.select, .textarea)[disabled],
+  fieldset[disabled] :where(.select, .textarea)) {
   opacity: var(--disabled-opacity);
   background-color: var(--light);
   color: var(--gray);
   cursor: not-allowed;
 }
 
-.input:focus:not([type]),
-.input:focus:is([type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-:focus:is(.select, .textarea) {
+:where(.input:focus:not([type]),
+  .input:focus:where(
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  :where(.select, .textarea):focus) {
   box-shadow: 0 0 2px 1px var(--primary) inset;
 }
 
-.input:invalid:not([type]),
-.input:invalid:is([type=text],
-[type=date],
-[type=datetime-local],
-[type=email],
-[type=file],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week]),
-:invalid:is(.select, .textarea) {
+:where(.input:invalid:not([type]),
+  .input:invalid:where(
+    [type=text],
+    [type=date],
+    [type=datetime-local],
+    [type=email],
+    [type=file],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=time],
+    [type=url],
+    [type=week]
+  ),
+  :where(.select, .textarea):invalid) {
   background-color: hsl(354, calc(var(--s) * 100%), calc(90% + 7% * var(--bg-l)));
   border-color: var(--danger);
 }
 
-@-moz-document url-prefix() {
-  .range {
-    appearance: none;
-    width: fit-content;
-    height: 8px;
-    border-radius: 100vmax;
-    background-color: var(--blue);
-  }
+:where(.range) {
+  appearance: none;
+  width: fit-content;
+  height: 8px;
+  border-radius: 100vmax;
+  background-color: var(--blue);
+}
 
-  .range::-moz-range-thumb {
+@-moz-document url-prefix() {
+  :where(.range::-moz-range-thumb) {
     appearance: none;
     width: 14px;
     height: 14px;
@@ -1311,58 +1304,60 @@ fieldset[disabled] :is(.select, .textarea) {
 /**
  * modifiers
  */
-.fullwidth {
+:where(.fullwidth) {
   width: 100%;
 }
 
-.fullwidth:not(.table) {
+:where(.fullwidth:not(.table)) {
   display: flex;
 }
 
-.fullwidth:not(.table):not([multiple]) > * {
+:where(.fullwidth:not(.table):not([multiple]) > *) {
   width: 100%;
 }
 
-:not(.vertical) .fullwidth:not(:is(.table, [multiple], .vertical)) > :not(.vertical) {
+:where(:not(.vertical) .fullwidth:not(
+    :where(.table, [multiple], .vertical)
+  ) > :not(.vertical)) {
   margin-left: 0.5em;
 }
 
-.size-xs {
+:where(.size-xs) {
   font-size: 0.7rem;
 }
 
-.size-s {
+:where(.size-s) {
   font-size: 0.9rem;
 }
 
-.size-m {
+:where(.size-m) {
   font-size: 1rem;
 }
 
-.size-l {
+:where(.size-l) {
   font-size: 1.3rem;
 }
 
-.size-xl {
+:where(.size-xl) {
   font-size: 1.5rem;
 }
 
-.grouped:not(.vertical) > :not(:first-child) {
+:where(.grouped:not(.vertical) > :not(:first-child)) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.grouped:not(.vertical) > :not(:last-child) {
+:where(.grouped:not(.vertical) > :not(:last-child)) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.grouped.vertical > :not(:first-child) {
+:where(.grouped.vertical > :not(:first-child)) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.grouped.vertical > :not(:last-child) {
+:where(.grouped.vertical > :not(:last-child)) {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -1370,44 +1365,44 @@ fieldset[disabled] :is(.select, .textarea) {
 /**
  * table
  */
-.table :is(thead, tfoot) {
+:where(.table :where(thead, tfoot)) {
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.08);
 }
 
-.table :is(td, th) {
+:where(.table :where(td, th)) {
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
   border-width: 0 0 1px;
   padding: 0.25em 0.75em;
 }
 
-.table thead :is(td, th) {
+:where(.table thead :where(td, th)) {
   border-width: 0 0 2px;
 }
 
-.table tfoot :is(td, th) {
+:where(.table tfoot :where(td, th)) {
   border-width: 2px 0 0;
 }
 
-.table tbody tr:last-child :is(td, th) {
+:where(.table tbody tr:last-child :where(td, th)) {
   border-bottom-width: 0;
 }
 
-.table.bordered :is(td, th) {
+:where(.table.bordered :where(td, th)) {
   border-width: 1px;
 }
 
-.table.bordered tr:last-child :is(td, th) {
+:where(.table.bordered tr:last-child :where(td, th)) {
   border-bottom-width: 1px;
 }
 
-.table.hoverable tbody tr:hover {
+:where(.table.hoverable :where(tbody tr:hover)) {
   background-color: hsl(0, 0%, calc(var(--bg-l-invert) * 100%), 0.08);
 }
 
 /**
  * dialog
  */
-.dialog {
+:where(.dialog) {
   display: inline-block;
   position: fixed;
   color: var(--fg);
@@ -1421,16 +1416,16 @@ fieldset[disabled] :is(.select, .textarea) {
   transition: opacity var(--duration);
 }
 
-.dialog[open] {
+:where(.dialog[open]) {
   opacity: 1;
 }
 
-.dialog::backdrop {
+:where(.dialog::backdrop) {
   background-color: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(1px);
 }
 
-.close {
+:where(.close) {
   display: inline-flex;
   position: relative;
   line-height: 0;
@@ -1454,7 +1449,7 @@ fieldset[disabled] :is(.select, .textarea) {
   transform-origin: center center;
 }
 
-.close::before {
+:where(.close::before) {
   display: block;
   content: "";
   position: absolute;
@@ -1463,7 +1458,7 @@ fieldset[disabled] :is(.select, .textarea) {
   background-color: var(--gray);
 }
 
-.close::after {
+:where(.close::after) {
   display: block;
   content: "";
   position: absolute;
@@ -1472,13 +1467,13 @@ fieldset[disabled] :is(.select, .textarea) {
   background-color: var(--gray);
 }
 
-.dialog > .close {
+:where(.dialog > .close) {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
 }
 
-.dialog > .close + * {
+:where(.dialog > .close + *) {
   margin-top: 0.75rem;
 }
 
@@ -1486,244 +1481,244 @@ fieldset[disabled] :is(.select, .textarea) {
  * helpers
  */
 .bg-white {
-  background-color: var(--white) !important;
+  background-color: var(--white);
 }
 
 .fg-white {
-  color: var(--white) !important;
+  color: var(--white);
 }
 
 .bg-light {
-  background-color: var(--light) !important;
+  background-color: var(--light);
 }
 
 .fg-light {
-  color: var(--light) !important;
+  color: var(--light);
 }
 
 .bg-gray-lighter {
-  background-color: var(--gray-lighter) !important;
+  background-color: var(--gray-lighter);
 }
 
 .fg-gray-lighter {
-  color: var(--gray-lighter) !important;
+  color: var(--gray-lighter);
 }
 
 .bg-gray-light {
-  background-color: var(--gray-light) !important;
+  background-color: var(--gray-light);
 }
 
 .fg-gray-light {
-  color: var(--gray-light) !important;
+  color: var(--gray-light);
 }
 
 .bg-gray {
-  background-color: var(--gray) !important;
+  background-color: var(--gray);
 }
 
 .fg-gray {
-  color: var(--gray) !important;
+  color: var(--gray);
 }
 
 .bg-gray-dark {
-  background-color: var(--gray-dark) !important;
+  background-color: var(--gray-dark);
 }
 
 .fg-gray-dark {
-  color: var(--gray-dark) !important;
+  color: var(--gray-dark);
 }
 
 .bg-dark {
-  background-color: var(--dark) !important;
+  background-color: var(--dark);
 }
 
 .fg-dark {
-  color: var(--dark) !important;
+  color: var(--dark);
 }
 
 .bg-black {
-  background-color: var(--black) !important;
+  background-color: var(--black);
 }
 
 .fg-black {
-  color: var(--black) !important;
+  color: var(--black);
 }
 
 .bg-primary {
-  background-color: var(--primary) !important;
+  background-color: var(--primary);
 }
 
 .fg-primary {
-  color: var(--primary) !important;
+  color: var(--primary);
 }
 
 .bg-secondary {
-  background-color: var(--secondary) !important;
+  background-color: var(--secondary);
 }
 
 .fg-secondary {
-  color: var(--secondary) !important;
+  color: var(--secondary);
 }
 
 .bg-success {
-  background-color: var(--success) !important;
+  background-color: var(--success);
 }
 
 .fg-success {
-  color: var(--success) !important;
+  color: var(--success);
 }
 
 .bg-info {
-  background-color: var(--info) !important;
+  background-color: var(--info);
 }
 
 .fg-info {
-  color: var(--info) !important;
+  color: var(--info);
 }
 
 .bg-warning {
-  background-color: var(--warning) !important;
+  background-color: var(--warning);
 }
 
 .fg-warning {
-  color: var(--warning) !important;
+  color: var(--warning);
 }
 
 .bg-danger {
-  background-color: var(--danger) !important;
+  background-color: var(--danger);
 }
 
 .fg-danger {
-  color: var(--danger) !important;
+  color: var(--danger);
 }
 
 .bg-blue {
-  background-color: var(--blue) !important;
+  background-color: var(--blue);
 }
 
 .fg-blue {
-  color: var(--blue) !important;
+  color: var(--blue);
 }
 
 .bg-indigo {
-  background-color: var(--indigo) !important;
+  background-color: var(--indigo);
 }
 
 .fg-indigo {
-  color: var(--indigo) !important;
+  color: var(--indigo);
 }
 
 .bg-purple {
-  background-color: var(--purple) !important;
+  background-color: var(--purple);
 }
 
 .fg-purple {
-  color: var(--purple) !important;
+  color: var(--purple);
 }
 
 .bg-pink {
-  background-color: var(--pink) !important;
+  background-color: var(--pink);
 }
 
 .fg-pink {
-  color: var(--pink) !important;
+  color: var(--pink);
 }
 
 .bg-red {
-  background-color: var(--red) !important;
+  background-color: var(--red);
 }
 
 .fg-red {
-  color: var(--red) !important;
+  color: var(--red);
 }
 
 .bg-orange {
-  background-color: var(--orange) !important;
+  background-color: var(--orange);
 }
 
 .fg-orange {
-  color: var(--orange) !important;
+  color: var(--orange);
 }
 
 .bg-yellow {
-  background-color: var(--yellow) !important;
+  background-color: var(--yellow);
 }
 
 .fg-yellow {
-  color: var(--yellow) !important;
+  color: var(--yellow);
 }
 
 .bg-green {
-  background-color: var(--green) !important;
+  background-color: var(--green);
 }
 
 .fg-green {
-  color: var(--green) !important;
+  color: var(--green);
 }
 
 .bg-teal {
-  background-color: var(--teal) !important;
+  background-color: var(--teal);
 }
 
 .fg-teal {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .bg-cyan {
-  background-color: var(--cyan) !important;
+  background-color: var(--cyan);
 }
 
 .fg-cyan {
-  color: var(--cyan) !important;
+  color: var(--cyan);
 }
 
-.middles,
-.middles * {
+:where(.middles,
+  .middles :where(*)) {
   vertical-align: middle;
 }
 
 /**
  * grouped
  */
-.grouped {
+:where(.grouped) {
   display: inline-flex;
   align-items: baseline;
 }
 
-.grouped.vertical {
+:where(.grouped.vertical) {
   flex-direction: column;
   align-items: stretch;
 }
 
-.grouped > *,
-.file-select > * {
+:where(.grouped > *,
+  .file-select > *) {
   border-radius: var(--radius);
 }
 
-.grouped:not(.vertical) > :not(:first-child),
-.file-select > :not(:first-child) {
+:where(.grouped:not(.vertical) > :not(:first-child),
+  .file-select > :not(:first-child)) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.file-select > [type=file] + :nth-child(2) {
+:where(.file-select > [type=file] + :nth-child(2)) {
   border-top-left-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
 }
 
-.grouped:not(.vertical) > :not(:last-child),
-.file-select > :not(:last-child) {
+:where(.grouped:not(.vertical) > :not(:last-child),
+  .file-select > :not(:last-child)) {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.grouped.vertical > :not(:first-child) {
+:where(.grouped.vertical > :not(:first-child)) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.grouped.vertical > :not(:last-child) {
+:where(.grouped.vertical > :not(:last-child)) {
   border-bottom-width: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
