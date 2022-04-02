@@ -80,9 +80,13 @@ $colors: join($colors-light, $colors-dark);
  * reset
  */
 *:where(
-  :not(iframe, canvas, img, svg, video):not(svg *, symbol *)
+  :not(iframe, canvas, img, svg, video, [multiple]):not(svg *, symbol *)
 ) {
   all: unset;
+  display: revert;
+}
+
+*:where([multiple]) {
   display: revert;
 }
 
@@ -93,56 +97,56 @@ $colors: join($colors-light, $colors-dark);
   outline: none;
 }
 
-a, button {
+:where(a, button) {
   cursor: revert;
 }
 
-ol, ul, menu {
+:where(ol, ul, menu) {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+:where(h1, h2, h3, h4, h5, h6) {
   font-size: 100%;
   font-weight: normal;
 }
 
-button, input, select, textarea {
+:where(button, input, select, textarea) {
   font: inherit;
 }
 
-textarea {
+:where(textarea) {
   overflow-anchor: none;
 }
 
-a {
+:where(a) {
   color: inherit;
   text-decoration: none;
 }
 
-pre {
+:where(pre) {
   white-space: pre-line;
 }
 
-img, embed, iframe, object, audio, video {
+:where(img, embed, iframe, object, audio, video) {
   height: auto;
   max-width: 100%;
 }
 
-td, th {
+:where(td, th) {
   text-align: left;
   vertical-align: top;
 }
 
-fieldset {
+:where(fieldset) {
   min-width: 0;
   border: none;
 }
 
-textarea {
+:where(textarea) {
   white-space: revert;
 }
 
-meter {
+:where(meter) {
   -webkit-appearance: revert;
   appearance: revert;
 }
@@ -166,7 +170,7 @@ meter {
   -webkit-line-break: after-white-space;
 }
 
-:where([draggable="true"]) {
+:where([draggable=true]) {
   -webkit-user-drag: element;
 }
 
@@ -199,11 +203,11 @@ body {
   line-height: 1;
   background-color: var(--bg);
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
 
 code, kbd, pre, samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 hr {
@@ -526,16 +530,16 @@ hr {
 }
 
 @each $color in $colors-light {
-  .button.is-#{"" + $color},
-  :where(.toggle-button, .file-select).is-#{"" + $color} > input + * {
+  .button.is-#{'' + $color},
+  :where(.toggle-button, .file-select).is-#{'' + $color} > input + * {
     background-color: var(--#{$color});
   }
 }
 
 @each $color in $colors-dark {
   :where(
-    .button.is-#{"" + $color},
-    :where(.toggle-button, .file-select).is-#{"" + $color} > input + *
+    .button.is-#{'' + $color},
+    :where(.toggle-button, .file-select).is-#{'' + $color} > input + *
   ) {
     background-color: var(--#{$color});
     color: var(--light);
@@ -544,8 +548,8 @@ hr {
 
 @each $color in $colors {
   :where(
-    .button.outlined.is-#{"" + $color},
-    :where(.toggle-button, .file-select).outlined.is-#{"" + $color} > input + *
+    .button.outlined.is-#{'' + $color},
+    :where(.toggle-button, .file-select).outlined.is-#{'' + $color} > input + *
   ) {
     background-color: transparent;
     color: var(--#{$color});
@@ -633,20 +637,20 @@ hr {
 }
 
 @each $color in $colors-light {
-  :where(.tag.is-#{"" + $color}) {
+  :where(.tag.is-#{'' + $color}) {
     background-color: var(--#{$color});
   }
 }
 
 @each $color in $colors-dark {
-  :where(.tag.is-#{"" + $color}) {
+  :where(.tag.is-#{'' + $color}) {
     background-color: var(--#{$color});
     color: var(--light);
   }
 }
 
 @each $color in $colors {
-  :where(.tag.outlined.is-#{"" + $color}) {
+  :where(.tag.outlined.is-#{'' + $color}) {
     background-color: transparent;
     color: var(--#{$color});
     border: 1px solid var(--#{$color});
@@ -880,7 +884,7 @@ hr {
 
 // Firefox only
 @-moz-document url-prefix() {
-  :where(.range::-moz-range-thumb) {
+  :where(.range)::-moz-range-thumb {
     appearance: none;
     width: 14px;
     height: 14px;
@@ -994,8 +998,13 @@ hr {
  * dialog
  */
 :where(.dialog) {
-  display: inline-block;
   position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
   color: var(--fg);
   background-color: var(--bg);
   font-size: 1rem;
@@ -1007,11 +1016,12 @@ hr {
   transition: opacity var(--duration);
 }
 
-:where(.dialog[open]) {
+:where(.dialog)[open] {
+  display: inline-block;
   opacity: 1;
 }
 
-:where(.dialog::backdrop) {
+:where(.dialog)::backdrop {
   background-color: rgba(0, 0, 0, .55);
   backdrop-filter: blur(1px);
 }
@@ -1040,18 +1050,18 @@ hr {
   transform-origin: center center;
 }
 
-:where(.close::before) {
+:where(.close)::before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 2px;
   height: .75rem;
   background-color: var(--gray);
 }
 
-:where(.close::after) {
+:where(.close)::after {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: .75rem;
   height: 2px;
@@ -1072,10 +1082,10 @@ hr {
  * helpers
  */
 @each $color in $colors {
-  .bg-#{"" + $color} {
+  .bg-#{'' + $color} {
     background-color: var(--#{$color});
   }
-  .fg-#{"" + $color} {
+  .fg-#{'' + $color} {
     color: var(--#{$color});
   }
 }
