@@ -54,11 +54,25 @@
   display: revert;
 }
 
+:where(img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object) {
+  display: block;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   outline: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: hsl(var(--bg-h), var(--bg-s), var(--bg-l-invert));
 }
 
 :where(a, button) {
@@ -131,6 +145,7 @@
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
+  line-break: after-white-space;
   -webkit-line-break: after-white-space;
 }
 
@@ -772,31 +787,6 @@ hr {
   border-radius: 100vw;
 }
 
-:where(.tag.size-xs,
-  .grouped.size-xs > .tag) {
-  font-size: 0.4rem;
-}
-
-:where(.tag.size-s,
-  .grouped.size-s > .tag) {
-  font-size: 0.5rem;
-}
-
-:where(.tag.size-m,
-  .grouped.size-m > .tag) {
-  font-size: 0.6rem;
-}
-
-:where(.tag.size-l,
-  .grouped.size-l > .tag) {
-  font-size: 1rem;
-}
-
-:where(.tag.size-xl,
-  .grouped.size-xl > .tag) {
-  font-size: 1.2rem;
-}
-
 :where(.grouped > .tag) {
   border: 1px solid hsl(var(--h), 10%, calc(var(--bg-l) * 50% + 30%));
 }
@@ -1326,24 +1316,176 @@ hr {
   margin-left: 0.5em;
 }
 
-:where(.size-xs) {
+:where(.size-8) {
+  font-size: 0.2rem;
+}
+
+:where(.size-7) {
+  font-size: 0.3rem;
+}
+
+:where(.size-6) {
+  font-size: 0.4rem;
+}
+
+:where(.size-5) {
+  font-size: 0.5rem;
+}
+
+::where(.size-4
+) {
+  font-size: 0.6rem;
+}
+
+:where(.size-xs,
+  .size-3) {
   font-size: 0.7rem;
 }
 
-:where(.size-s) {
+:where(.size-2) {
+  font-size: 0.8rem;
+}
+
+:where(.size-s,
+  .size-1) {
   font-size: 0.9rem;
 }
 
-:where(.size-m) {
+:where(.size-m,
+  .size-0,
+  .size\+0) {
   font-size: 1rem;
 }
 
-:where(.size-l) {
+:where(.size\+1) {
+  font-size: 1.1rem;
+}
+
+:where(.size\+2) {
+  font-size: 1.2rem;
+}
+
+:where(.size-l,
+  .size\+3) {
   font-size: 1.3rem;
 }
 
-:where(.size-xl) {
+:where(.size-xl,
+  .size\+4) {
   font-size: 1.5rem;
+}
+
+:where(.size\+5) {
+  font-size: 1.75rem;
+}
+
+:where(.size\+6) {
+  font-size: 2rem;
+}
+
+:where(.size\+7) {
+  font-size: 2.5rem;
+}
+
+:where(.size\+8) {
+  font-size: 3.5rem;
+}
+
+:where(.tag.size-8,
+  .grouped.size-8 > .tag) {
+  font-size: 0.15rem;
+}
+
+:where(.tag.size-7,
+  .grouped.size-7 > .tag) {
+  font-size: 0.2rem;
+}
+
+:where(.tag.size-6,
+  .grouped.size-6 > .tag) {
+  font-size: 0.25rem;
+}
+
+:where(.tag.size-5,
+  .grouped.size-5 > .tag) {
+  font-size: 0.3rem;
+}
+
+:where(.tag.size-4,
+  .grouped.size-4 > .tag) {
+  font-size: 0.35rem;
+}
+
+:where(.tag.size-xs,
+  .tag.size-3,
+  .grouped.size-xs > .tag,
+  .grouped.size-3 > .tag) {
+  font-size: 0.4rem;
+}
+
+:where(.tag.size-2,
+  .grouped.size-2 > .tag) {
+  font-size: 0.45rem;
+}
+
+:where(.tag.size-s,
+  .tag.size-1,
+  .grouped.size-s > .tag,
+  .grouped.size-1 > .tag) {
+  font-size: 0.5rem;
+}
+
+:where(.tag.size-m,
+  .tag.size-0,
+  .tag.size\+0,
+  .grouped.size-m > .tag,
+  .grouped.size-0 > .tag,
+  .grouped.size\+0 > .tag) {
+  font-size: 0.6rem;
+}
+
+:where(.tag.size\+1,
+  .grouped.size\+1 > .tag) {
+  font-size: 0.7rem;
+}
+
+:where(.tag.size\+2,
+  .grouped.size\+2 > .tag) {
+  font-size: 0.8rem;
+}
+
+:where(.tag.size-l,
+  .tag.size\+3,
+  .grouped.size-l > .tag,
+  .grouped.size\+3 > .tag) {
+  font-size: 1rem;
+}
+
+:where(.tag.size-xl,
+  .tag.size\+4,
+  .grouped.size-xl > .tag
+  .grouped.size\+4 > .tag) {
+  font-size: 1.2rem;
+}
+
+:where(.tag.size\+5,
+  .grouped.size\+5 > .tag) {
+  font-size: 1.3rem;
+}
+
+:where(.tag.size\+6,
+  .grouped.size\+6 > .tag) {
+  font-size: 1.4rem;
+}
+
+:where(.tag.size\+7,
+  .grouped.size\+7 > .tag) {
+  font-size: 1.6rem;
+}
+
+:where(.tag.size\+8,
+  .grouped.size\+8 > .tag) {
+  font-size: 1.8rem;
 }
 
 :where(.grouped:not(.vertical) > :not(:first-child)) {
